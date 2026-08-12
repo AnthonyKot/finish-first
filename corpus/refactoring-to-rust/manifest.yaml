@@ -1,0 +1,62 @@
+schema_version: 1
+slug: refactoring-to-rust
+editorial_status: pass
+identity:
+  title: "Refactoring to Rust"
+  subtitle: null
+  authors:
+    - "Lily Mara"
+    - "Joel Holmes"
+  edition: "Edition not stated in the PDF"
+  year: 2025
+  isbn: "9781617299018"
+  identity_evidence:
+    - "Title page and named authors, PDF page 4"
+    - "Copyright year and ISBN, PDF page 5"
+    - "Publisher product page identifies June 2025, ISBN 9781617299018"
+source:
+  local_pdf: "resources/refactoring-to-rust.pdf"
+  original_path: "/mnt/c/Users/CoderA/Downloads/Telegram Desktop/refactoring.to.rust (2).pdf"
+  sha256: "706d6688569720018a70b46dacbcd8abd35922f4783d5c1b050be1bbeb9dbe35"
+  bytes: 26999120
+  pdf_pages: 304
+  page_size_points: "531 x 666"
+  encrypted: false
+extraction:
+  state: "pass"
+  method: "Poppler pdftotext 24.02.0 with layout preservation"
+  full_text: "workspace/refactoring-to-rust/full-layout.txt"
+  extracted_lines: 14829
+  extracted_bytes: 727496
+  page_boundaries_preserved: true
+  printed_page_mapping: "For Arabic-numbered body pages, PDF page = printed page + 19"
+  spot_checks:
+    - pdf_page: 20
+      region: beginning
+      result: "Readable Chapter 1 opener, heading hierarchy, prose, and printed page 1."
+    - pdf_page: 152
+      region: middle
+      result: "Readable Chapter 4 prose and annotated Rust/NGINX listing on printed page 133."
+    - pdf_page: 295
+      region: end
+      result: "Readable final chapter conclusion and summary on printed page 276."
+  known_issues:
+    - "The PDF is untagged, but all 304 form-feed page boundaries were recovered."
+    - "Two-column contents pages, figures, and code callouts sometimes interleave in plain text; layout extraction remains sufficient for section and page receipts."
+    - "A visible production/callout artifact appears in a Chapter 10 code listing on PDF page 294; the selected essay does not depend on that code."
+    - "Version-pinned commands and library APIs should not be treated as current setup instructions."
+editorial_gate:
+  decision: "PASS"
+  selected_payoff: >-
+    The safest unit of a language migration is a deliberately designed seam: a small,
+    testable interface that lets the existing host and a replacement module coexist,
+    be compared, and be swapped independently.
+  why_not_skipped: >-
+    The final WebAssembly example makes the book's incremental-refactoring argument
+    concrete by swapping two implementations behind one host contract without
+    recompiling that host. The recipe has already aged, but the boundary-design,
+    behavioral-equivalence, and measurement lessons remain useful and distinct from
+    the currently selected software-architecture, ML-engineering, and staff-engineering
+    companions.
+  review: "notes/review-refactoring-to-rust.md"
+  essay: "essays/refactoring-to-rust.md"

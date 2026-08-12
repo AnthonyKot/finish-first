@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Design a failure envelope around uncertain predictions with fallbacks, undo, observation, and rollback.">
+  <meta name="theme-color" content="#153b35">
+  <meta property="og:title" content="The Model Is Allowed to Be Wrong. The System Is Not Allowed to Be Helpless.">
+  <meta property="og:description" content="Design a failure envelope around uncertain predictions with fallbacks, undo, observation, and rollback.">
+  <meta property="og:type" content="website">
+  <title>The Model Is Allowed to Be Wrong. The System Is Not Allowed to Be Helpless. · Finish First</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23153b35'/%3E%3Ctext x='17' y='44' font-size='35' fill='%23fffdf8'%3EF%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="article-view" data-active-slug="machine-learning-engineering">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <header class="site-header">
+    <a class="wordmark" href="../index.html" aria-label="Finish First home">
+      <span class="wordmark__mark">F<span>←</span></span>
+      <span><strong>Finish First</strong><small>technical books, read backward</small></span>
+    </a>
+    <div class="header-actions">
+      <span class="progress-summary" data-progress-summary>0 of 11 missions</span>
+      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="book-navigation">Contents</button>
+    </div>
+  </header>
+  <div class="page-shell">
+    <aside class="book-nav" id="book-navigation" data-book-nav>
+      <div class="book-nav__intro">
+        <a href="../index.html">The shelf</a>
+        <p>Eleven destinations. One exact mission each.</p>
+      </div>
+      <nav aria-label="Book contents">
+    <a class="book-nav__item" href="../essays/software-architecture-hard-parts.html" data-mission-link="software-architecture-hard-parts">
+      <span class="book-nav__number">01</span>
+      <span><small>Architecture</small>The Architecture Decision Hidden Behind the Technology Argument</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item is-active" href="../essays/machine-learning-engineering.html" data-mission-link="machine-learning-engineering">
+      <span class="book-nav__number">02</span>
+      <span><small>ML systems</small>The Model Is Allowed to Be Wrong. The System Is Not Allowed to Be Helpless.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/staff-engineers-path.html" data-mission-link="staff-engineers-path">
+      <span class="book-nav__number">03</span>
+      <span><small>Engineering leadership</small>The Staff Engineer Who Can Leave the Room</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/refactoring-to-rust.html" data-mission-link="refactoring-to-rust">
+      <span class="book-nav__number">04</span>
+      <span><small>Migration</small>The Migration Unit Is a Seam, Not a Codebase</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/practical-systems-programming-go.html" data-mission-link="practical-systems-programming-go">
+      <span class="book-nav__number">05</span>
+      <span><small>Systems programming</small>A File Indexer Is a Chain of Promises</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/database-internals.html" data-mission-link="database-internals">
+      <span class="book-nav__number">06</span>
+      <span><small>Distributed systems</small>The Database Committed. Your Client Timed Out. Both Are True.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/defending-apis.html" data-mission-link="defending-apis">
+      <span class="book-nav__number">07</span>
+      <span><small>Security</small>API Security Is a Coverage System, Not a Product Purchase</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/learning-systems-thinking.html" data-mission-link="learning-systems-thinking">
+      <span class="book-nav__number">08</span>
+      <span><small>Systems thinking</small>The Mission Stayed the Same. Every Word Changed.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/performance-analysis-tuning-modern-cpus.html" data-mission-link="performance-analysis-tuning-modern-cpus">
+      <span class="book-nav__number">09</span>
+      <span><small>Performance</small>The Fifth Thread Made the Program Slower</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/efficient-cloud-finops.html" data-mission-link="efficient-cloud-finops">
+      <span class="book-nav__number">10</span>
+      <span><small>Cloud economics</small>A Discount Can Fossilize Waste</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/designing-electronics-that-work.html" data-mission-link="designing-electronics-that-work">
+      <span class="book-nav__number">11</span>
+      <span><small>Electronics</small>The Enclosure Did Not Cause the Failure. It Exposed It.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a></nav>
+      <a class="book-nav__skips" href="../index.html#transparent-skips">Editorial skips →</a>
+    </aside>
+    <main id="main" class="essay-page">
+    <header class="essay-hero">
+      <div class="essay-kicker"><span>02</span>ML systems</div>
+      <p class="essay-book">From <cite>Machine Learning Engineering</cite> by Andriy Burkov</p>
+      <p class="essay-payoff">Design a failure envelope around uncertain predictions with fallbacks, undo, observation, and rollback.</p>
+      <div class="essay-meta"><span>PDF pages 253–258</span><span>Produces: Five-field failure-envelope note</span></div>
+    </header>
+    <aside class="currency-note"><strong>Edition boundary</strong>The source is a 2020 draft; treat tools as historical and the systems argument as the payoff.</aside>
+    <article class="prose"><h1 id="the-model-is-allowed-to-be-wrong-the-system-is-not-allowed-to-be-helpless">The Model Is Allowed to Be Wrong. The System Is Not Allowed to Be Helpless.</h1>
+<p>You can spend weeks improving a model and still leave the most important engineering question
+unanswered: <strong>what happens when it is wrong in front of a real person?</strong></p>
+<p>That is the payoff waiting near the end of Andriy Burkov&#39;s <em>Machine Learning Engineering</em>. The
+book begins with the familiar ingredients—data, features, training, metrics—but Chapter 9 changes
+the unit of thought. A model is no longer an object that wins or loses on a test set. It is one
+fallible component inside a changing system, used by unpredictable people, fed by dependencies
+that can disappear, and exposed to mistakes that may be rare without being harmless. The late-book
+lesson is not how to eliminate uncertainty. It is how to build a boundary around uncertainty so a
+bad prediction does not become an uncontrolled outcome.</p>
+<p>That distinction is worth reaching because it changes concrete design decisions. It tells you when
+to withhold an answer, when to offer several options, what to log, which slices to monitor, how to
+roll out a replacement, and when an undo button is part of the safety architecture rather than a
+minor convenience. The 2020 tool references have aged. The design problem has not.</p>
+<h2 id="the-promise-design-the-failure-before-celebrating-the-prediction">The promise: design the failure before celebrating the prediction</h2>
+<p>Chapter 9 opens its real-world section with three uncomfortable limits. You cannot always explain
+why a model made an error; you cannot reliably predict when it will err; and you cannot always know
+how to fix a particular error. Burkov adds that a wrong output need not be close to the right one.
+A rare failure can still affect thousands of people at scale (Section 9.3.1, PDF p. 253).</p>
+<p>Accepting those limits is not pessimism. It creates a better engineering brief. Instead of asking
+only, “How accurate is the model?”, ask:</p>
+<ul>
+<li>Which actions may this model initiate by itself?</li>
+<li>Which outputs require validation, abstention, or human confirmation?</li>
+<li>What fallback remains when the primary model is unavailable or implausible?</li>
+<li>Can the affected person see, challenge, or undo the result?</li>
+<li>Can an operator reconstruct the context after harm appears?</li>
+<li>Can we retreat to a previous version without improvising under pressure?</li>
+</ul>
+<p>Together, the answers define a <strong>failure envelope</strong>: the set of mistakes the product can absorb
+without losing control. A model can fail inside that envelope while the surrounding system remains
+predictable. Outside it, one probabilistic output silently becomes a financial transaction, a denied
+request, a dangerous recommendation, or a broken user relationship.</p>
+<p>The book turns this principle into product behavior. It suggests hiding a prediction when its
+expected error cost is too high, presenting multiple options under low confidence, limiting exposure
+to manage the rate of perceived errors, giving users a way to report a mistake, and allowing actions
+to be undone. Where rejection is possible, it proposes a fallback such as a simpler model or a
+handwritten heuristic, whose output must itself be checked (Section 9.3.2, PDF pp. 254–255). These
+are not tricks for squeezing another decimal point from a benchmark. They are ways to keep the
+system useful when the benchmark stops describing the moment in front of you.</p>
+<p>The sharpest example is the undo path. In conventional interface design, undo may look like polish.
+In a learning system, it also limits the blast radius of uncertainty. It returns agency to the user,
+creates an observable correction signal, and converts an irreversible failure into a recoverable
+interaction. That is a systems property, not merely a UI feature.</p>
+<h2 id="the-idea-production-is-a-loop-not-a-finish-line">The idea: production is a loop, not a finish line</h2>
+<p>A test score is measured against a frozen sample. Production is not frozen. Inputs change, upstream
+databases change, feature code changes, user behavior adapts, and the model&#39;s own outputs influence
+what data will be collected next. Chapter 9 lists failures that can occur even when the model artifact
+itself is untouched: a data source becomes unavailable, production data drifts, feature extraction
+changes without a corresponding model update, or users deliberately manipulate the learning loop
+(Section 9.4.1, PDF pp. 258–259).</p>
+<p>This is why monitoring only uptime is insufficient. A service can return HTTP 200 while becoming
+quietly useless. The book asks for several layers of evidence: feature and prediction distributions,
+task metrics when labels arrive, latency and resource use, usage changes, numerical instability,
+and performance on meaningful slices of the population. It also warns that excessive alerts train
+operators to ignore them (Section 9.4.2, PDF pp. 259–260). The objective is not maximum telemetry.
+It is enough discriminating evidence to notice a damaging change and decide what to do next.</p>
+<p>Logging completes the loop. To investigate an erratic result later, the system may need the user&#39;s
+context, extracted features, model output, timings, and subsequent reaction. At scale, stratified
+sampling may be more practical than recording every event. The same section also makes privacy and
+retention part of the design: users should know what is stored, access should be restricted, and
+opt-out should be possible (Section 9.4.3, PDF p. 260). Observability is not permission to create an
+unbounded surveillance archive.</p>
+<p>Maintenance then becomes a controlled experiment rather than a file replacement. The book asks you
+to version data, code, and model; test the proposed model; compare it with the current one; deploy
+gradually; retain rollback; and verify not only average performance but costly errors and their
+distribution across user categories (Section 9.5.2, PDF pp. 263–265). The destination of the book is
+therefore not “a trained model.” It is an evidence-producing loop that can detect, diagnose, and
+reverse change.</p>
+<h2 id="the-backward-dependency-trail">The backward dependency trail</h2>
+<p>Once that destination is visible, the earlier chapters stop looking like a linear catalog. Each one
+supplies a condition needed by the failure envelope.</p>
+<p>Start one chapter earlier with deployment. Silent and canary releases exist because a pre-production
+test cannot expose every interaction. Running a new model without immediately exposing its outputs
+creates observation time; exposing it to a small fraction of users limits initial harm. The text also
+insists that training data, feature extractor, and model versions stay synchronized, and that failed
+end-to-end or confidence tests trigger rollback (Sections 8.4–8.5, PDF pp. 233–235). Without a
+reversible release, monitoring can tell you that you are in trouble but cannot get you out.</p>
+<p>Move backward to evaluation. Chapter 7 separates offline assessment from online evaluation. Offline
+metrics tell you how a candidate behaves on historical data; online evaluation tests business
+outcomes and conditions such as latency and data loss that the historical set cannot reproduce.
+Production results also become future offline data, closing the feedback loop (Section 7.1, PDF
+pp. 205–206). Without that distinction, teams optimize a proxy and mistake its improvement for a
+better product.</p>
+<p>Move backward again to features and data. Chapter 4 recommends a versioned schema that records
+expected feature properties and explains how inconsistency between training and serving corrupts a
+system (Section 4.11, PDF pp. 119–121). Chapter 3 shows a subtler failure: a feature can encode the
+target or come from the future, producing excellent tests and useless production behavior. Avoiding
+that leakage requires understanding when information exists in the real business process (Sections
+3.5–3.6, PDF pp. 59–61). Monitoring drift is of little use if you never defined what a valid input
+looked like, and a perfect test is worthless if it used information unavailable at prediction time.</p>
+<p>Finally, return to the pre-project question. Chapter 2 says the model is part of a system serving a
+business purpose and asks you to define its inputs, outputs, and minimum acceptable performance
+(Section 2.3, PDF p. 30). That is where the failure envelope really begins. You cannot decide which
+errors are costly, which actions need confirmation, or which metric deserves an alert until you know
+what human or organizational decision the model is supposed to improve.</p>
+<p>The reverse path is therefore:</p>
+<p><strong>business decision → valid data → honest evaluation → reversible deployment → observable operation.</strong></p>
+<p>Training sits inside that chain. It does not define the chain.</p>
+<section class="mission" data-mission="machine-learning-engineering"><div class="mission__label">Your one reading mission</div><h2 id="one-reading-mission">One reading mission</h2>
+<p>Read <strong>PDF pages 253–258</strong>, from Section 9.3, “Model Serving in Real World,” through the opening of
+Section 9.4, “Model Monitoring.” This is six PDF pages (printed Chapter 9 pages 10–15).</p>
+<p>Carry three questions:</p>
+<ol>
+<li>What can fail in one system you know even if its model file never changes?</li>
+<li>Which output should be withheld, downgraded, confirmed, or made undoable?</li>
+<li>What evidence would let an operator reconstruct one harmful result a week later?</li>
+</ol>
+<p>Completion evidence: write a one-page <strong>failure-envelope note</strong> for that system with exactly five
+fields: prohibited autonomous action, fallback, undo/recovery path, one monitored slice, and rollback
+trigger. Do not choose tools yet. The mission is complete when another engineer could disagree with
+one of your boundaries—not merely when the pages are marked read.</p>
+</section><h2 id="receipts">Receipts</h2>
+<ul>
+<li>The three limits of model errors and the scale of rare failures: Section 9.3.1, PDF p. 253.</li>
+<li>Confidence-aware presentation, reporting, undo, action limits, and fallback: Section 9.3.2,
+PDF pp. 254–255.</li>
+<li>Change, user adaptation, trust, fatigue, and human expectations: Sections 9.3.3–9.3.4,
+PDF pp. 256–257.</li>
+<li>Production failure modes and monitoring layers: Sections 9.4.1–9.4.2, PDF pp. 258–260.</li>
+<li>Traceability, sampling, privacy, retention, and abuse monitoring: Sections 9.4.3–9.4.4,
+PDF pp. 260–261.</li>
+<li>Model maintenance and controlled replacement: Section 9.5, PDF pp. 262–265.</li>
+<li>Silent/canary deployment, synchronized versions, test assets, and rollback: Sections 8.4–8.5,
+PDF pp. 233–235.</li>
+<li>Offline versus online evaluation: Section 7.1, PDF pp. 205–206.</li>
+<li>Leakage and prediction-time availability: Sections 3.5–3.6, PDF pp. 59–61.</li>
+<li>Feature schemas and training-serving consistency: Section 4.11, PDF pp. 119–121.</li>
+<li>The model&#39;s business purpose: Section 2.3, PDF p. 30.</li>
+</ul>
+<p>This essay treats the source as a conceptual systems guide, not a current tool manual. For the
+edition identity and 2026 currency check, see
+<a href="../reviews/machine-learning-engineering.html"><code>notes/review-machine-learning-engineering.md</code></a>.</p>
+</article>
+    <div class="mission-action" data-mission-action="machine-learning-engineering">
+      <div><strong>Make the reading count.</strong><span>Complete the artifact described in the mission, then mark it done.</span></div>
+      <button type="button" data-complete-mission="machine-learning-engineering">Mark mission complete</button>
+    </div>
+    <nav class="essay-pager" aria-label="Adjacent essays">
+    <a href="software-architecture-hard-parts.html"><span>Previous</span>The Architecture Decision Hidden Behind the Technology Argument</a>
+    <a class="essay-pager__next" href="staff-engineers-path.html"><span>Next</span>The Staff Engineer Who Can Leave the Room</a>
+  </nav>
+    <footer class="article-footer">Original companion prose directs you back to the cited edition. Source PDFs and extracted text remain private and are not published here.</footer>
+  </main>
+  </div>
+</body>
+</html>

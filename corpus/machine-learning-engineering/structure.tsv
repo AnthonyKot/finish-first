@@ -1,0 +1,80 @@
+section_id	title	level	printed_page	pdf_page	end_pdf_page
+1	Introduction	1	3	7	25
+1.4	When to Use Machine Learning	2	14	18	20
+1.5	When Not to Use Machine Learning	2	17	21	21
+1.6	What is Machine Learning Engineering	2	17	21	22
+1.7	Machine Learning Project Life Cycle	2	18	22	22
+2	Before the Project Starts	1	3	26	37
+2.1	Prioritization of Machine Learning Projects	2	3	26	26
+2.2	Estimating Complexity of a Machine Learning Project	2	4	27	29
+2.3	Defining the Goal of a Machine Learning Project	2	7	30	30
+2.4	Structuring a Machine Learning Team	2	8	31	32
+2.5	Why Machine Learning Projects Fail	2	10	33	35
+3	Data Collection and Preparation	1	3	38	81
+3.1	Questions About the Data	2	3	38	43
+3.2	Common Problems With Data	2	9	44	55
+3.3	What Is Good Data	2	21	56	57
+3.4	Dealing With Interaction Data	2	23	58	58
+3.5	Causes of Data Leakage	2	24	59	60
+3.6	Data Partitioning	2	26	61	62
+3.7	Dealing with Missing Attributes	2	28	63	64
+3.8	Data Augmentation	2	30	65	68
+3.9	Dealing With Imbalanced Data	2	34	69	70
+3.10	Data Sampling Strategies	2	36	71	72
+3.11	Storing Data	2	38	73	78
+3.12	Data Manipulation Best Practices	2	44	79	79
+4	Feature Engineering	1	3	82	128
+4.1	Why Engineer Features	2	3	82	82
+4.2	How to Engineer Features	2	4	83	97
+4.3	Stacking Features	2	19	98	98
+4.4	Properties of Good Features	2	20	99	101
+4.5	Feature Selection	2	23	102	105
+4.6	Synthesizing Features	2	27	106	110
+4.7	Learning Features from Data	2	32	111	114
+4.8	Dimensionality Reduction	2	36	115	116
+4.9	Scaling Features	2	38	117	118
+4.10	Data Leakage in Feature Engineering	2	40	119	119
+4.11	Storing and Documenting Features	2	40	119	121
+4.12	Feature Engineering Best Practices	2	43	122	126
+5	Supervised Model Training (Part 1)	1	3	129	163
+5.1	Before You Start Working on the Model	2	3	129	133
+5.2	Representing Labels for Machine Learning	2	8	134	135
+5.3	Selecting the Learning Algorithm	2	10	136	138
+5.4	Building a Pipeline	2	13	139	139
+5.5	Assessing Model Performance	2	14	140	149
+5.6	Hyperparameter Tuning	2	24	150	154
+5.7	Shallow Model Training	2	29	155	156
+5.8	Bias-Variance Tradeoff	2	31	157	159
+5.9	Regularization	2	34	160	161
+6	Supervised Model Training (Part 2)	1	3	164	203
+6.1	Deep Model Training Strategy	2	3	164	179
+6.2	Stacking Models	2	19	180	181
+6.3	Dealing With Distribution Shift	2	21	182	183
+6.4	Handling Imbalanced Datasets	2	23	184	185
+6.5	Model Calibration	2	25	186	187
+6.6	Troubleshooting and Error Analysis	2	27	188	194
+6.7	Best Practices	2	34	195	200
+7	Model Evaluation	1	3	204	223
+7.1	Offline and Online Evaluation	2	4	205	206
+7.2	A/B Testing	2	6	207	212
+7.3	Multi-Armed Bandit	2	12	213	215
+7.4	Statistical Bounds on the Model Performance	2	15	216	218
+7.5	Evaluation of Test Set Adequacy	2	18	219	219
+7.6	Evaluation of Model Properties	2	19	220	221
+8	Model Deployment	1	3	224	245
+8.1	Static Deployment	2	3	224	224
+8.2	Dynamic Deployment on User’s Device	2	4	225	226
+8.3	Dynamic Deployment on a Server	2	6	227	232
+8.4	Deployment Strategies	2	12	233	234
+8.5	Automated Deployment, Versioning, and Metadata	2	14	235	235
+8.6	Model Deployment Best Practices	2	15	236	242
+9	Model Serving, Monitoring, and Maintenance	1	3	246	268
+9.1	Properties of the Model Serving Runtime	2	3	246	248
+9.2	Modes of Model Serving	2	6	249	252
+9.3	Model Serving in Real World	2	10	253	257
+9.4	Model Monitoring	2	15	258	261
+9.5	Model Maintenance	2	19	262	265
+10	Conclusion	1	3	269	274
+10.1	Takeaways	2	3	269	272
+10.2	What to Read Next	2	7	273	273
+10.3	Acknowledgements	2	7	273	274

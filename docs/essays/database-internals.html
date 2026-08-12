@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Separate the state of a replicated system from the evidence available to a timed-out client.">
+  <meta name="theme-color" content="#153b35">
+  <meta property="og:title" content="The Database Committed. Your Client Timed Out. Both Are True.">
+  <meta property="og:description" content="Separate the state of a replicated system from the evidence available to a timed-out client.">
+  <meta property="og:type" content="website">
+  <title>The Database Committed. Your Client Timed Out. Both Are True. · Finish First</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23153b35'/%3E%3Ctext x='17' y='44' font-size='35' fill='%23fffdf8'%3EF%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="article-view" data-active-slug="database-internals">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <header class="site-header">
+    <a class="wordmark" href="../index.html" aria-label="Finish First home">
+      <span class="wordmark__mark">F<span>←</span></span>
+      <span><strong>Finish First</strong><small>technical books, read backward</small></span>
+    </a>
+    <div class="header-actions">
+      <span class="progress-summary" data-progress-summary>0 of 11 missions</span>
+      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="book-navigation">Contents</button>
+    </div>
+  </header>
+  <div class="page-shell">
+    <aside class="book-nav" id="book-navigation" data-book-nav>
+      <div class="book-nav__intro">
+        <a href="../index.html">The shelf</a>
+        <p>Eleven destinations. One exact mission each.</p>
+      </div>
+      <nav aria-label="Book contents">
+    <a class="book-nav__item" href="../essays/software-architecture-hard-parts.html" data-mission-link="software-architecture-hard-parts">
+      <span class="book-nav__number">01</span>
+      <span><small>Architecture</small>The Architecture Decision Hidden Behind the Technology Argument</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/machine-learning-engineering.html" data-mission-link="machine-learning-engineering">
+      <span class="book-nav__number">02</span>
+      <span><small>ML systems</small>The Model Is Allowed to Be Wrong. The System Is Not Allowed to Be Helpless.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/staff-engineers-path.html" data-mission-link="staff-engineers-path">
+      <span class="book-nav__number">03</span>
+      <span><small>Engineering leadership</small>The Staff Engineer Who Can Leave the Room</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/refactoring-to-rust.html" data-mission-link="refactoring-to-rust">
+      <span class="book-nav__number">04</span>
+      <span><small>Migration</small>The Migration Unit Is a Seam, Not a Codebase</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/practical-systems-programming-go.html" data-mission-link="practical-systems-programming-go">
+      <span class="book-nav__number">05</span>
+      <span><small>Systems programming</small>A File Indexer Is a Chain of Promises</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item is-active" href="../essays/database-internals.html" data-mission-link="database-internals">
+      <span class="book-nav__number">06</span>
+      <span><small>Distributed systems</small>The Database Committed. Your Client Timed Out. Both Are True.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/defending-apis.html" data-mission-link="defending-apis">
+      <span class="book-nav__number">07</span>
+      <span><small>Security</small>API Security Is a Coverage System, Not a Product Purchase</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/learning-systems-thinking.html" data-mission-link="learning-systems-thinking">
+      <span class="book-nav__number">08</span>
+      <span><small>Systems thinking</small>The Mission Stayed the Same. Every Word Changed.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/performance-analysis-tuning-modern-cpus.html" data-mission-link="performance-analysis-tuning-modern-cpus">
+      <span class="book-nav__number">09</span>
+      <span><small>Performance</small>The Fifth Thread Made the Program Slower</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/efficient-cloud-finops.html" data-mission-link="efficient-cloud-finops">
+      <span class="book-nav__number">10</span>
+      <span><small>Cloud economics</small>A Discount Can Fossilize Waste</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/designing-electronics-that-work.html" data-mission-link="designing-electronics-that-work">
+      <span class="book-nav__number">11</span>
+      <span><small>Electronics</small>The Enclosure Did Not Cause the Failure. It Exposed It.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a></nav>
+      <a class="book-nav__skips" href="../index.html#transparent-skips">Editorial skips →</a>
+    </aside>
+    <main id="main" class="essay-page">
+    <header class="essay-hero">
+      <div class="essay-kicker"><span>06</span>Distributed systems</div>
+      <p class="essay-book">From <cite>Database Internals</cite> by Alex Petrov</p>
+      <p class="essay-payoff">Separate the state of a replicated system from the evidence available to a timed-out client.</p>
+      <div class="essay-meta"><span>PDF pages 299–312</span><span>Produces: Five-moment knowledge ledger</span></div>
+    </header>
+    <aside class="currency-note"><strong>Edition boundary</strong>This is the first 2019 release; one local Paxos sentence is explicitly corrected in the essay.</aside>
+    <article class="prose"><h1 id="the-database-committed-your-client-timed-out-both-are-true">The Database Committed. Your Client Timed Out. Both Are True.</h1>
+<p>A client sends a write. The server begins coordinating it. Then the request times out.</p>
+<p>What happened?</p>
+<p>“It failed” is comforting because it turns uncertainty into a clean state. It is also an unsafe conclusion. The write may have been lost before reaching any server. It may be sitting on one replica. It may already be chosen by a quorum while the coordinator that received the request dies before returning the response. A replacement coordinator may even finish the old work after the original client has given up.</p>
+<p>The reward waiting near the end of Alex Petrov&#39;s <em>Database Internals</em> is a vocabulary for holding those possibilities apart. Chapter 14 does not merely introduce Paxos and Raft. Read with the earlier chapters behind it, it teaches a more practical lesson: <strong>the state of the distributed system and the client&#39;s knowledge of that state are different things</strong>. The promise is not that you will memorize a consensus protocol. It is that the next time a payment, job submission, schema change, or metadata update times out, you can ask what the system knows, what the client knows, and what a retry is allowed to do. [Receipt: Chapter 14 introduction and “Failure Scenarios,” PDF pp. 299–310; printed pp. 279–290.]</p>
+<h2 id="the-idea-a-timeout-reports-missing-knowledge">The idea: a timeout reports missing knowledge</h2>
+<p>Consensus is often described as “nodes agreeing.” That phrase hides the useful structure. The chapter gives consensus three properties: correct processes decide the same value; the value came from a participant; and correct processes eventually decide. Those are agreement, validity, and termination. The first two protect the meaning of a decision. The third says the protocol eventually gets somewhere. The distinction is the familiar safety/liveness split in a more concrete form: never decide incompatible values, but do not wait forever either. [Receipt: Chapter 14, PDF pp. 299–300; printed pp. 279–280.]</p>
+<p>Now follow the book&#39;s proposer-failure example. A proposer, P1, starts a round for value V1, gets V1 accepted by one acceptor, and disappears before finishing. A second proposer, P2, starts with a higher proposal number. If the quorum answering P2 includes the acceptor that remembers V1, P2 carries V1 forward and can finish it. The client connected only to P1 may never receive the outcome, even though the protocol continues safely without P1. In another permitted execution, P2&#39;s quorum does not include that lone acceptor and P2 can choose a new value. The critical fact is not “one copy means success.” It is that every participant has only partial evidence, and later quorum intersections determine which evidence constrains the next decision. [Receipt: “Failure Scenarios,” PDF pp. 309–310; printed pp. 289–290; quorum rationale, PDF p. 308; printed p. 288.]</p>
+<p>That gives one timeout at least three meanings:</p>
+<ul>
+<li>the operation never entered the protocol;</li>
+<li>some process recorded it, but no quorum chose it;</li>
+<li>the operation was or will be chosen, but the response path failed.</li>
+</ul>
+<p>The timeout itself cannot distinguish them. This is why blindly retrying a non-idempotent request is dangerous. Chapter 8 builds this result from the link upward. Until an acknowledgment arrives, the sender cannot know whether a message is still in flight, lost, processed, or followed by a lost acknowledgment. Retransmission improves delivery but creates duplicates. Sequence numbers and deduplication can create an exactly-once <em>processing effect</em> even though the network may transmit the same request more than once. A credit-card charge is the book&#39;s deliberately uncomfortable example: repeating the transport action must not repeat the business effect. [Receipt: “Message retransmits” through “Exactly-once delivery,” PDF pp. 204–207; printed pp. 184–187.]</p>
+<p>Consensus therefore solves less—and more—than its reputation suggests. It does not make networks reliable, detect crashes perfectly, or guarantee that a particular client sees the response. It can make replicas preserve one compatible decision history despite those problems. That smaller statement is exactly what makes it useful. When Multi-Paxos is viewed as an append-only log, replicas agree on the values and their order; applying the same ordered commands to the same state machine lets them converge on the same result. The protocol protects the history. Your API still has to protect the caller from replaying an uncertain request as a new command. [Receipt: “Multi-Paxos,” PDF pp. 311–312; printed pp. 291–292; Raft&#39;s replicated-state-machine framing, PDF p. 320; printed p. 300.]</p>
+<p>Chapter 11 supplies a bridge from protocol safety to API safety. Its discussion of linearizable RPCs assigns each request a client identity and sequence number, then stores a durable completion object with the mutation. If a client retries after missing the response, the server returns the recorded result instead of executing the mutation again. The exact mechanism is one research design, not a universal recipe, but the responsibility boundary is durable: consensus can order a request; a retry identity and completion record can connect that ordered request back to the caller&#39;s intention. [Receipt: “Reusable Infrastructure for Linearizability,” PDF p. 247; printed p. 227.]</p>
+<p>This changes a production question from “Did the timeout fail?” to a tractable set:</p>
+<ol>
+<li>Did this attempt carry a stable operation ID?</li>
+<li>Where is acceptance or completion recorded durably?</li>
+<li>What evidence makes a retry a lookup rather than a second mutation?</li>
+<li>Can the client query the final outcome after losing the original response?</li>
+<li>Which failures stop progress, and which merely replace a coordinator?</li>
+</ol>
+<p>Those questions are the operational payoff of the final chapter.</p>
+<h2 id="why-the-earlier-chapters-suddenly-matter">Why the earlier chapters suddenly matter</h2>
+<p>Read backward from the failed proposer and the distributed-systems half of the book stops looking like a parade of named algorithms.</p>
+<p>Chapter 11 tells you what agreement is <em>for</em>. A consistency model is a contract about which histories clients may observe. Linearizability makes each operation appear to take effect at one point between invocation and completion, respects real-time order, and prohibits later reads from retreating to older values. Consensus can provide the coordination and ordering behind that illusion for a replicated object. Without this chapter, “all replicas agree” is underspecified: agree on which order, with what visibility promise, and at what synchronization cost? [Receipt: “Ordering,” “Consistency Models,” and “Linearizability,” PDF pp. 241–247; printed pp. 221–227.]</p>
+<p>Chapter 10 explains why the leader in a consensus diagram is not a permanent ruler or a magical source of truth. A stable leader reduces message traffic and coordinates progress, but leaders fail, can be suspected incorrectly, and may temporarily compete. Simple leader-election algorithms can even produce split brain under partition. Paxos and Raft preserve safety by using algorithm-specific terms, proposal numbers, and quorum rules to make stale or competing leadership lose—not by assuming the election was infallible. Leadership is largely machinery for efficient progress; the decision rules carry safety. [Receipt: Chapter 10 introduction and summary, PDF pp. 225–233; printed pp. 205–213; Chapter 14 on ZAB epochs and Multi-Paxos leadership, PDF pp. 303–305 and 311; printed pp. 283–285 and 291.]</p>
+<p>Chapter 9 explains why replacing that leader cannot begin with certainty. A process that does not answer may be dead, slow, partitioned, or attached through a delayed link. A fast detector risks accusing a live node; a patient detector delays recovery. The detector supplies a suspicion that helps the protocol make progress, not proof that rewrites history. That is why a safe protocol must tolerate false suspicions while ensuring that an old leader cannot independently choose a conflicting value. [Receipt: Chapter 9 introduction, PDF pp. 215–216; printed pp. 195–196; Chapter 9 summary, PDF p. 222; printed p. 202.]</p>
+<p>Chapter 8 reaches bedrock. Local and remote execution are not interchangeable. Messages can be delayed, duplicated, reordered, or lost. The Two Generals&#39; Problem shows why another acknowledgment never produces final common knowledge, and FLP shows that a fully asynchronous system cannot guarantee consensus in bounded time after even one unannounced crash. Practical systems make timing assumptions and use timeouts, but when those assumptions are temporarily wrong, suspicion can be wrong too. [Receipt: “Local and Remote Execution,” PDF pp. 198–199; printed pp. 178–179; “Two Generals&#39; Problem,” “FLP Impossibility,” and “System Synchrony,” PDF pp. 207–211; printed pp. 187–191.]</p>
+<p>The dependency trail is now visible:</p>
+<blockquote>
+<p>Chapter 14&#39;s safe decision after coordinator failure depends on Chapter 11&#39;s definition of observable order, Chapter 10&#39;s temporary leadership, Chapter 9&#39;s fallible failure suspicion, and Chapter 8&#39;s model of messages and acknowledgments.</p>
+</blockquote>
+<p>The earlier chapters are no longer prerequisites because the author placed them first. They answer questions raised by one disturbing late-book scene: the write may be real even when its success message is not.</p>
+<h2 id="what-has-aged-and-one-sentence-to-distrust">What has aged—and one sentence to distrust</h2>
+<p>This PDF is the first release of a first edition from 2019. The core results it teaches—FLP, quorum intersection, state-machine replication, Paxos, and Raft—are foundational rather than a 2019 product fashion. The book still earns a place as a map from storage mechanisms to distributed guarantees. Its survey is not a current catalog of consensus research or database implementations, however, and protocol details deserve comparison with the cited primary papers. [Receipt: edition statement, PDF p. 3; scope and structure, PDF pp. 16–18.]</p>
+<p>There is also a specific trap in this local release. On PDF page 307 / printed page 287, one sentence glosses consensus as a value accepted by at least one acceptor. Do not carry that sentence into your model. The surrounding quorum section says majorities intersect, and the next failure scenarios show that a value held by only one acceptor may be replaced. Lamport&#39;s primary Paxos description states that a proposal is chosen when a majority accepts it. The useful reading move is to annotate the sentence, then let the quorum invariant—not the stray gloss—govern your trace. [Receipt: PDF pp. 307–310; printed pp. 287–290. Primary check: <a href="https://www.microsoft.com/en-us/research/publication/paxos-made-simple/" target="_blank" rel="noreferrer">https://www.microsoft.com/en-us/research/publication/paxos-made-simple/</a>.]</p>
+<section class="mission" data-mission="database-internals"><div class="mission__label">Your one reading mission</div><h2 id="one-reading-mission">Your one reading mission</h2>
+<p>Read <strong>PDF pages 299–312 (printed pages 279–292)</strong>, from the opening of Chapter 14 through the end of “Multi-Paxos.” Do not try to memorize every message name.</p>
+<p>Before reading, write this scenario at the top of a page: “Client C sends operation V1 to proposer P1. P1 disappears before C receives a response. P2 takes over.” While reading, keep three questions beside it:</p>
+<ul>
+<li>What does the client know at this moment?</li>
+<li>What does one acceptor know, and what does a quorum know?</li>
+<li>Which rule protects agreement, and which mechanism restores progress?</li>
+</ul>
+<p>You are finished when you produce a five-row <strong>knowledge ledger</strong> with columns <code>moment</code>, <code>client evidence</code>, <code>replica evidence</code>, and <code>safe next action</code>. Use these five moments: request sent; one acceptance; proposer disappears; new quorum forms; value chosen. Under the table, add one sentence defining the retry contract your own API would need: the stable request identifier, where completion is recorded, and how a duplicate returns the original result.</p>
+<p>That page is enough. If you can explain why the client may be uncertain while the replicas remain safe, Chapter 14 has already paid off. The rest of the book becomes a route back through the mechanisms that make that apparently contradictory outcome possible—and a guide for deciding what your system must do when “no response” is the only fact you have.</p>
+</section></article>
+    <div class="mission-action" data-mission-action="database-internals">
+      <div><strong>Make the reading count.</strong><span>Complete the artifact described in the mission, then mark it done.</span></div>
+      <button type="button" data-complete-mission="database-internals">Mark mission complete</button>
+    </div>
+    <nav class="essay-pager" aria-label="Adjacent essays">
+    <a href="practical-systems-programming-go.html"><span>Previous</span>A File Indexer Is a Chain of Promises</a>
+    <a class="essay-pager__next" href="defending-apis.html"><span>Next</span>API Security Is a Coverage System, Not a Product Purchase</a>
+  </nav>
+    <footer class="article-footer">Original companion prose directs you back to the cited edition. Source PDFs and extracted text remain private and are not published here.</footer>
+  </main>
+  </div>
+</body>
+</html>

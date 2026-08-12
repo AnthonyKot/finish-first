@@ -1,0 +1,100 @@
+schema_version: 1
+slug: learning-systems-thinking
+editorial_status: pass
+identity:
+  title: "Learning Systems Thinking"
+  subtitle: "Essential Nonlinear Skills and Practices for Software Professionals"
+  authors:
+    - "Diana Montalion"
+  edition: "First Edition, first release"
+  publication_date: "2024-07"
+  first_release_date: "2024-07-11"
+  copyright_year: 2024
+  publisher: "O'Reilly Media, Inc."
+  isbn_print: "978-1-098-15133-1"
+  isbn_digital_catalog: "9781098151324"
+  language: en
+  identity_evidence:
+    - "Rendered title and subtitle, PDF page 10"
+    - "Copyright and first-release statements, PDF pages 11-12"
+    - "O'Reilly's current catalog page lists Diana Montalion, July 2024, and ISBN 9781098151324"
+source:
+  local_pdf: "resources/learning-systems-thinking.pdf"
+  original_path: "/mnt/c/Users/CoderA/Downloads/Telegram Desktop/Learning Systems Thinking (Diana Montalion) (2).pdf"
+  sha256: "93305de6332d4704225f7f19c3d84ba10fcdde46f184874d9ecdfeb63fc29c2c"
+  bytes: 5919830
+  pdf_version: "1.4"
+  pdf_pages: 605
+  page_size_points: "612 x 792"
+  encrypted: false
+  embedded_metadata_title: "Learning Systems Thinking (for True Epub)"
+  embedded_metadata_author: "Diana Montalion"
+  creator: "calibre 6.28.1"
+extraction:
+  state: "pass_with_locator_limitation"
+  method: "Poppler pdftotext 24.02.0 with layout preservation"
+  verified_full_text: "workspace/learning-systems-thinking/verified-book.txt"
+  verified_pages: "workspace/learning-systems-thinking/verified-pages/"
+  extracted_lines: 14280
+  extracted_words: 87373
+  extracted_bytes: 592940
+  page_boundaries_preserved: true
+  page_boundary_count: 605
+  page_chunks: 605
+  nonempty_page_chunks: 604
+  intentional_blank_pages: [1]
+  unicode_replacement_characters: 0
+  printed_page_mapping: "unavailable: this is a Calibre reflow of an EPUB, with no printed folios or PDF PageLabels and no constant printed-to-PDF offset"
+  spot_checks:
+    - pdf_page: 10
+      region: "title"
+      result: "Readable title, subtitle, and author."
+    - pdf_page: 39
+      region: "beginning"
+      result: "Readable Chapter 1 opener and prose."
+    - pdf_page: 304
+      region: "middle"
+      result: "Readable Chapter 8 opener and prose."
+    - pdf_page: 523
+      region: "selected_payoff"
+      result: "Readable revised MAGO purpose and surrounding explanation."
+    - pdf_page: 605
+      region: "end"
+      result: "Readable final colophon continuation."
+  known_issues:
+    - "The interrupted workspace/learning-systems-thinking/pages set is not authoritative: it omitted blank PDF page 1, numbered every later page one low, and omitted PDF page 605."
+    - "The verified 001-605 page set preserves the physical PDF numbering used by the essay and structure map."
+    - "The source identifies itself in metadata as being for a 'True Epub'; O'Reilly's catalog gives a 282-page extent while this reflowed local PDF has 605 letter-size pages. Printed-page receipts cannot be reconstructed honestly."
+    - "Figures, sketchnotes, and complex tables require inspection in the PDF; the selected essay relies on checked prose and a visually checked six-row table."
+    - "The payoff table is split across PDF pages 517-522, and the leading 'P' in the Pay row label is clipped in the rendered source on PDF page 521; the row's placement and remaining text preserve its meaning."
+editorial_gate:
+  decision: "PASS_WITH_CURRENCY_BOUNDARY"
+  reviewed_on: "2026-08-12"
+  selected_payoff: >-
+    A mission statement can remain verbally stable while every operative word changes
+    meaning; modernization begins by exposing that semantic drift and redesigning the
+    system around the present purpose rather than replacing components inside the old one.
+  why_not_skipped: >-
+    The final MAGO case makes an otherwise abstract systems-thinking claim concrete. It
+    traces how publish, information, products, people, pay, and consume changed beneath
+    one apparently stable purpose, then connects the revised purpose to activities,
+    measures, language, structures, patterns, and mental models. Earlier chapters supply
+    a usable reverse path through conceptual integrity, the Iceberg Model, pattern
+    questions, collaborative modeling, and systems leadership.
+  duplication: >-
+    Distinct from the shelf's architecture trade-off method: this payoff tests whether
+    the words defining the decision still describe the current system before options are
+    compared. It also does not duplicate the selected essays on staff leverage, API
+    coverage, ML failure envelopes, migration seams, systems-programming guarantees,
+    or consensus ambiguity.
+  currency_boundary: >-
+    The 2024 systems practices and semantic-drift argument remain usable, but topical
+    examples and statistics are snapshots. In particular, Chapter 12's statement that
+    one in 100 U.S. citizens is in prison should not be reused as a current fact; current
+    Bureau of Justice Statistics tables use different populations and report materially
+    different rates. Validate contemporary claims separately.
+  review: "notes/review-learning-systems-thinking.md"
+  essay: "essays/learning-systems-thinking.md"
+locators:
+  convention: "pdf_page is the one-based physical page in this exact local PDF; printed_page is unknown because the file is a reflowed EPUB conversion without stable printed pagination"
+  printed_to_pdf_offset_for_numbered_body: unknown

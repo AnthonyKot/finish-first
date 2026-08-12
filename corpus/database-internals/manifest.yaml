@@ -1,0 +1,56 @@
+slug: database-internals
+title: "Database Internals"
+subtitle: "A Deep Dive into How Distributed Data Systems Work"
+authors:
+  - Alex Petrov
+edition: "First Edition, first release"
+publication_date: "2019-10"
+first_release_date: "2019-09-12"
+copyright_year: 2019
+publisher: "O'Reilly Media, Inc."
+isbn_print: "978-1-492-04034-7"
+language: en
+
+source:
+  file: "resources/database-internals.pdf"
+  local_only: true
+  sha256: "c46a9f0c5c8da8b8cf7b8776a7f84482f553494381b37875fc68945051ee866c"
+  bytes: 12606722
+  pdf_version: "1.6"
+  page_count: 371
+  embedded_metadata_title: ""
+  embedded_metadata_author: ""
+
+extraction:
+  status: "pass_with_limitations"
+  tool: "pdftotext 24.02.0"
+  outputs:
+    - "workspace/database-internals/book.txt"
+    - "workspace/database-internals/book-layout.txt"
+  page_chunks: 371
+  nonempty_page_chunks: 358
+  intentional_blank_pages: [1, 5, 13, 44, 64, 98, 184, 190, 224, 234, 332, 336, 371]
+  unicode_replacement_characters: 0
+  spot_checks:
+    - { region: title_and_copyright, pdf_pages: "2-3", result: clean }
+    - { region: beginning, pdf_page: 27, printed_page: 7, result: clean }
+    - { region: middle, pdf_page: 191, printed_page: 171, result: clean }
+    - { region: ending, pdf_page: 331, printed_page: 311, result: clean }
+    - { region: back_matter, pdf_page: 370, printed_page: unknown, result: clean }
+  limitations:
+    - "Figure captions extract, but diagrams still require inspection in the PDF."
+    - "The local file is the first 2019 release; O'Reilly records later corrected releases through 2020-09-04."
+    - "The PDF's title and author metadata fields are blank; identity was verified from the rendered title and copyright pages."
+
+editorial_gate:
+  status: pass
+  reviewed_on: "2026-08-12"
+  selected_payoff: "A successful consensus decision and an observed client success are different facts."
+  rationale: "The late consensus chapter makes timeout ambiguity operational: a proposer may disappear before replying while another proposer safely finishes the value. The earlier chapters explain the links, failure suspicions, leadership, ordering, and retry discipline needed to reason about that result."
+  duplication: "Distinct from the selected Software Architecture essay: this is a mechanism-level failure and retry model, not a general trade-off-analysis method."
+  currency: "The selected principles are foundational and still useful. Treat the 2019 algorithm catalog as a historical map rather than a current survey, and check implementation details against primary papers and current system documentation."
+  caution: "PDF p. 307 (printed p. 287) ambiguously equates consensus with acceptance by one acceptor; the adjacent quorum discussion and failure scenarios, and Lamport's primary description, require a majority before a proposal is chosen."
+
+locators:
+  convention: "pdf_page is the one-based physical PDF page; printed_page is the page number printed in the book."
+  printed_to_pdf_offset_for_numbered_body: 20

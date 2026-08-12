@@ -1,0 +1,48 @@
+section_id	title	level	printed_page	pdf_page	end_pdf_page
+cover	Full cover spread	0	unknown	1	1
+half_title	Half title	0	unknown	3	3
+title	Title page	0	unknown	5	5
+copyright	Copyright and first-printing statement	0	unknown	6	6
+author	About the Author and Technical Reviewer	0	unknown	9	9
+toc	Brief Contents and Contents in Detail	0	ix	11	20
+acknowledgments	Acknowledgments	0	xix	21	22
+introduction	Introduction	0	xxi	23	28
+part01	Part I: Planning	0	unknown	29	30
+ch01	What to Build and How to Plan for It	1	3	31	44
+ch01_requirements	Requirements and Specifications	2	4	32	37
+ch02	Component Specifications and Purchasing	1	17	45	54
+ch03	Selecting Passive Components	1	27	55	92
+ch04	Selecting Active Components	1	65	93	108
+part02	Part II: Designing	0	unknown	109	110
+ch05	Schematic Design	1	83	111	130
+ch06	Layout Design	1	103	131	170
+ch07	Design for Excellence	1	143	171	192
+ch07_enclosures	Enclosures	2	156	184	185
+ch07_dft	Design for Test	2	159	187	188
+ch07_dfr	Design for Reliability	2	161	189	191
+ch08	Regulatory Requirements for Electromagnetic Compatibility and Immunity	1	165	193	202
+ch09	Cost Engineering	1	175	203	212
+part03	Part III: Building	0	unknown	213	214
+ch10	Prototyping	1	187	215	236
+ch10_notebook	Maintaining a Lab Notebook	2	202	230	235
+ch11	Building a Lab	1	209	237	254
+ch12	Fabrication and Assembly	1	227	255	288
+ch12_integration	System Integration	2	258	286	287
+ch13	Testing	1	261	289	308
+ch13_philosophy	The Philosophy of Testing	2	261	289	290
+ch13_designing	Designing Tests	2	269	297	305
+ch13_failure	The Failure Point	3	273	301	302
+ch13_test_problems	How to Avoid Problems with Tests	2	278	306	307
+ch14	Troubleshooting	1	281	309	322
+ch14_root_cause	Getting to the Root Cause of a Problem	2	282	310	314
+ch14_models	Troubleshooting Models	2	287	315	321
+ch14_medical	The Medical Model for Troubleshooting	3	287	315	319
+ch14_narrative	Narrative-Based Troubleshooting	3	291	319	319
+ch14_scientific	Scientific Troubleshooting	3	292	320	321
+appendix_a	How to Give a Demo	1	295	323	328
+appendix_b	Recommended Resources	1	301	329	334
+appendix_c	Example Fabrication Notes	1	307	335	338
+index	Index	0	311	339	357
+colophon	Colophon	0	unknown	359	359
+resources_page	Publisher resources and other books	0	unknown	361	361
+back_cover	Full cover spread (duplicate)	0	unknown	363	363

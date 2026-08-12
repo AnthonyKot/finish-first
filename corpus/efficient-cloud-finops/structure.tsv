@@ -1,0 +1,34 @@
+section_id	title	level	printed_page	pdf_page	end_pdf_page
+front_notice	Packt ownership notice	0	unknown	1	1
+title	Title page	0	unknown	2	2
+copyright	Copyright and publication statement	0	unknown	3	3
+contributors	Contributors	0	unknown	5	6
+toc	Table of Contents	0	vii	8	14
+preface	Preface	0	xv	16	21
+part01	Part 1: Get Started with FinOps	0	unknown	22	68
+ch01	Introduction to FinOps Principles	1	3	24	40
+ch02	Understanding How FinOps Fits into Cloud Governance	1	21	42	68
+part02	Part 2: Inform - How to Increase Cost Visibility	0	unknown	70	163
+ch03	Designing and Executing the Tagging and Naming Convention Strategies	1	51	72	102
+ch04	Estimating Cloud Solution Costs and Initiative Saving	1	83	104	139
+ch04_savings	Estimating potential savings of cost optimization initiatives	2	109	130	133
+ch05	Improving Cost Visibility with Dashboards and Reports	1	119	140	163
+ch05_unit	Unit economics	2	132	153	157
+part03	Part 3: Optimize - How to Get the Most out of Cloud Resources	0	unknown	164	313
+ch06	Implementing IaaS Compute Optimization	1	145	166	199
+ch06_rightsize	Virtual machine rightsizing	2	157	178	180
+ch06_commit	Reserved Instances and Saving Plans	2	166	187	197
+ch07	Implementing PaaS and Other Compute Optimization Initiatives	1	179	200	222
+ch08	Implementing Database Optimization	1	203	224	265
+ch09	Implementing Storage Optimization	1	245	266	313
+part04	Part 4: Operate - How to Set Up a Governance Model around Cloud Costs	0	unknown	314	362
+ch10	Designing and Implementing FinOps KPIs	1	295	316	341
+ch11	Defining New FinOps Roles and Processes	1	321	342	362
+part05	Part 5: Hands-On Cost Optimization with Real-Life Use Cases and More	0	unknown	364	425
+ch12	Case Studies for Cost Optimization	1	345	366	397
+ch12_iaas	IaaS case study - multi-tiered application migrated to the cloud	2	345	366	380
+ch12_paas	PaaS case study - storage, serverless, and database optimization	2	360	381	397
+ch13	Wrapping up and Looking ahead	1	377	398	425
+index	Index	0	405	426	440
+subscription	Packt subscription page	0	unknown	442	442
+other_books	Other Books You May Enjoy and back matter	0	422	443	446

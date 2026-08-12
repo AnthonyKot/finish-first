@@ -1,0 +1,69 @@
+section_id	title	level	printed_page	pdf_page	end_pdf_page
+front.preface	Preface	1	xi	12	12
+front.ack	Acknowledgments	1	xii	13	14
+front.about	About this book	1	xiv	15	17
+front.authors	About the authors	1	xvii	18	18
+front.cover	About the cover illustration	1	xviii	19	19
+1	Why refactor to Rust	1	1	20	33
+1.1	What is refactoring?	2	2	21	23
+1.2	What is Rust?	2	4	23	23
+1.3	Why Rust?	2	4	23	24
+1.4	Should you refactor to Rust?	2	5	24	28
+1.5	When not to refactor to Rust	2	9	28	28
+1.6	How does it work?	2	9	28	30
+1.7	What will you learn in this book?	2	11	30	32
+1.8	Who is this book for?	2	13	32	32
+1.9	What tools do you need to get started?	2	13	32	33
+2	An overview of Rust	1	15	34	78
+2.1	Ownership and borrowing	2	16	35	38
+2.2	Memory management in other languages	2	19	38	42
+2.3	Lifetimes	2	23	42	52
+2.4	Rust's string types	2	33	52	56
+2.5	Enums and error handling	2	37	56	78
+3	Introduction to C FFI and unsafe Rust	1	60	79	111
+3.1	Unsafe Rust	2	61	80	83
+3.2	C Foreign Function Interface	2	64	83	111
+4	Advanced FFI	1	93	112	156
+4.1	Downloading the NGINX source code	2	94	113	113
+4.2	Creating the NGINX module	2	94	113	117
+4.3	Linking C to Rust	2	98	117	128
+4.4	Reading the NGINX request	2	109	128	143
+4.5	Using our calculator library	2	124	143	147
+4.6	Writing the HTTP response	2	128	147	156
+5	Structuring Rust libraries	1	138	157	182
+5.1	Modules	2	138	157	165
+5.2	Paths	2	146	165	178
+5.3	Upward visibility	2	159	178	182
+6	Integrating with dynamic languages	1	164	183	205
+6.1	Data processing in Python	2	164	183	184
+6.2	Planning the move	2	165	184	185
+6.3	JSON Parsing	2	166	185	190
+6.4	Writing a Python extension module in Rust	2	171	190	195
+6.5	Benchmarking in Rust	2	176	195	203
+6.6	Optimized builds	2	184	203	205
+7	Testing your Rust integrations	1	187	206	230
+7.1	Writing tests with Rust	2	187	206	221
+7.2	Testing Rust code using Python	2	202	221	230
+8	Asynchronous Python with Rust	1	212	231	247
+8.1	Generating a Mandelbrot set in Python	2	213	232	234
+8.2	Scaling	2	215	234	237
+8.3	Asyncio	2	218	237	239
+8.4	Threading	2	220	239	242
+8.5	Global Interpreter Lock	2	223	242	243
+8.6	PyO3	2	224	243	247
+9	WebAssembly for refactoring JavaScript	1	229	248	267
+9.1	What is WebAssembly?	2	230	249	250
+9.2	Moving from JavaScript to Rust	2	231	250	251
+9.3	Rust in the browser	2	232	251	257
+9.4	Creating a React component	2	238	257	260
+9.5	Web components entirely in Rust	2	241	260	266
+9.6	Refactoring JavaScript revisited	2	247	266	267
+10	WebAssembly interface for refactoring	1	249	268	295
+10.1	WASI universal runtime	2	252	271	274
+10.2	From the browser to the machine	2	255	274	280
+10.3	Wasm library	2	261	280	281
+10.4	Consuming Wasm	2	262	281	286
+10.5	More Wasm	2	267	286	289
+10.6	Wasm memory	2	270	289	294
+10.7	Just the beginning	2	275	294	295
+back.index	Index	1	277	296	301

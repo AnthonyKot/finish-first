@@ -1,0 +1,29 @@
+section_id	title	level	printed_page	pdf_page	end_pdf_page
+cover	Cover	0	unknown	1	5
+copyright	Copyright	0	unknown	6	6
+toc	Table of Contents	0	v	7	12
+preface	Preface	0	xi	13	18
+ch01	What Happens When There Are No “Best Practices”?	0	1	19	40
+part01	Part I: Pulling Things Apart	0	unknown	41	234
+ch02	Discerning Coupling in Software Architecture	1	25	43	62
+ch03	Architectural Modularity	1	45	63	80
+ch04	Architectural Decomposition	1	63	81	98
+ch05	Component-Based Decomposition Patterns	1	81	99	148
+ch06	Pulling Apart Operational Data	1	131	149	202
+ch07	Service Granularity	1	185	203	234
+part02	Part II: Putting Things Back Together	0	unknown	235	434
+ch08	Reuse Patterns	1	219	237	266
+ch09	Data Ownership and Distributed Transactions	1	249	267	300
+ch10	Distributed Data Access	1	283	301	316
+ch11	Managing Distributed Workflows	1	299	317	340
+ch12	Transactional Sagas	1	323	341	382
+ch13	Contracts	1	365	383	398
+ch14	Managing Analytical Data	1	381	399	416
+ch15	Build Your Own Trade-Off Analysis	1	399	417	434
+app_a	Appendix A: Concept and Term References	0	417	435	436
+app_b	Appendix B: Architecture Decision Record References	0	419	437	438
+app_c	Appendix C: Trade-Off References	0	421	439	442
+index	Index	0	425	443	459
+authors	About the Authors	0	unknown	460	460
+colophon	Colophon	0	unknown	461	461
+oreilly_promo	O'Reilly promotional page	0	unknown	462	462

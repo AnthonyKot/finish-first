@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="This is the first 2019 release; one local Paxos sentence is explicitly corrected in the essay.">
+  <meta name="theme-color" content="#153b35">
+  <meta property="og:title" content="Database Internals — skip verdict">
+  <meta property="og:description" content="This is the first 2019 release; one local Paxos sentence is explicitly corrected in the essay.">
+  <meta property="og:type" content="website">
+  <title>Database Internals — skip verdict · Finish First</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23153b35'/%3E%3Ctext x='17' y='44' font-size='35' fill='%23fffdf8'%3EF%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="review-view" data-active-slug="">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <header class="site-header">
+    <a class="wordmark" href="../index.html" aria-label="Finish First home">
+      <span class="wordmark__mark">F<span>←</span></span>
+      <span><strong>Finish First</strong><small>technical books, read backward</small></span>
+    </a>
+    <div class="header-actions">
+      <span class="progress-summary" data-progress-summary>0 of 11 missions</span>
+      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="book-navigation">Contents</button>
+    </div>
+  </header>
+  <div class="page-shell">
+    <aside class="book-nav" id="book-navigation" data-book-nav>
+      <div class="book-nav__intro">
+        <a href="../index.html">The shelf</a>
+        <p>Eleven destinations. One exact mission each.</p>
+      </div>
+      <nav aria-label="Book contents">
+    <a class="book-nav__item" href="../essays/software-architecture-hard-parts.html" data-mission-link="software-architecture-hard-parts">
+      <span class="book-nav__number">01</span>
+      <span><small>Architecture</small>The Architecture Decision Hidden Behind the Technology Argument</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/machine-learning-engineering.html" data-mission-link="machine-learning-engineering">
+      <span class="book-nav__number">02</span>
+      <span><small>ML systems</small>The Model Is Allowed to Be Wrong. The System Is Not Allowed to Be Helpless.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/staff-engineers-path.html" data-mission-link="staff-engineers-path">
+      <span class="book-nav__number">03</span>
+      <span><small>Engineering leadership</small>The Staff Engineer Who Can Leave the Room</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/refactoring-to-rust.html" data-mission-link="refactoring-to-rust">
+      <span class="book-nav__number">04</span>
+      <span><small>Migration</small>The Migration Unit Is a Seam, Not a Codebase</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/practical-systems-programming-go.html" data-mission-link="practical-systems-programming-go">
+      <span class="book-nav__number">05</span>
+      <span><small>Systems programming</small>A File Indexer Is a Chain of Promises</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/database-internals.html" data-mission-link="database-internals">
+      <span class="book-nav__number">06</span>
+      <span><small>Distributed systems</small>The Database Committed. Your Client Timed Out. Both Are True.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/defending-apis.html" data-mission-link="defending-apis">
+      <span class="book-nav__number">07</span>
+      <span><small>Security</small>API Security Is a Coverage System, Not a Product Purchase</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/learning-systems-thinking.html" data-mission-link="learning-systems-thinking">
+      <span class="book-nav__number">08</span>
+      <span><small>Systems thinking</small>The Mission Stayed the Same. Every Word Changed.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/performance-analysis-tuning-modern-cpus.html" data-mission-link="performance-analysis-tuning-modern-cpus">
+      <span class="book-nav__number">09</span>
+      <span><small>Performance</small>The Fifth Thread Made the Program Slower</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/efficient-cloud-finops.html" data-mission-link="efficient-cloud-finops">
+      <span class="book-nav__number">10</span>
+      <span><small>Cloud economics</small>A Discount Can Fossilize Waste</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/designing-electronics-that-work.html" data-mission-link="designing-electronics-that-work">
+      <span class="book-nav__number">11</span>
+      <span><small>Electronics</small>The Enclosure Did Not Cause the Failure. It Exposed It.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a></nav>
+      <a class="book-nav__skips" href="../index.html#transparent-skips">Editorial skips →</a>
+    </aside>
+    <main id="main" class="review-page">
+    <a class="back-link" href="../index.html#transparent-skips">← Back to the shelf</a>
+    <div class="review-label">Editorial record · not selected</div>
+    <article class="prose review-prose"><h1 id="editorial-gate-database-internals">Editorial gate: <em>Database Internals</em></h1>
+<p><strong>Verdict: PASS, with an edition warning.</strong> Write one reverse-overview essay around the timeout ambiguity exposed by Chapter 14: a consensus decision can succeed even when the client never receives a success response.</p>
+<h2 id="identity">Identity</h2>
+<ul>
+<li><strong>Observed:</strong> <em>Database Internals: A Deep Dive into How Distributed Data Systems Work</em>, by Alex Petrov. The title page is PDF page 2.</li>
+<li><strong>Observed:</strong> First Edition, October 2019; first release dated 2019-09-12; copyright 2019; O&#39;Reilly Media; print ISBN 978-1-492-04034-7. These details appear on PDF page 3.</li>
+<li><strong>Observed:</strong> 371 physical PDF pages; SHA-256 <code>c46a9f0c5c8da8b8cf7b8776a7f84482f553494381b37875fc68945051ee866c</code>.</li>
+</ul>
+<h2 id="extraction-gate">Extraction gate</h2>
+<ul>
+<li><strong>Observed:</strong> <code>pdftotext</code> produced 371 page chunks and no Unicode replacement characters. Of those, 358 contain text. The 13 empty chunks are separator pages at PDF pages 1, 5, 13, 44, 64, 98, 184, 190, 224, 234, 332, 336, and 371, not missing body text.</li>
+<li><strong>Observed:</strong> The printed table of contents on PDF pages 6–12 matches the detected chapter openings. Numbered body pages use a stable <code>pdf_page = printed_page + 20</code> mapping: Chapter 1 begins at PDF page 27 / printed page 7, Chapter 8 at PDF page 191 / printed page 171, and Chapter 14 at PDF page 299 / printed page 279.</li>
+<li><strong>Observed:</strong> Beginning (PDF p. 27), middle (PDF p. 191), ending (PDF p. 331), and author matter (PDF p. 370) retain headings, paragraph order, punctuation, and readable page numbers.</li>
+<li><strong>Observed limitation:</strong> prose and captions extract cleanly, but diagrams must still be read in the PDF. The selected essay relies on prose plus the failure-scenario sequence described beside the diagrams, not on unextracted visual detail.</li>
+</ul>
+<h2 id="editorial-gate">Editorial gate</h2>
+<ul>
+<li><strong>Observed:</strong> Chapter 14 defines consensus as agreement, validity, and termination, then connects it to atomic broadcast, Paxos, Multi-Paxos, Raft, and Byzantine consensus (PDF pp. 299–331; printed pp. 279–311).</li>
+<li><strong>Observed:</strong> Its most concrete failure scenario is operational rather than academic: the original proposer may fail before telling its client the result, while a later proposer can recover and commit the earlier value (PDF pp. 309–310; printed pp. 289–290). Chapter 8 had already shown why retransmission can duplicate non-idempotent work when acknowledgment state is unknown (PDF pp. 204–207; printed pp. 184–187), and Chapter 11 shows a completion-record approach to deduplicating retries (PDF p. 247; printed p. 227).</li>
+<li><strong>Inferred:</strong> This is a strong late-book payoff because it changes how the reader interprets a timeout. “No response” is not a state transition; it is missing knowledge. That distinction informs API design, retry policy, incident debugging, and database selection without requiring the reader to implement Paxos.</li>
+<li><strong>Inferred:</strong> The payoff is distinct from <em>Software Architecture: The Hard Parts</em>. That essay supplies a general decision method; this one supplies a mechanism-level model for one recurring distributed failure.</li>
+</ul>
+<h2 id="currency-and-accuracy">Currency and accuracy</h2>
+<ul>
+<li><strong>Observed, current-edition check:</strong> O&#39;Reilly&#39;s current listing still presents the English book as an October 2019 title with the same 14-chapter structure. A targeted official-site search did not surface a second English edition; that is not proof that none exists: <a href="https://www.oreilly.com/library/view/database-internals/9781492040330/" target="_blank" rel="noreferrer">https://www.oreilly.com/library/view/database-internals/9781492040330/</a> (checked 2026-08-12).</li>
+<li><strong>Observed:</strong> The local copyright page lists only the first release. O&#39;Reilly&#39;s current copyright page records later releases through 2020-09-04, and its official errata page records corrections made after this local file, including technical corrections in Chapters 2, 5, 8, 11, and 13: <a href="https://www.oreilly.com/library/view/database-internals/9781492040330/copyright-page01.html" target="_blank" rel="noreferrer">https://www.oreilly.com/library/view/database-internals/9781492040330/copyright-page01.html</a> and <a href="https://oreilly.com/catalog/0636920174462/errata" target="_blank" rel="noreferrer">https://oreilly.com/catalog/0636920174462/errata</a>.</li>
+<li><strong>Observed caution:</strong> PDF p. 307 / printed p. 287 says consensus has been reached when a value is accepted by at least one acceptor. The adjacent text says a quorum is normally a majority and the following failure cases show that a value accepted by only one node may be displaced (PDF pp. 307–310; printed pp. 287–290). Lamport&#39;s primary description says a proposal is chosen when a majority of acceptors accept it: <a href="https://www.microsoft.com/en-us/research/publication/paxos-made-simple/" target="_blank" rel="noreferrer">https://www.microsoft.com/en-us/research/publication/paxos-made-simple/</a>. The essay must not repeat the local sentence as a rule.</li>
+<li><strong>Inferred:</strong> The foundational results and selected operational problem have not expired, but the 2019 survey boundary has. Use this edition as a conceptual map, consult its errata, and verify protocol details against primary papers or current implementation documentation.</li>
+</ul>
+<h2 id="selected-essay">Selected essay</h2>
+<p><strong>Payoff:</strong> understand why “the database committed” and “the client timed out” can both be true, then turn that uncertainty into a safe retry contract.</p>
+<p><strong>Backward trail:</strong> Chapter 14 (consensus and proposer failure) ← Chapter 11 (ordering, linearizability, durable completion records) ← Chapter 10 (leaders as coordination and liveness machinery) ← Chapter 9 (failure suspicion is a trade-off) ← Chapter 8 (unreliable links, acknowledgments, retransmission, and idempotency).</p>
+<p><strong>One next action:</strong> read PDF pages 299–312 / printed pages 279–292, stopping after “Multi-Paxos,” and produce a five-row knowledge ledger for the proposer-failure scenario described in the essay.</p>
+</article>
+    <footer class="article-footer">A skip is part of the shelf’s trust model: readable extraction alone does not create an essay obligation.</footer>
+  </main>
+  </div>
+</body>
+</html>

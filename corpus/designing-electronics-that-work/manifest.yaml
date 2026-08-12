@@ -1,0 +1,106 @@
+schema_version: 1
+slug: designing-electronics-that-work
+editorial_status: pass
+identity:
+  title: "Designing Electronics That Work"
+  subtitle: "Real-World Hardware Development"
+  authors:
+    - "Hunter Scott"
+  edition: "Edition not numbered; first printing"
+  publication_date: "2025-08"
+  copyright_year: 2025
+  publisher: "No Starch Press, Inc."
+  isbn_print: "978-1-7185-0336-6"
+  isbn_ebook: "978-1-7185-0337-3"
+  language: en
+  identity_evidence:
+    - "Rendered full-cover spread names the title, subtitle, and author, PDF page 1."
+    - "Title page names the title, subtitle, and author, PDF page 5."
+    - "Copyright page records copyright 2025, first printing, publisher, and both ISBNs, PDF page 6."
+    - "The current No Starch Press product page lists Hunter Scott, August 2025, 360 pages, and print ISBN 9781718503366."
+source:
+  local_pdf: "resources/designing-electronics-that-work.pdf"
+  original_path: "/mnt/c/Users/CoderA/Downloads/Telegram Desktop/designing.electronics.that.work.pdf"
+  sha256: "6071c99665d2309dc4440573b2aae606980fb6915648846b224c349fff18ae11"
+  bytes: 43076688
+  pdf_version: "1.6"
+  pdf_pages: 363
+  page_size_points: "491.966 x 657.806"
+  encrypted: false
+  embedded_metadata_title: "Designing Electronics That Work"
+  embedded_metadata_author: "Hunter Scott"
+  embedded_creation_date: "2025-08-05T21:30:28+02:00"
+  embedded_modification_date: "2025-10-21T12:33:24+02:00"
+extraction:
+  state: "pass_with_limitations"
+  method: "Poppler pdftotext 24.02.0 with layout preservation"
+  full_text: "workspace/designing-electronics-that-work/full-layout.txt"
+  raw_text: "workspace/designing-electronics-that-work/full-raw.txt"
+  extracted_lines: 15087
+  extracted_words: 148081
+  extracted_bytes: 1030364
+  page_boundaries_preserved: true
+  page_boundary_count: 363
+  nonempty_page_chunks: 342
+  empty_page_chunks: 21
+  unicode_replacement_characters: 0
+  spot_checks:
+    - pdf_page: 1
+      region: cover
+      result: "Rendered prepress-style full-cover spread clearly identifies title, subtitle, author, publisher, and ISBN."
+    - pdf_pages: "5-6"
+      region: title_and_copyright
+      result: "Title, author, first-printing statement, publisher, date, and ISBNs extract cleanly."
+    - pdf_page: 31
+      printed_page: 3
+      region: beginning
+      result: "Chapter heading, prose, and printed footer extract cleanly."
+    - pdf_page: 180
+      printed_page: 152
+      region: middle
+      result: "Prose, list structure, and footer are clean; an independent single-page extraction matches the full-file page chunk exactly."
+    - pdf_pages: "315-321"
+      printed_pages: "287-293"
+      region: selected_payoff
+      result: "Troubleshooting-model headings, lists, examples, and prose are readable and page-addressable; an independent extraction of PDF page 321 matches exactly."
+    - pdf_page: 357
+      printed_page: 329
+      region: end_of_numbered_matter
+      result: "Final index page extracts cleanly in layout mode."
+  known_issues:
+    - "The file is a prepress-style artifact: PDF pages 1 and 363 are duplicate full-cover spreads with crop marks; the publisher describes the sale edition as 360 pages."
+    - "Twenty-one zero-text chunks are deliberate blank separator or verso pages, not extraction failures."
+    - "Figures, schematics, and spatial callouts still require visual inspection in the PDF; selected claims are also supported by adjacent prose."
+    - "Plain raw extraction may interleave visual material; layout extraction is the receipt source."
+    - "For numbered body, appendix, and index pages, one-based physical PDF page equals printed page plus 28."
+editorial_gate:
+  decision: "PASS_WITH_CURRENCY_BOUNDARY"
+  selected_payoff: >-
+    A condition that makes a failure appear is not necessarily its root cause. The late
+    troubleshooting chapter separates signs, symptoms, underlying etiology, and a
+    promoter, then asks for experiments that can disconfirm a tempting explanation.
+  why_not_skipped: >-
+    The enclosure-flex example turns a common intermittent hardware failure into a
+    durable causal discipline: do not repair the trigger while leaving the latent defect
+    intact. Earlier chapters supply mechanical support, test access, preserved pre-change
+    evidence, incremental integration, realistic stress tests, and a narrative lab record.
+    This is a substantial reverse path rather than a collection of component recipes.
+  distinctiveness: >-
+    Distinct from every accepted essay reviewed on 2026-08-12: the shelf's existing
+    payoffs concern ML failure envelopes, architecture trade-offs, staff-level influence,
+    Rust migration seams, Go representation guarantees, distributed timeout ambiguity,
+    API-security coverage, semantic drift in systems, and multicore scaling/false sharing.
+    A concurrently accepted essay adds cloud-cost commitment sequencing. None centers on
+    causal diagnosis of intermittent physical hardware faults.
+  currency_boundary: >-
+    The official publisher still lists this August 2025 title and ISBN as current. The
+    selected diagnostic model is not tool-version-dependent. Treat regulatory summaries,
+    standards tables, named vendors, prices, URLs, and equipment recommendations as a
+    2025 snapshot; verify them with the applicable regulator, current standard, and device
+    jurisdiction before acting.
+  review: "notes/review-designing-electronics-that-work.md"
+  essay: "essays/designing-electronics-that-work.md"
+locators:
+  convention: "pdf_page is the one-based physical PDF page; printed_page is the page number printed in this file."
+  printed_to_pdf_offset_for_numbered_body_appendices_and_index: 28
+  front_matter_note: "Roman-numbered front matter and unnumbered separator pages are mapped explicitly in structure.tsv."

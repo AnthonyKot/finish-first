@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Connect known APIs, explicit owners, design, testing, runtime evidence, and governance into one coverage chain.">
+  <meta name="theme-color" content="#153b35">
+  <meta property="og:title" content="API Security Is a Coverage System, Not a Product Purchase">
+  <meta property="og:description" content="Connect known APIs, explicit owners, design, testing, runtime evidence, and governance into one coverage chain.">
+  <meta property="og:type" content="website">
+  <title>API Security Is a Coverage System, Not a Product Purchase · Finish First</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23153b35'/%3E%3Ctext x='17' y='44' font-size='35' fill='%23fffdf8'%3EF%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="article-view" data-active-slug="defending-apis">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <header class="site-header">
+    <a class="wordmark" href="../index.html" aria-label="Finish First home">
+      <span class="wordmark__mark">F<span>←</span></span>
+      <span><strong>Finish First</strong><small>technical books, read backward</small></span>
+    </a>
+    <div class="header-actions">
+      <span class="progress-summary" data-progress-summary>0 of 11 missions</span>
+      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="book-navigation">Contents</button>
+    </div>
+  </header>
+  <div class="page-shell">
+    <aside class="book-nav" id="book-navigation" data-book-nav>
+      <div class="book-nav__intro">
+        <a href="../index.html">The shelf</a>
+        <p>Eleven destinations. One exact mission each.</p>
+      </div>
+      <nav aria-label="Book contents">
+    <a class="book-nav__item" href="../essays/software-architecture-hard-parts.html" data-mission-link="software-architecture-hard-parts">
+      <span class="book-nav__number">01</span>
+      <span><small>Architecture</small>The Architecture Decision Hidden Behind the Technology Argument</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/machine-learning-engineering.html" data-mission-link="machine-learning-engineering">
+      <span class="book-nav__number">02</span>
+      <span><small>ML systems</small>The Model Is Allowed to Be Wrong. The System Is Not Allowed to Be Helpless.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/staff-engineers-path.html" data-mission-link="staff-engineers-path">
+      <span class="book-nav__number">03</span>
+      <span><small>Engineering leadership</small>The Staff Engineer Who Can Leave the Room</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/refactoring-to-rust.html" data-mission-link="refactoring-to-rust">
+      <span class="book-nav__number">04</span>
+      <span><small>Migration</small>The Migration Unit Is a Seam, Not a Codebase</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/practical-systems-programming-go.html" data-mission-link="practical-systems-programming-go">
+      <span class="book-nav__number">05</span>
+      <span><small>Systems programming</small>A File Indexer Is a Chain of Promises</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/database-internals.html" data-mission-link="database-internals">
+      <span class="book-nav__number">06</span>
+      <span><small>Distributed systems</small>The Database Committed. Your Client Timed Out. Both Are True.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item is-active" href="../essays/defending-apis.html" data-mission-link="defending-apis">
+      <span class="book-nav__number">07</span>
+      <span><small>Security</small>API Security Is a Coverage System, Not a Product Purchase</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/learning-systems-thinking.html" data-mission-link="learning-systems-thinking">
+      <span class="book-nav__number">08</span>
+      <span><small>Systems thinking</small>The Mission Stayed the Same. Every Word Changed.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/performance-analysis-tuning-modern-cpus.html" data-mission-link="performance-analysis-tuning-modern-cpus">
+      <span class="book-nav__number">09</span>
+      <span><small>Performance</small>The Fifth Thread Made the Program Slower</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/efficient-cloud-finops.html" data-mission-link="efficient-cloud-finops">
+      <span class="book-nav__number">10</span>
+      <span><small>Cloud economics</small>A Discount Can Fossilize Waste</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/designing-electronics-that-work.html" data-mission-link="designing-electronics-that-work">
+      <span class="book-nav__number">11</span>
+      <span><small>Electronics</small>The Enclosure Did Not Cause the Failure. It Exposed It.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a></nav>
+      <a class="book-nav__skips" href="../index.html#transparent-skips">Editorial skips →</a>
+    </aside>
+    <main id="main" class="essay-page">
+    <header class="essay-hero">
+      <div class="essay-kicker"><span>07</span>Security</div>
+      <p class="essay-book">From <cite>Defending APIs</cite> by Colin Domoney</p>
+      <p class="essay-payoff">Connect known APIs, explicit owners, design, testing, runtime evidence, and governance into one coverage chain.</p>
+      <div class="essay-meta"><span>PDF pages 352–356</span><span>Produces: One-API coverage card</span></div>
+    </header>
+    <aside class="currency-note"><strong>Edition boundary</strong>Use the lifecycle model; verify OAuth, OWASP numbering, frameworks, and products against current sources.</aside>
+    <article class="prose"><h1 id="api-security-is-a-coverage-system-not-a-product-purchase">API Security Is a Coverage System, Not a Product Purchase</h1>
+<p>The easiest API security program to approve is also one of the easiest to misunderstand: buy a scanner,
+put a gateway in front of production, count findings, and call the estate protected. The final chapter of
+Colin Domoney&#39;s <em>Defending APIs</em> offers a more demanding destination. Security is not something a
+single tool does to an API. It is <strong>continuous coverage over APIs you can identify, across decisions you
+can assign to owners, from design through runtime and retirement</strong>.</p>
+<p>That is why this book is worth finishing. Its early chapters teach protocols, vulnerability classes,
+breaches, and attacks. Its middle chapters move into design-time and runtime defenses. Chapter 13
+finally reveals what those pieces are for: not an impressive toolbox, but an operating system for making
+security repeatable across an organization. The book names six domains—inventory, design,
+development, testing, protection, and governance—and describes each at non-existent, emerging, and
+established levels (printed pp. 329–332 / PDF pp. 352–355). The categories matter less than the
+relationship between them. A strong control in one domain cannot compensate indefinitely for a hole
+in another.</p>
+<p>This is a durable payoff even though this 2024 edition is no longer safe as a standalone source for every
+protocol or product detail. Read it for the shape of the program. Check current standards before acting
+on OAuth flows, framework settings, vendor capabilities, or risk-list numbering.</p>
+<h2 id="the-promise-turn-secure-our-apis-into-a-bounded-job">The promise: turn “secure our APIs” into a bounded job</h2>
+<p>“Secure the API estate” sounds like an assignment, but it hides three unanswered questions: Which
+APIs? Secure against what consequence? Who must change what they do?</p>
+<p>Chapter 13 makes those questions operational. First, ownership is distributed. Product owners,
+platform owners, architects, development teams, security teams, and executives can each own a
+different decision. If those responsibilities remain implicit, the predictable results are duplicated work
+and neglected work (printed pp. 323–327 / PDF pp. 346–350). Second, the book&#39;s maturity model
+starts with inventory because an organization cannot manage exposure it cannot see. It proposes
+tracking how new APIs appear, inspecting source repositories for hidden API artifacts, and discovering
+runtime traffic; mature practice also deals with shadow and retired-but-still-live “zombie” APIs
+(printed p. 329 / PDF p. 352).</p>
+<p>Third, the rollout is deliberately smaller than the estate. The book warns that trying to cover everything
+at once can produce visible effort without progress. Its alternative is to state the business objective,
+select the highest-risk cohort, enroll that cohort, and widen the selection criteria only after the first
+slice works (printed p. 333 / PDF p. 356).</p>
+<p>Together these moves change a vague ambition into a bounded program:</p>
+<ol>
+<li>Name the business loss you are reducing.</li>
+<li>Find the APIs capable of producing that loss.</li>
+<li>Assign the decisions that control the risk.</li>
+<li>Establish coverage across their lifecycle.</li>
+<li>Measure whether the coverage exists and works.</li>
+<li>Expand to the next risk cohort.</li>
+</ol>
+<p>Notice what is absent: “buy the definitive API security product.” Products can implement controls,
+but they cannot decide which APIs matter, expose an unknown owner, resolve a disputed risk appetite,
+or make a team retire an obsolete endpoint.</p>
+<h2 id="the-idea-six-domains-form-one-chain">The idea: six domains form one chain</h2>
+<p>The six-domain model becomes useful when you read it as a chain of evidence rather than a checklist.</p>
+<p><strong>Inventory</strong> answers whether the organization knows the API exists, where it runs, which version is
+live, and who owns it. Without this, every percentage-based metric has a dishonest denominator. A
+claim such as “90% of APIs are tested” means little when shadow APIs are absent from the count.</p>
+<p><strong>Design</strong> turns business risk into explicit constraints before code makes them expensive to change.
+The book includes authentication, authorization, data exposure, privacy, reset mechanisms, abuse
+cases, token lifecycle, and rate limits among the decisions that belong here; threat modeling tests the
+assumptions around them (printed pp. 329–330 / PDF pp. 352–353).</p>
+<p><strong>Development</strong> asks whether the implementation preserves those decisions. Central enforcement of
+authentication and authorization is preferable to scattered, endpoint-specific logic, and unexpected
+input or failure must be handled defensively (printed p. 330 / PDF p. 353). A precise design is not a
+control if the running code ignores it.</p>
+<p><strong>Testing</strong> supplies repeatable evidence before release. The book calls out authentication and
+authorization bypass, excess data exposure, invalid requests, response behavior, rate limits, and
+configuration drift; at the established level, security tests are integrated with delivery and can block a
+release (printed p. 331 / PDF p. 354). A scanner finding is useful, but coverage means knowing which
+claim was tested, on which API, at which change boundary, with what consequence on failure.</p>
+<p><strong>Protection</strong> assumes design, implementation, and tests will never eliminate all attack. Runtime
+controls validate tokens and traffic, restrict resources, reject invalid operations or data, and feed
+security telemetry into operational response (printed pp. 331–332 / PDF pp. 354–355). This is where
+a gateway or firewall belongs: as one link in the chain, not the chain itself.</p>
+<p><strong>Governance</strong> keeps the previous five domains from becoming a one-time campaign. It standardizes
+patterns and remediation, covers privacy and compliance, manages end-of-life APIs, updates people as
+threats change, and tracks deviations (printed p. 332 / PDF p. 355). Governance is not a document
+that declares the happy path. It is the mechanism that notices and resolves departures from it.</p>
+<p>The consequential idea is the handoff between domains. Inventory gives design an object and an
+owner. Design gives development a contract. Development gives testing an implementation. Testing
+gives release an acceptance decision. Protection gives operators runtime evidence. Governance closes
+the loop by turning evidence and exceptions into changed defaults. Weakness at a handoff is often more
+dangerous than weakness inside a tool.</p>
+<h2 id="the-backward-dependency-trail">The backward dependency trail</h2>
+<p>Once Chapter 13 is the destination, earlier chapters stop reading like a catalogue.</p>
+<p>Begin with Chapter 11&#39;s runtime material. It compares WAFs, web-application-and-API protection,
+gateways, and API firewalls by their tradeoffs rather than presenting one universal winner. The choice
+depends on budget, maturity, skill, and risk; contract-enforcing protection also depends on an accurate
+contract (printed pp. 298–299 / PDF pp. 321–322). This unlocks the protection domain, but also shows
+why buying the last layer first is fragile.</p>
+<p>Move backward to Chapter 8. Its design-first argument treats the OpenAPI definition as a source of
+truth for data and security requirements (printed pp. 189–190 / PDF pp. 212–213). Its positive model
+allows what the contract defines rather than attempting to enumerate every malicious input, but the
+book states the crucial caveat: precision depends on a precise contract (printed pp. 203–205 / PDF
+pp. 226–228). Threat modeling then asks what can go wrong before a scanner has code to inspect. In
+the shipping-company example, abuse of request sequencing, rate, and exposed data arose from design
+assumptions, not merely recognizable coding defects (printed p. 205 / PDF p. 228). This is the bridge
+from design to testable policy.</p>
+<p>Move backward again to Chapter 4. Ten breach studies turn abstract controls into failure stories. Their
+closing lesson is not simply to memorize ten incidents; it is to examine root causes and notice repeated
+patterns across authentication, authorization, exposed data, leaked keys, and business logic (printed
+pp. 100–101 / PDF pp. 123–124). Those stories supply the “why” that Chapter 13 says a program must
+start from. A medical-data API, payment API, and public catalog do not deserve identical priorities
+merely because all three speak HTTP.</p>
+<p>Chapter 3 supplies a vocabulary for classifying what went wrong, while warning that business-logic
+failures resist simple automation because attackers violate assumptions about sequence, input, and
+trusted partners (printed pp. 53 and 72 / PDF pp. 76 and 95). Classification helps route a problem to a
+control; it does not replace threat modeling or ownership.</p>
+<p>Finally, Chapter 1 provides the seed of the rollout. Its rough risk method considers network exposure,
+data sensitivity, and access control, then recommends starting where security effort can return the
+most value (printed pp. 21–22 / PDF pp. 44–45). Chapter 13 turns that small prioritization device into
+a cohort strategy for a real portfolio.</p>
+<p>The reverse path is therefore:</p>
+<p><strong>risk objective → known cohort and owners → explicit design → faithful implementation → release
+evidence → runtime protection and observation → governed expansion.</strong></p>
+<p>The protocols and tools live inside that path. They do not define it.</p>
+<section class="mission" data-mission="defending-apis"><div class="mission__label">Your one reading mission</div><h2 id="one-reading-mission">One reading mission</h2>
+<p>Read <strong>PDF pp. 352–356</strong> (printed pp. 329–333), from “The 42Crunch maturity model” through
+“Assessing your current state.” These five pages contain the six domains and the argument for starting
+with a high-risk cohort rather than the whole portfolio.</p>
+<p>Carry three questions:</p>
+<ol>
+<li>Which API in a system you know could cause the clearest business loss?</li>
+<li>In which of the six domains is evidence about that API weakest—not the control weakest, but the
+evidence that a control exists and works?</li>
+<li>Which person can accept the risk or cause that gap to be closed?</li>
+</ol>
+<p>Completion evidence: produce a one-page <strong>coverage card</strong> for exactly one API. Record its owner,
+business loss, exposure, sensitive data, and one observed fact for each domain: inventory, design,
+development, testing, protection, and governance. Use <code>unknown</code> instead of guessing. End with one
+next action assigned to one owner. The mission is complete when the card exposes a real unknown or
+handoff—not when all six boxes look reassuring.</p>
+</section><h2 id="receipts">Receipts</h2>
+<ul>
+<li>Distributed ownership and the need to define responsibilities: printed pp. 323–328 / PDF
+pp. 346–351.</li>
+<li>Six maturity domains and their non-existent, emerging, and established states: printed pp. 329–332 /
+PDF pp. 352–355.</li>
+<li>Risk-first cohorts and current-state assessment: printed pp. 333–334 / PDF pp. 356–357.</li>
+<li>Secure landing zones as reusable defaults rather than per-team reinvention: printed pp. 334–335 /
+PDF pp. 357–358.</li>
+<li>Leading/trailing metrics and advice to begin with a small metric set: printed pp. 336–337 / PDF
+pp. 359–360.</li>
+<li>Upstream API and software dependency mapping: printed p. 338 / PDF p. 361.</li>
+<li>Design-first contracts, positive enforcement, and the precision caveat: printed pp. 189–205 / PDF
+pp. 212–228.</li>
+<li>Runtime protection tradeoffs: printed pp. 298–299 / PDF pp. 321–322.</li>
+<li>Breach-pattern conclusions: printed pp. 100–101 / PDF pp. 123–124.</li>
+<li>Business-logic assumptions and the limits of simple testing: printed p. 72 / PDF p. 95.</li>
+<li>Initial risk-based prioritization: printed pp. 21–22 / PDF pp. 44–45.</li>
+</ul>
+<p>This essay uses the book as a guide to program shape, not as a 2026 implementation standard. See
+<code>notes/review-defending-apis.md</code> for the edition audit and current-protocol warning.</p>
+</article>
+    <div class="mission-action" data-mission-action="defending-apis">
+      <div><strong>Make the reading count.</strong><span>Complete the artifact described in the mission, then mark it done.</span></div>
+      <button type="button" data-complete-mission="defending-apis">Mark mission complete</button>
+    </div>
+    <nav class="essay-pager" aria-label="Adjacent essays">
+    <a href="database-internals.html"><span>Previous</span>The Database Committed. Your Client Timed Out. Both Are True.</a>
+    <a class="essay-pager__next" href="learning-systems-thinking.html"><span>Next</span>The Mission Stayed the Same. Every Word Changed.</a>
+  </nav>
+    <footer class="article-footer">Original companion prose directs you back to the cited edition. Source PDFs and extracted text remain private and are not published here.</footer>
+  </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+slug: staff-engineers-path
+title: "The Staff Engineer's Path"
+subtitle: "A Guide for Individual Contributors Navigating Growth and Change"
+authors:
+  - Tanya Reilly
+publisher: "O'Reilly Media, Inc."
+edition: "First Edition"
+publication_date: "2022-09"
+isbn_13: "978-1-098-11873-0"
+source:
+  local_copy: "resources/staff-engineers-path.pdf"
+  sha256: "7a9d8d1fc88c49761149edae60c16e37db1138e60303a2178f0cedee52386392"
+  byte_size: 9324234
+  pdf_pages: 359
+  encrypted: false
+  tagged: false
+extraction:
+  tool: "pdftotext 24.02.0 (Poppler)"
+  state: "pass"
+  full_text_location: "workspace/staff-engineers-path/"
+  spot_checks:
+    - pdf_page: 25
+      printed_page: 3
+      region: "beginning"
+      result: "coherent heading, paragraphs, and punctuation"
+    - pdf_page: 173
+      printed_page: 151
+      region: "middle"
+      result: "coherent chapter opening, footnote, and page boundary"
+    - pdf_page: 307
+      printed_page: 285
+      region: "end"
+      result: "coherent chapter opening and paragraphs"
+    - pdf_page: 334
+      printed_page: 312
+      region: "end"
+      result: "coherent final index text"
+  known_limitations:
+    - "The PDF is untagged, so reading order should be checked around figures, tables, sidebars, and footnotes."
+    - "Raw extraction can place a footnote before a chapter heading and retains line-break hyphenation."
+editorial_gate:
+  verdict: "PASS"
+  currency_assessment: "current enough for use, with examples that should be treated as dated snapshots"
+  selected_payoff: "Replace personal indispensability with influence that continues after you leave the room."
+provenance:
+  metadata_basis: "copyright page and PDF metadata, observed in this exact file"
+  structure_basis: "printed contents cross-checked against chapter-opening PDF pages"
+  reviewed_on: "2026-08-12"

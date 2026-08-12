@@ -1,0 +1,52 @@
+slug: software-architecture-hard-parts
+title: "Software Architecture: The Hard Parts"
+subtitle: "Modern Trade-Off Analysis for Distributed Architectures"
+authors:
+  - Neal Ford
+  - Mark Richards
+  - Pramod Sadalage
+  - Zhamak Dehghani
+edition: "First Edition"
+publication_date: "2021-10"
+copyright_year: 2022
+publisher: "O'Reilly Media, Inc."
+isbn_print: "978-1-492-08689-5"
+language: en
+
+source:
+  file: "resources/software-architecture-hard-parts.pdf"
+  local_only: true
+  sha256: "5e1f286ed91a33c9af6cab35811aec9e6600c197dc6187d8dbefef7bb76c1359"
+  bytes: 16509658
+  pdf_version: "1.6"
+  page_count: 462
+
+extraction:
+  status: "pass_with_limitations"
+  tool: "pdftotext 24.02.0"
+  outputs:
+    - "workspace/software-architecture-hard-parts/full.txt"
+    - "workspace/software-architecture-hard-parts/full-layout.txt"
+  page_chunks: 462
+  nonempty_page_chunks: 451
+  intentional_blank_pages: [2, 18, 40, 98, 236, 266, 340, 416, 436, 438, 442]
+  unicode_replacement_characters: 0
+  spot_checks:
+    - { region: beginning, pdf_page: 19, printed_page: 1, result: clean }
+    - { region: middle, pdf_page: 231, printed_page: 213, result: clean }
+    - { region: ending, pdf_page: 434, printed_page: 416, result: clean }
+    - { region: back_matter, pdf_page: 460, printed_page: unknown, result: clean }
+  limitations:
+    - "Figure captions extract, but diagrams must be inspected in the PDF."
+    - "Some decorative layout and table rules are lost in plain-text mode."
+
+editorial_gate:
+  status: pass
+  reviewed_on: "2026-08-12"
+  selected_payoff: "Chapter 15: Build Your Own Trade-Off Analysis"
+  rationale: "The final chapter turns the preceding pattern catalog into a reusable method for finding entangled dimensions, modeling contextual scenarios, and stating a decision in stakeholder terms."
+  currency: "The named technologies and data-mesh discussion reflect 2021, but the selected method is intentionally tool-independent. Treat product-specific examples as period examples, not current recommendations."
+
+locators:
+  convention: "pdf_page is the one-based physical PDF page; printed_page is the page number printed in the book."
+  printed_to_pdf_offset_for_numbered_body: 18

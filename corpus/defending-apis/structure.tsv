@@ -1,0 +1,39 @@
+section_id	title	level	printed_page	pdf_page	end_pdf_page
+cover	Title page	0	unknown	2	2
+copyright	Copyright and edition statement	0	unknown	3	3
+foreword	Foreword	0	unknown	5	6
+contributors	Contributors	0	unknown	7	8
+toc	Table of Contents	0	ix	10	15
+preface	Preface	0	xvii	17	23
+part01	Part 1: Foundations of API Security	0	unknown	24	25
+ch01	What Is API Security?	1	3	26	45
+ch02	Understanding APIs	1	25	48	74
+ch03	Understanding Common API Vulnerabilities	1	53	76	97
+ch04	Investigating Recent Breaches	1	75	98	124
+part02	Part 2: Attacking APIs	0	unknown	125	127
+ch05	Foundations of Attacking APIs	1	105	128	153
+ch06	Discovering APIs	1	131	154	179
+ch07	Attacking APIs	1	157	180	207
+part03	Part 3: Defending APIs	0	unknown	208	211
+ch08	Shift-Left for API Security	1	189	212	236
+ch08_oas	Using the OpenAPI Specification	2	190	213	226
+ch08_positive	Leveraging the positive security model	2	203	226	228
+ch08_threat	Conducting threat modeling of APIs	2	205	228	229
+ch08_automation	Automating API security	2	206	229	234
+ch08_attacker	Thinking like an attacker	2	211	234	235
+ch09	Defending against Common Vulnerabilities	1	215	238	262
+ch10	Securing Your Frameworks and Languages	1	241	264	286
+ch11	Shield Right for APIs with Runtime Protection	1	265	288	322
+ch11_monitoring	API monitoring and alerting	2	295	318	321
+ch11_selection	Selecting the correct protections for your APIs	2	298	321	322
+ch12	Securing Microservices	1	301	324	343
+ch13	Implementing an API Security Strategy	1	323	346	363
+ch13_ownership	Ownership of API security	2	323	346	351
+ch13_maturity	The 42Crunch maturity model	2	329	352	355
+ch13_planning	Planning your program	2	332	355	357
+ch13_running	Running your program	2	335	358	361
+ch13_personal	Your personal API security journey	2	338	361	362
+ch13_summary	Summary	2	339	362	362
+ch13_further	Further reading	2	340	363	363
+index	Index	0	341	364	376
+other_books	Other Books You May Enjoy	0	354	377	384

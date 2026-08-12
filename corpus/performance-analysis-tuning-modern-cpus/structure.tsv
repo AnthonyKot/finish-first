@@ -1,0 +1,23 @@
+section_id	title	level	printed_page	pdf_page	end_pdf_page
+cover	Cover	0	unknown	1	1
+notices	Notices and copyright	0	2	2	2
+preface	Preface	0	3	3	4
+toc	Table of Contents	0	5	5	8
+ch01	Introduction	1	9	9	16
+part01	Part 1: Performance analysis on a modern CPU	0	17	17	99
+ch02	Measuring Performance	1	17	17	29
+ch03	CPU Microarchitecture	1	30	30	45
+ch04	Terminology and metrics in performance analysis	1	46	46	51
+ch05	Performance Analysis Approaches	1	52	52	72
+ch06	CPU Features For Performance Analysis	1	73	73	99
+part02	Part 2: Source Code Tuning For CPU	0	100	100	160
+ch07	CPU Front-End Optimizations	1	103	103	112
+ch08	CPU Back-End Optimizations	1	113	113	137
+ch09	Optimizing Bad Speculation	1	138	138	141
+ch10	Other Tuning Areas	1	142	142	146
+ch11	Optimizing Multithreaded Applications	1	147	147	160
+epilogue	Epilog	0	161	161	162
+glossary	Glossary	0	163	163	163
+references	References	0	164	164	167
+app_a	Appendix A: Reducing Measurement Noise	0	168	168	171
+app_b	Appendix B: The LLVM Vectorizer	0	172	172	175

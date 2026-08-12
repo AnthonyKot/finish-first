@@ -1,0 +1,69 @@
+slug: performance-analysis-tuning-modern-cpus
+title: "Performance Analysis and Tuning on Modern CPUs"
+authors:
+  - Denis Bakhvalov
+edition: "First edition"
+publication_date: "2020-11-15"
+copyright_year: 2020
+publisher: "Denis Bakhvalov / easyperf.net"
+license: "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+language: en
+
+source:
+  file: "resources/performance-analysis-tuning-modern-cpus.pdf"
+  local_only: true
+  telegram_file: "Performance Analysis and Tuning on Modern CPUs- Squeeze the.pdf"
+  sha256: "3bea1881a2d73f1b749835af61e5709f496cd19947f66a18cd59c1638d4bd92a"
+  bytes: 5780963
+  pdf_version: "1.5"
+  page_count: 175
+  embedded_metadata_title: "Performance Analysis and Tuning on Modern CPUs"
+  embedded_metadata_author: "Denis Bakhvalov"
+  embedded_creation_date: "2020-11-13T21:10:16+01:00"
+
+identity:
+  status: verified
+  checks:
+    - "Rendered PDF page 1 names Performance Analysis and Tuning on Modern CPUs and Denis Bakhvalov."
+    - "PDF page 2 records copyright 2020 by Denis Bakhvalov under CC BY 4.0."
+    - "The author's official site records a 2020-11-15 release and identifies the 2024 book as the second edition."
+
+extraction:
+  status: "pass_with_limitations"
+  tool: "pdftotext 24.02.0"
+  outputs:
+    - "workspace/performance-analysis-tuning-modern-cpus/full.txt"
+    - "workspace/performance-analysis-tuning-modern-cpus/full-layout.txt"
+  page_chunks: 175
+  nonempty_text_page_chunks: 174
+  text_empty_image_pages: [1]
+  form_feed_page_boundaries: 175
+  unicode_replacement_characters: 0
+  spot_checks:
+    - { region: cover, pdf_page: 1, printed_page: unknown, result: "identity verified from rendered image; no extracted text" }
+    - { region: copyright_and_preface, pdf_pages: "2-4", printed_pages: "2-4", result: clean }
+    - { region: beginning, pdf_page: 9, printed_page: 9, result: clean }
+    - { region: middle, pdf_page: 88, printed_page: 88, result: "clean; independently extracted page matched its full-file page chunk byte-for-byte" }
+    - { region: selected_payoff, pdf_pages: "147-160", printed_pages: "147-160", result: clean }
+    - { region: ending, pdf_page: 175, printed_page: 175, result: clean }
+  limitations:
+    - "The image-only cover has no text layer; its title and author were checked in a rendered page image."
+    - "Prose, listings, captions, formulas, and page numbers extract cleanly, but diagrams still require visual inspection in the PDF."
+    - "Tool commands, event names, platform examples, and outbound links reflect a 2020 snapshot and require current documentation before use."
+
+editorial_gate:
+  status: pass
+  reviewed_on: "2026-08-12"
+  selected_payoff: "A thread-count curve can bend backward because added workers create contention and cache-line coherence traffic; different variables on one cache line can still make cores fight over ownership."
+  rationale: "Chapter 11 turns the familiar warning that parallel speedup is limited into a concrete diagnostic path: measure scaling, separate useful work from waiting and spinning, then investigate synchronization and cache-line contention rather than optimizing an arbitrary hot worker."
+  distinctiveness: "Distinct from all accepted essays: the shelf currently covers ML failure envelopes, architecture trade-offs, staff-level leverage, Rust migration seams, Go representation boundaries, distributed timeout ambiguity, and API-security coverage. None foregrounds hardware-level multicore scaling or false sharing."
+  currency: "The author released a substantially expanded second edition in 2024, so this local first edition is not a current tool manual. The selected scaling and coherence model remains current: the second-edition material calls thread-count scaling especially valuable, and current perf c2c documentation still describes cache-line-contention analysis across supported architectures."
+  cautions:
+    - "Prefer the 2024 second edition for new study; use the local edition for the cited conceptual path only."
+    - "PDF page 158 overstates that true sharing implies data races. The shown unsynchronized example races, but true sharing can also use atomics or synchronization."
+    - "Verify exact VTune and perf procedures against current vendor and kernel documentation and the target CPU."
+
+locators:
+  convention: "pdf_page is the one-based physical PDF page; printed_page is the page number printed in this edition."
+  printed_to_pdf_offset_for_numbered_pages: 0
+  exception: "PDF page 1 is an unnumbered image cover."

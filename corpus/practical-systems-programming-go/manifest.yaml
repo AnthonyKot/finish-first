@@ -1,0 +1,64 @@
+schema_version: 1
+slug: practical-systems-programming-go
+editorial_status: pass
+identity:
+  title: "Practical Systems Programming in Go"
+  subtitle: "A hands-on guide to designing and building real-world systems software in Go"
+  authors:
+    - "Mihalis Tsoukalos"
+  edition: "1st Edition"
+  year: 2026
+  publisher: "Packt Publishing"
+  isbn: "978-1-80611-219-7"
+  identity_evidence:
+    - "Embedded title, subtitle, and author, PDF page 2"
+    - "Copyright leaf states First published: March 2026 and ISBN 978-1-80611-219-7, PDF page 3"
+    - "Preface explicitly identifies the 1st Edition, PDF page 18"
+  filename_warning: null
+source:
+  local_pdf: "resources/practical-systems-programming-go.pdf"
+  original_path: "/mnt/c/Users/CoderA/Downloads/Telegram Desktop/practical.systems.programming.in.go (2).pdf"
+  sha256: "dc51dfd069b0cda535a33ad8ec40e52592ca80b8838892563a9dbef10c94627f"
+  bytes: 4671871
+  pdf_pages: 588
+  page_size_points: "540 x 666"
+  encrypted: false
+extraction:
+  state: "pass"
+  method: "Poppler pdftotext 24.02.0 with layout preservation"
+  full_text: "workspace/practical-systems-programming-go/book.txt"
+  extracted_lines: 27678
+  extracted_words: 175324
+  extracted_bytes: 1515785
+  page_boundaries_preserved: true
+  spot_checks:
+    - pdf_page: 2
+      region: beginning
+      result: "Readable embedded title, subtitle, and author."
+    - pdf_page: 300
+      region: middle
+      result: "Readable Chapter 7 prose and Go code with printed page footer 275."
+    - pdf_page: 571
+      region: final_chapter
+      result: "Readable Chapter 14 conclusion, exercises, and printed page footer 546."
+    - pdf_page: 587
+      region: end
+      result: "Readable final index entries and printed page footer 562; PDF page 588 is blank."
+  known_issues:
+    - "The PDF is untagged, but all 588 form-feed page boundaries were preserved."
+    - "Short hexadecimal-like watermark strings are interleaved in some extracted margins and code blocks."
+    - "Complex code indentation occasionally collapses; the selected essay relies on checked prose and short, visually verified code paths."
+    - "For numbered body pages, printed page N maps to PDF page N+25; front matter uses roman numbering."
+editorial_gate:
+  decision: "PASS"
+  selected_payoff: >-
+    The final filesystem-index project reveals systems programming as the work of
+    preserving a fact across boundaries: discovery, transport, durable intent,
+    synchronized in-memory state, and observable query results. Its claimed guarantees
+    are valuable precisely because the shown code gives the reader concrete seams to audit.
+  why_not_skipped: >-
+    This first-edition March 2026 book uses current Go 1.26 features, the selected project
+    is distinct from the existing essay shelf, and its combination of filesystem watching,
+    TCP/JSON, synchronization, and write-ahead logging supports a consequential reverse path.
+  review: "notes/review-practical-systems-programming-go.md"
+  essay: "essays/practical-systems-programming-go.md"

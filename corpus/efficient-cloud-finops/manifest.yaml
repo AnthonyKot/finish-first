@@ -1,0 +1,101 @@
+schema_version: 1
+slug: efficient-cloud-finops
+editorial_status: pass
+identity:
+  title: "Efficient Cloud FinOps"
+  subtitle: "A practical guide to cloud financial management and optimization with AWS, Azure, and GCP"
+  authors:
+    - "Alfonso San Miguel Sánchez"
+    - "Danny Obando García"
+  edition: "First edition"
+  publication_date: "2024-02-23"
+  copyright_year: 2024
+  publisher: "Packt Publishing Ltd."
+  isbn_print: "978-1-80512-257-9"
+  language: en
+  identity_evidence:
+    - "Rendered title page names the title, subtitle, and both authors (PDF page 2)."
+    - "Copyright page names Packt, copyright 2024, and ISBN 978-1-80512-257-9 (PDF page 3)."
+    - "Packt's product page identifies 23 February 2024, 446 pages, and first edition."
+  identity_warning: >-
+    The embedded copyright page says "First published: February 2023," which conflicts
+    with its own 2024 copyright, the PDF's February 2024 creation date, and Packt's
+    official 23 February 2024 publication date. Publication date follows the publisher.
+source:
+  local_pdf: "resources/efficient-cloud-finops.pdf"
+  original_path: "/mnt/c/Users/CoderA/Downloads/Telegram Desktop/Packt.Efficient.Cloud.FinOps.pdf"
+  sha256: "1eda3f0fb7030555150a7689baafa6bde1964d88c061733b7944d2796104ec91"
+  bytes: 33470942
+  pdf_version: "1.6"
+  pdf_pages: 446
+  page_size_points: "539.96 x 665.94"
+  encrypted: false
+  tagged: true
+  embedded_creation_date: "2024-02-01T06:26:23+01:00"
+  embedded_modification_date: "2024-03-22T13:13:23+01:00"
+extraction:
+  state: "pass_with_limitations"
+  method: "Poppler pdftotext 24.02.0 with layout preservation and independent per-page extraction"
+  full_text: "workspace/efficient-cloud-finops/full.txt"
+  page_chunks: 446
+  nonempty_text_page_chunks: 433
+  text_empty_pages: [7, 15, 23, 41, 69, 71, 103, 165, 223, 315, 363, 365, 441]
+  extracted_lines: 14703
+  extracted_words: 130385
+  extracted_bytes: 940344
+  form_feed_page_boundaries: 446
+  unicode_replacement_characters: 0
+  spot_checks:
+    - pdf_page: 2
+      region: identity
+      result: "Rendered and extracted title, subtitle, and authors agree."
+    - pdf_pages: "8-14"
+      region: table_of_contents
+      result: "Readable; chapter openings and printed-page mapping verified."
+    - pdf_page: 24
+      region: beginning
+      result: "Chapter 1 heading, prose, and printed page 3 extract cleanly."
+    - pdf_pages: "223-224"
+      region: middle
+      result: "PDF page 223 is an intentional blank; Chapter 8 begins cleanly on PDF page 224 / printed page 203."
+    - pdf_pages: "366-380"
+      region: selected_payoff
+      result: "Readable prose, tables, headings, and printed pages; key conclusion visually checked on PDF page 380."
+    - pdf_pages: "425-446"
+      region: ending
+      result: "Chapter conclusion, index, and back matter remain page-addressable."
+  limitations:
+    - "Blank separator pages and several diagram-led pages require visual inspection; they are not extraction failures."
+    - "Tables extract less reliably than prose and must be read in the PDF before reusing figures."
+    - "Prices, product generations, APIs, discounts, and licensing terms are a 2023 snapshot and are not current instructions."
+editorial_gate:
+  decision: "PASS_WITH_MAJOR_CURRENCY_AND_ACCURACY_BOUNDARY"
+  selected_payoff: >-
+    Cost optimization is an ordered dependency problem: first establish workload purpose
+    and constraints, then remove or reshape usage, and only then buy rate commitments for
+    the stable remainder. A discount purchased too early can fossilize waste.
+  why_not_skipped: >-
+    Chapter 12 makes the sequence concrete across architecture, rightsizing, schedules,
+    commitments, and licensing. The method changes an engineering decision and supports
+    a small evidence-producing reading task; it is more than a provider-tool survey.
+  distinctiveness: >-
+    No accepted essay centers cloud economics or the dependency between usage reduction
+    and rate commitments. The existing essays address ML failure envelopes, architecture
+    trade-offs, staff-level leverage, migration seams, Go system guarantees, distributed
+    timeout ambiguity, API-security coverage, systems-thinking semantic drift, and CPU
+    scaling/coherence.
+  currency_boundary: >-
+    The current FinOps Framework extends beyond public cloud to technology value, current
+    provider portfolios differ, and some Azure VM reservation availability changed in July
+    2026. Use the book for the sequencing argument, not for current SKUs, price claims,
+    service defaults, APIs, licensing terms, or framework scope.
+  accuracy_warnings:
+    - "PDF pages 188-189 mix an all-upfront break-even calculation with a no-upfront claim; do not reuse the formula as written."
+    - "PDF pages 388-396 call S3 a NoSQL document store and treat versioning as a replacement for Multi-AZ; current AWS documentation separates S3's built-in multi-AZ resilience, object-version recovery, and RDS failover."
+    - "The worked case studies use simplified assumptions and July 2023 retail prices, and omit material costs such as egress in the first case (PDF pages 368-369)."
+  review: "notes/review-efficient-cloud-finops.md"
+  essay: "essays/efficient-cloud-finops.md"
+locators:
+  convention: "pdf_page is the one-based physical PDF page; printed_page is the page number printed in the book."
+  printed_to_pdf_offset_for_numbered_body: 21
+  numbered_body_range: "printed pages 1-425 correspond to PDF pages 22-446, with unnumbered part pages and intentional blanks inside that span"

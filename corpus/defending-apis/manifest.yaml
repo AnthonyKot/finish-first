@@ -1,0 +1,75 @@
+schema_version: 1
+slug: defending-apis
+editorial_status: pass
+identity:
+  title: "Defending APIs"
+  subtitle: "Uncover advanced defense techniques to craft secure application programming interfaces"
+  authors:
+    - "Colin Domoney"
+  edition: "First Edition"
+  publication_date: "2024-02"
+  copyright_year: 2024
+  publisher: "Packt Publishing Ltd."
+  isbn_print: "978-1-80461-712-0"
+  language: en
+  identity_evidence:
+    - "Embedded title page, PDF page 2"
+    - "Copyright page and first-publication statement, PDF page 3"
+    - "Publisher product page lists February 2024, 384 pages, first edition"
+source:
+  local_pdf: "resources/defending-apis.pdf"
+  original_path: "/mnt/c/Users/CoderA/Downloads/Telegram Desktop/Packt.Defending.APIs.pdf"
+  sha256: "1003a61a0088492faf99298016dfe8c15cec5fce930c051d85116c2c16f52bde"
+  bytes: 31526432
+  pdf_version: "1.6"
+  pdf_pages: 384
+  page_size_points: "540 x 666"
+  encrypted: false
+extraction:
+  state: "pass"
+  method: "Poppler pdftotext 24.02.0 with layout preservation"
+  full_text: "workspace/defending-apis/full.txt"
+  extracted_lines: 11697
+  extracted_words: 95307
+  extracted_bytes: 715649
+  page_boundaries_preserved: true
+  page_boundary_count: 384
+  spot_checks:
+    - pdf_page: 2
+      region: beginning
+      result: "Readable title, subtitle, and author."
+    - pdf_page: 192
+      region: middle
+      result: "Readable prose, running header, printed page number, and figure caption."
+    - pdf_page: 362
+      region: selected_payoff
+      result: "Readable Chapter 13 conclusion and printed page number."
+    - pdf_page: 384
+      region: end
+      result: "Readable final promotional page and printed page number."
+  known_issues:
+    - "The first physical PDF page is blank."
+    - "The `file` utility incorrectly reports 25 pages; Poppler pdfinfo and extraction both resolve 384 pages."
+    - "Figures and screenshots require visual inspection; the selected essay relies on extracted prose and lists."
+    - "For numbered body pages, physical PDF page equals printed page plus 23."
+editorial_gate:
+  decision: "PASS_WITH_CURRENCY_BOUNDARY"
+  selected_payoff: >-
+    API security becomes tractable when treated as risk-prioritized coverage across a
+    known inventory and the whole delivery lifecycle, rather than as a scanner or
+    perimeter-product purchase.
+  why_not_skipped: >-
+    Chapter 13 turns the earlier vulnerability, attacker, design, and runtime material
+    into a concrete operating model: inventory, design, development, testing,
+    protection, and governance, applied first to a high-risk cohort. This organizational
+    argument is durable and distinct from the current shelf.
+  currency_boundary: >-
+    Do not use the book alone for current OAuth/OIDC flow selection, current framework
+    configuration, current product capabilities, or the definitive OWASP risk list.
+    Recheck such advice against current primary standards. The essay intentionally
+    isolates the lifecycle-program argument.
+  review: "notes/review-defending-apis.md"
+  essay: "essays/defending-apis.md"
+locators:
+  convention: "pdf_page is the one-based physical PDF page; printed_page is the page number printed in the book."
+  printed_to_pdf_offset_for_numbered_body: 23

@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Replace risky behavior behind a small contract that can be compared, measured, deployed, and reversed.">
+  <meta name="theme-color" content="#153b35">
+  <meta property="og:title" content="The Migration Unit Is a Seam, Not a Codebase">
+  <meta property="og:description" content="Replace risky behavior behind a small contract that can be compared, measured, deployed, and reversed.">
+  <meta property="og:type" content="website">
+  <title>The Migration Unit Is a Seam, Not a Codebase · Finish First</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23153b35'/%3E%3Ctext x='17' y='44' font-size='35' fill='%23fffdf8'%3EF%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="article-view" data-active-slug="refactoring-to-rust">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <header class="site-header">
+    <a class="wordmark" href="../index.html" aria-label="Finish First home">
+      <span class="wordmark__mark">F<span>←</span></span>
+      <span><strong>Finish First</strong><small>technical books, read backward</small></span>
+    </a>
+    <div class="header-actions">
+      <span class="progress-summary" data-progress-summary>0 of 11 missions</span>
+      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="book-navigation">Contents</button>
+    </div>
+  </header>
+  <div class="page-shell">
+    <aside class="book-nav" id="book-navigation" data-book-nav>
+      <div class="book-nav__intro">
+        <a href="../index.html">The shelf</a>
+        <p>Eleven destinations. One exact mission each.</p>
+      </div>
+      <nav aria-label="Book contents">
+    <a class="book-nav__item" href="../essays/software-architecture-hard-parts.html" data-mission-link="software-architecture-hard-parts">
+      <span class="book-nav__number">01</span>
+      <span><small>Architecture</small>The Architecture Decision Hidden Behind the Technology Argument</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/machine-learning-engineering.html" data-mission-link="machine-learning-engineering">
+      <span class="book-nav__number">02</span>
+      <span><small>ML systems</small>The Model Is Allowed to Be Wrong. The System Is Not Allowed to Be Helpless.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/staff-engineers-path.html" data-mission-link="staff-engineers-path">
+      <span class="book-nav__number">03</span>
+      <span><small>Engineering leadership</small>The Staff Engineer Who Can Leave the Room</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item is-active" href="../essays/refactoring-to-rust.html" data-mission-link="refactoring-to-rust">
+      <span class="book-nav__number">04</span>
+      <span><small>Migration</small>The Migration Unit Is a Seam, Not a Codebase</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/practical-systems-programming-go.html" data-mission-link="practical-systems-programming-go">
+      <span class="book-nav__number">05</span>
+      <span><small>Systems programming</small>A File Indexer Is a Chain of Promises</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/database-internals.html" data-mission-link="database-internals">
+      <span class="book-nav__number">06</span>
+      <span><small>Distributed systems</small>The Database Committed. Your Client Timed Out. Both Are True.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/defending-apis.html" data-mission-link="defending-apis">
+      <span class="book-nav__number">07</span>
+      <span><small>Security</small>API Security Is a Coverage System, Not a Product Purchase</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/learning-systems-thinking.html" data-mission-link="learning-systems-thinking">
+      <span class="book-nav__number">08</span>
+      <span><small>Systems thinking</small>The Mission Stayed the Same. Every Word Changed.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/performance-analysis-tuning-modern-cpus.html" data-mission-link="performance-analysis-tuning-modern-cpus">
+      <span class="book-nav__number">09</span>
+      <span><small>Performance</small>The Fifth Thread Made the Program Slower</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/efficient-cloud-finops.html" data-mission-link="efficient-cloud-finops">
+      <span class="book-nav__number">10</span>
+      <span><small>Cloud economics</small>A Discount Can Fossilize Waste</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/designing-electronics-that-work.html" data-mission-link="designing-electronics-that-work">
+      <span class="book-nav__number">11</span>
+      <span><small>Electronics</small>The Enclosure Did Not Cause the Failure. It Exposed It.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a></nav>
+      <a class="book-nav__skips" href="../index.html#transparent-skips">Editorial skips →</a>
+    </aside>
+    <main id="main" class="essay-page">
+    <header class="essay-hero">
+      <div class="essay-kicker"><span>04</span>Migration</div>
+      <p class="essay-book">From <cite>Refactoring to Rust</cite> by Lily Mara &amp; Joel Holmes</p>
+      <p class="essay-payoff">Replace risky behavior behind a small contract that can be compared, measured, deployed, and reversed.</p>
+      <div class="essay-meta"><span>PDF pages 282–290</span><span>Produces: Six-field seam card</span></div>
+    </header>
+    <aside class="currency-note"><strong>Edition boundary</strong>The final WebAssembly recipe has aged; read it for boundary design, not copy-paste setup.</aside>
+    <article class="prose"><h1 id="the-migration-unit-is-a-seam-not-a-codebase">The Migration Unit Is a Seam, Not a Codebase</h1>
+<p>The most persuasive moment in Lily Mara and Joel Holmes&#39;s <em>Refactoring to Rust</em>
+arrives almost at the end. A small Rust host loads one WebAssembly search module,
+then another. One searches papers; the other searches books. Their internals and data
+sources differ, but the host does not need to be recompiled. Each module satisfies the
+same small interface, so the surrounding program can choose an implementation at
+startup (Chapter 10, PDF pp. 282–289).</p>
+<p>That demonstration matters less for what it says about search or WebAssembly than
+for what it reveals about migration: <strong>you do not migrate a codebase all at once. You
+migrate one seam at a time.</strong></p>
+<p>This is the reason to finish the book. The early chapters can look like separate Rust
+tours—ownership, FFI, modules, Python extensions, testing, concurrency. From the
+last chapter, they line up into one practical method. Find a valuable boundary. State
+its contract. Put unsafe or language-specific translation at its edge. Reimplement the
+behavior behind it. Run the old and new paths against the same evidence. Then make
+the replacement small enough to deploy, observe, and reverse.</p>
+<h2 id="the-promise-make-a-rewrite-unnecessary">The promise: make a rewrite unnecessary</h2>
+<p>“Rewrite it in Rust” is an attractive sentence because it erases the awkward middle.
+The old system is slow or dangerous; the new one will be fast and safe. But users live
+in the middle. So do production incidents, undocumented behavior, release calendars,
+and the engineers who must maintain both versions while the transformation is under
+way.</p>
+<p>Chapter 1 refuses the clean-room fantasy. It contrasts a large replacement with small,
+independent changes that can ship while the existing system continues serving users.
+It treats the old application&#39;s operational history and automated tests as assets, not
+debris. It also asks how old and new paths will be compared and how rollout can be
+limited (PDF pp. 20–23). Later, it names a four-part loop: planning, implementation,
+verification, and deployment (PDF pp. 28–30).</p>
+<p>The payoff is control. A well-chosen seam gives you a place where two implementations
+can coexist. You can send the same input to each, compare their output, measure their
+cost, expose the new path to a small audience, and return to the old one if reality
+disagrees with your benchmark. Rust becomes useful here not because every line must
+be Rust, but because one bounded component may benefit from Rust&#39;s performance,
+types, ownership rules, or concurrency while the rest of the application remains
+unchanged.</p>
+<p>That makes the first migration question surprisingly modest: <strong>what is the smallest
+valuable behavior that the existing program could call through an explicit contract?</strong></p>
+<h2 id="the-idea-the-boundary-is-part-of-the-product">The idea: the boundary is part of the product</h2>
+<p>In Chapter 10, the host expects search behavior and the modules provide it. That
+sounds simple until values must cross the boundary. WebAssembly functions expose a
+small set of primitive values; strings and structured data require the host and module
+to agree on representation, allocation, and reading. The book moves from calling a
+function to confronting linear memory precisely because interchangeability is never
+free (PDF pp. 280–281, 289–291).</p>
+<p>This is the central engineering idea hiding behind the example: a seam is not merely
+the function name. It is a bundle of agreements:</p>
+<ul>
+<li>which inputs are valid and who validates them;</li>
+<li>which outputs and failures are observable;</li>
+<li>which side owns memory and releases resources;</li>
+<li>whether calls may block, retry, or run concurrently;</li>
+<li>how old and new behavior are compared;</li>
+<li>how the system chooses an implementation and retreats from it.</li>
+</ul>
+<p>The same problem appears earlier at the C boundary. Rust cannot infer the lifetime or
+ownership of memory created elsewhere, so crossing into foreign memory creates proof
+obligations for the programmer (PDF pp. 79–80). The book&#39;s better design move is to
+keep those obligations in a thin adapter: convert the C string, validate it, and pass an
+ordinary Rust string reference into a separate <code>evaluate</code> function with no FFI or
+unsafe concerns (PDF pp. 95–96). The adapter knows the foreign world. The core knows
+the business rule.</p>
+<p>That separation makes safety local and reuse possible. It also makes review more
+honest. “Written in Rust” does not mean “safe” if unchecked assumptions are spread
+throughout the component. “Runs in a sandbox” does not mean “trusted” if the host
+grants broad capabilities or misreads guest memory. Chapter 10 itself says the virtual
+machine bears responsibility for memory interaction and that its design is therefore
+important (PDF pp. 289–290). The useful question is not whether the new technology
+has a safety label. It is where the unverified assumptions live and how small that area
+can become.</p>
+<h2 id="the-reverse-dependency-trail">The reverse dependency trail</h2>
+<p>Start at the destination: two implementations can be swapped behind one host
+contract without rebuilding the host (PDF pp. 286–289). To make that demonstration
+mean something in production, walk backward through four prerequisites.</p>
+<p>First, <strong>define the seam before choosing the Rust mechanism</strong>. Chapter 1 asks what you
+hope to improve, which part needs replacement, and how the existing code will talk to
+the new code (PDF p. 28). It also supplies a rejection test: frequent deployment must
+be practical, and the organization must be able to maintain the Rust it introduces
+(PDF p. 28). A hotspot without a stable boundary, measurable pain, or an owner is not
+a migration candidate yet.</p>
+<p>Second, <strong>separate translation from behavior</strong>. Ownership and borrowing explain who
+may access a value and when it is dropped (PDF pp. 34–35). FFI then shows what
+happens when the compiler cannot verify those facts across a language boundary (PDF
+pp. 79–80). The C example concentrates pointer checks and representation conversion
+in the exported wrapper, leaving the calculation in normal Rust (PDF pp. 95–96).
+Chapter 10 repeats the lesson at a different boundary: host and guest must agree on
+how complex data occupies memory (PDF pp. 289–291). The technologies differ; the
+design discipline is the same.</p>
+<p>Third, <strong>make the old behavior an oracle</strong>. In the Python example, the book uses the
+existing implementation and the Rust replacement on identical randomized inputs,
+then asserts equal results (PDF pp. 225–229). This does not prove that the old behavior
+is ideal. It makes differences visible before someone accidentally calls them
+improvements. Once equivalence is explicit, intentional changes can be reviewed as
+changes instead of hiding inside a language migration.</p>
+<p>Fourth, <strong>prove the promised benefit on the real boundary</strong>. The Python migration
+isolates JSON parsing while leaving I/O in Python (PDF pp. 184–185). It then benchmarks
+both paths and discovers that an unoptimized Rust build provides only a modest gain;
+the release build changes the result substantially (PDF pp. 195, 203–204). The larger
+lesson is not the reported speedup. It is that intuition was insufficient twice: first to
+locate the expensive work, then to evaluate the replacement. Measure the old and new
+paths under representative conditions, including conversion cost at the seam.</p>
+<p>The path through the book is therefore:</p>
+<p><strong>measurable pain → explicit contract → narrow adapter → equivalent behavior →
+measured benefit → reversible rollout.</strong></p>
+<p>Rust is one implementation choice inside that chain. The seam is what makes the
+choice survivable.</p>
+<h2 id="why-the-last-chapter-is-still-worth-reading-in-2026">Why the last chapter is still worth reading in 2026</h2>
+<p>The architectural lesson survived better than the commands. The book was published
+in 2025, yet its final examples use the old <code>wasm32-wasi</code> target name and pre–Rust
+2024 <code>#[no_mangle]</code> syntax (PDF pp. 280–281, 287, 289, 291, 294). Current Rust uses
+<code>wasm32-wasip1</code> for that compatibility target, and Rust 2024 requires
+<code>#[unsafe(no_mangle)]</code>. The pinned WasmEdge and ecosystem APIs also need current
+documentation before use.</p>
+<p>That is not a reason to discard the ending. It is a reason to read it at the right level.
+Do not copy the project as a 2026 recipe. Watch the authors progressively discover
+the contract: first a binary entry point, then a directly callable function, then a host,
+then a second interchangeable module, then the memory agreement that makes richer
+values possible. The friction is the lesson. Every convenient cross-language call
+rests on choices about representation, capabilities, ownership, and failure.</p>
+<section class="mission" data-mission="refactoring-to-rust"><div class="mission__label">Your one reading mission</div><h2 id="one-reading-mission">One reading mission</h2>
+<p>Read <strong>PDF pages 282–290</strong> (printed pp. 263–271), from Section 10.4, “Consuming
+Wasm,” through the first two pages of Section 10.6, “Wasm memory.” Do not run the
+version-pinned commands yet.</p>
+<p>Carry three questions:</p>
+<ol>
+<li>What does the host require from every module, and what does the module assume
+about the host?</li>
+<li>Which part of the interface is stable behavior, and which part leaks the chosen
+runtime or memory representation?</li>
+<li>What evidence would justify replacing one implementation, and what switch would
+return traffic to the old one?</li>
+</ol>
+<p>Completion evidence: write a one-page <strong>seam card</strong> for one slow, risky, or awkward
+component you know. Include exactly six fields: candidate behavior, input/output
+contract, ownership boundary, old-behavior oracle, success measure, and rollback
+switch. The mission is complete when another engineer could implement a second
+version from the card—or point to the ambiguity that prevents it.</p>
+</section><h2 id="receipts">Receipts</h2>
+<ul>
+<li>Incremental changes, existing operational knowledge, reused tests, comparison, and
+controlled rollout: Chapter 1, PDF pp. 20–23.</li>
+<li>When not to refactor and the plan/implement/verify/deploy loop: Sections 1.5–1.6,
+PDF pp. 28–30.</li>
+<li>Ownership rules: Section 2.1, PDF pp. 34–35.</li>
+<li>Foreign-memory obligations: Sections 3.1–3.2, PDF pp. 79–80.</li>
+<li>Thin FFI adapter and ordinary reusable Rust core: Section 3.2.3, PDF pp. 95–96.</li>
+<li>Isolating Python JSON parsing and benchmarking both paths: Sections 6.2 and 6.5,
+PDF pp. 184–185 and 195.</li>
+<li>Release-build comparison and six-step migration recap: Section 6.6, PDF pp. 203–204.</li>
+<li>Comparing original Python and Rust behavior on generated inputs: Section 7.2.1,
+PDF pp. 225–229.</li>
+<li>Host/module interface and dynamic module loading: Section 10.4, PDF pp. 282–285.</li>
+<li>Interchangeable modules without host recompilation: Section 10.5, PDF pp. 286–289.</li>
+<li>Host/guest memory agreement: Section 10.6, PDF pp. 289–291.</li>
+<li>Currency limits and current-source links: <code>notes/review-refactoring-to-rust.md</code>.</li>
+</ul>
+</article>
+    <div class="mission-action" data-mission-action="refactoring-to-rust">
+      <div><strong>Make the reading count.</strong><span>Complete the artifact described in the mission, then mark it done.</span></div>
+      <button type="button" data-complete-mission="refactoring-to-rust">Mark mission complete</button>
+    </div>
+    <nav class="essay-pager" aria-label="Adjacent essays">
+    <a href="staff-engineers-path.html"><span>Previous</span>The Staff Engineer Who Can Leave the Room</a>
+    <a class="essay-pager__next" href="practical-systems-programming-go.html"><span>Next</span>A File Indexer Is a Chain of Promises</a>
+  </nav>
+    <footer class="article-footer">Original companion prose directs you back to the cited edition. Source PDFs and extracted text remain private and are not published here.</footer>
+  </main>
+  </div>
+</body>
+</html>

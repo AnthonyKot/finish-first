@@ -1,0 +1,58 @@
+schema_version: 1
+slug: machine-learning-engineering
+editorial_status: pass
+identity:
+  title: "Machine Learning Engineering"
+  subtitle: null
+  authors:
+    - "Andriy Burkov"
+  edition: "Draft; exact commercial edition not stated in the PDF"
+  year: 2020
+  identity_evidence:
+    - "Embedded running title and author, PDF page 1"
+    - "Foreword dated September 2020, PDF page 3"
+    - "PDF creation and modification timestamp: 2020-11-08"
+  filename_warning: >-
+    The local slug and original filename say “Modern Software Engineering,” but the
+    embedded title, author, and content identify this file as Machine Learning
+    Engineering. The embedded document identity is treated as authoritative.
+source:
+  local_pdf: "resources/modern-software-engineering.pdf"
+  original_path: "/mnt/c/Users/CoderA/Downloads/Telegram Desktop/Modern_Software_Engineering_Doing_What_Works_to_Build_Better_Software.pdf"
+  sha256: "c5922886ab097065070dabbb73d3de8e3401985fad2fa7e16c37097f038e8234"
+  bytes: 40284784
+  pdf_pages: 274
+  page_size_points: "612 x 792"
+  encrypted: false
+extraction:
+  state: "pass"
+  method: "Poppler pdftotext 24.02.0 with layout preservation"
+  full_text: "workspace/modern-software-engineering/full.txt"
+  extracted_lines: 11251
+  extracted_bytes: 680836
+  page_boundaries_preserved: true
+  spot_checks:
+    - pdf_page: 1
+      region: beginning
+      result: "Readable quotation/title leaf; embedded author and running title recovered."
+    - pdf_page: 120
+      region: middle
+      result: "Readable prose, section hierarchy, schema example, and page footer recovered."
+    - pdf_page: 274
+      region: end
+      result: "Readable acknowledgements and final page footer recovered."
+  known_issues:
+    - "The PDF is untagged, but form-feed page boundaries are preserved."
+    - "Some cross-references remain unresolved as 'Section ??' in the source draft."
+    - "Printed page numbers restart in each chapter; use PDF-page locators for receipts."
+    - "Figures and equations extract less cleanly than prose, but do not block the selected essay."
+editorial_gate:
+  decision: "PASS"
+  selected_payoff: >-
+    A production ML system should assume model errors and change are inevitable, then
+    constrain harm with fallbacks, reversibility, observability, and controlled rollout.
+  why_not_skipped: >-
+    The 2020 implementation examples have aged, but the end-of-book systems argument
+    remains concrete, actionable, and more durable than its named tools.
+  review: "notes/review-machine-learning-engineering.md"
+  essay: "essays/machine-learning-engineering.md"

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Read a reversing scaling curve as evidence of serial work, waiting, oversubscription, or cache-line traffic.">
+  <meta name="theme-color" content="#153b35">
+  <meta property="og:title" content="The Fifth Thread Made the Program Slower">
+  <meta property="og:description" content="Read a reversing scaling curve as evidence of serial work, waiting, oversubscription, or cache-line traffic.">
+  <meta property="og:type" content="website">
+  <title>The Fifth Thread Made the Program Slower · Finish First</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23153b35'/%3E%3Ctext x='17' y='44' font-size='35' fill='%23fffdf8'%3EF%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="article-view" data-active-slug="performance-analysis-tuning-modern-cpus">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <header class="site-header">
+    <a class="wordmark" href="../index.html" aria-label="Finish First home">
+      <span class="wordmark__mark">F<span>←</span></span>
+      <span><strong>Finish First</strong><small>technical books, read backward</small></span>
+    </a>
+    <div class="header-actions">
+      <span class="progress-summary" data-progress-summary>0 of 11 missions</span>
+      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="book-navigation">Contents</button>
+    </div>
+  </header>
+  <div class="page-shell">
+    <aside class="book-nav" id="book-navigation" data-book-nav>
+      <div class="book-nav__intro">
+        <a href="../index.html">The shelf</a>
+        <p>Eleven destinations. One exact mission each.</p>
+      </div>
+      <nav aria-label="Book contents">
+    <a class="book-nav__item" href="../essays/software-architecture-hard-parts.html" data-mission-link="software-architecture-hard-parts">
+      <span class="book-nav__number">01</span>
+      <span><small>Architecture</small>The Architecture Decision Hidden Behind the Technology Argument</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/machine-learning-engineering.html" data-mission-link="machine-learning-engineering">
+      <span class="book-nav__number">02</span>
+      <span><small>ML systems</small>The Model Is Allowed to Be Wrong. The System Is Not Allowed to Be Helpless.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/staff-engineers-path.html" data-mission-link="staff-engineers-path">
+      <span class="book-nav__number">03</span>
+      <span><small>Engineering leadership</small>The Staff Engineer Who Can Leave the Room</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/refactoring-to-rust.html" data-mission-link="refactoring-to-rust">
+      <span class="book-nav__number">04</span>
+      <span><small>Migration</small>The Migration Unit Is a Seam, Not a Codebase</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/practical-systems-programming-go.html" data-mission-link="practical-systems-programming-go">
+      <span class="book-nav__number">05</span>
+      <span><small>Systems programming</small>A File Indexer Is a Chain of Promises</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/database-internals.html" data-mission-link="database-internals">
+      <span class="book-nav__number">06</span>
+      <span><small>Distributed systems</small>The Database Committed. Your Client Timed Out. Both Are True.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/defending-apis.html" data-mission-link="defending-apis">
+      <span class="book-nav__number">07</span>
+      <span><small>Security</small>API Security Is a Coverage System, Not a Product Purchase</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/learning-systems-thinking.html" data-mission-link="learning-systems-thinking">
+      <span class="book-nav__number">08</span>
+      <span><small>Systems thinking</small>The Mission Stayed the Same. Every Word Changed.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item is-active" href="../essays/performance-analysis-tuning-modern-cpus.html" data-mission-link="performance-analysis-tuning-modern-cpus">
+      <span class="book-nav__number">09</span>
+      <span><small>Performance</small>The Fifth Thread Made the Program Slower</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/efficient-cloud-finops.html" data-mission-link="efficient-cloud-finops">
+      <span class="book-nav__number">10</span>
+      <span><small>Cloud economics</small>A Discount Can Fossilize Waste</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/designing-electronics-that-work.html" data-mission-link="designing-electronics-that-work">
+      <span class="book-nav__number">11</span>
+      <span><small>Electronics</small>The Enclosure Did Not Cause the Failure. It Exposed It.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a></nav>
+      <a class="book-nav__skips" href="../index.html#transparent-skips">Editorial skips →</a>
+    </aside>
+    <main id="main" class="essay-page">
+    <header class="essay-hero">
+      <div class="essay-kicker"><span>09</span>Performance</div>
+      <p class="essay-book">From <cite>Performance Analysis and Tuning on Modern CPUs</cite> by Denis Bakhvalov</p>
+      <p class="essay-payoff">Read a reversing scaling curve as evidence of serial work, waiting, oversubscription, or cache-line traffic.</p>
+      <div class="essay-meta"><span>PDF pages 147–160</span><span>Produces: Four-row thread-count autopsy</span></div>
+    </header>
+    <aside class="currency-note"><strong>Edition boundary</strong>Prefer the expanded 2024 second edition; exact 2020 tool commands and event names are snapshots.</aside>
+    <article class="prose"><h1 id="the-fifth-thread-made-the-program-slower">The Fifth Thread Made the Program Slower</h1>
+<p>A program finishes a fixed job with one worker. Two workers help. Four help more. Then the fifth arrives and the curve bends the wrong way.</p>
+<p>The comforting explanation is that the machine has run out of useful parallelism. That may be true, but it is not the only possibility. The new worker may be waiting on a serial phase. It may be spinning while appearing busy. It may be competing for a lock. Or it may update a completely different variable from its neighbors while forcing their cores to exchange ownership of the same cache line.</p>
+<p>That last possibility is the late payoff of Denis Bakhvalov&#39;s <em>Performance Analysis and Tuning on Modern CPUs</em>. Chapter 11 turns “use more cores” from a slogan into a diagnosis: <strong>a thread-count curve measures not only how much work can run in parallel, but how much communication the parallelism creates</strong>. More workers can stop helping and begin adding instructions, waits, scheduling, synchronization, and coherence traffic. The reader&#39;s reward is not a magic thread count. It is a way to stop optimizing the wrong thing when scaling flattens or reverses. [Receipt: Chapter 11 introduction and “Performance Scaling And Overhead,” PDF/printed pp. 147–149; chapter summary, pp. 159–160.]</p>
+<h2 id="the-idea-a-scaling-curve-is-an-x-ray">The idea: a scaling curve is an X-ray</h2>
+<p>For a fixed workload, measure performance at one worker, then two, then four, and continue toward the machine&#39;s logical-CPU count. The shape gives you a question before it gives you an answer.</p>
+<ul>
+<li>A rising curve says added workers still contribute useful throughput.</li>
+<li>A plateau says some limiting factor now dominates the added capacity.</li>
+<li>A declining curve says the added workers impose more cost than useful work.</li>
+</ul>
+<p>Chapter 11 begins with the familiar serial limit: if one thread owns the long pole, accelerating a thread that already finishes early cannot shorten the job. Its h264 example then shows something richer. Performance gains largely stop after four threads on a four-core/eight-thread machine, while the runs above four threads execute more instructions and consume more core cycles. The extra workers are not free passengers. They change the work the machine must perform. [Receipt: PDF/printed pp. 147–149, including Figures 46–48 and their discussion.]</p>
+<p>This is why a single aggregate such as CPU utilization can deceive. A core can be busy spinning on a lock without advancing the application. Chapter 11 separates effective CPU utilization from spin and parallel-runtime overhead, and it distinguishes synchronization waits from preemption waits. Those categories suggest different investigations: a contended object, too many runnable threads, work units that are too small, or an imbalanced pipeline in which some workers repeatedly arrive early and wait. [Receipt: “Parallel Efficiency Metrics,” PDF/printed pp. 149–150.]</p>
+<p>The chapter&#39;s profiling walkthrough makes the diagnostic order concrete. First inspect the whole application&#39;s thread behavior. Then find where time or waits concentrate. Then connect the expensive event back to a call path or source location. In the book&#39;s x264 example, a large share of context switches leads through one conditional-wait path. The point is not that your program has the same function. The point is that “multithreading is slow” becomes a claim you can narrow to a particular kind of lost time and a particular path. [Receipt: VTune and Linux perf walkthroughs, PDF/printed pp. 150–155.]</p>
+<h2 id="the-surprise-different-variables-can-still-be-shared">The surprise: different variables can still be shared</h2>
+<p>Near the end of the chapter, the hardware changes what the source code appears to say.</p>
+<p>Imagine two threads. One repeatedly updates <code>sumA</code>; the other repeatedly updates <code>sumB</code>. No thread reads or writes the other&#39;s variable. At source level, the state looks private. If both integers occupy the same cache line, however, the coherence system does not transfer ownership of an individual integer. A write requires the containing line to be writable in that core&#39;s cache, so the two cores can invalidate and reacquire the line as their independent updates alternate.</p>
+<p>That is false sharing: the variables are logically separate, but the unit of hardware coherence makes them physical roommates. The program can slow as more workers join because more execution capacity creates more ownership traffic. Unlike an ordinary serial fraction, this cost can produce retrograde scaling rather than merely a ceiling. [Receipt: “Cache Coherency Protocols” and “False Sharing,” PDF/printed pp. 156–160.]</p>
+<p>The diagnosis matters because the obvious fixes target the wrong layer. Removing a lock will not repair a cache-line fight that has no lock. Rewriting the arithmetic will not change where the counters live. Increasing the worker count amplifies the very traffic causing the loss.</p>
+<p>The book points to data layout instead. Its earlier memory chapter shows the same two-field structure and then aligns one field so the two writers do not share a line. That can reduce false sharing, but it is not a free universal rule. Padding consumes memory and can reduce cache and bandwidth efficiency. The honest sequence is therefore:</p>
+<ol>
+<li>establish that scaling flattens or declines on a fixed workload;</li>
+<li>distinguish useful work from waiting, spinning, and scheduler overhead;</li>
+<li>gather evidence of contended cache lines and identify the source objects;</li>
+<li>change the layout or ownership model only for the demonstrated conflict;</li>
+<li>rerun the scaling sweep on every platform that matters.</li>
+</ol>
+<p>[Receipt: alignment, padding costs, and the earlier false-sharing repair, PDF/printed pp. 115–117; later detection and repair discussion, pp. 158–159.]</p>
+<p>Current tools preserve this route, although their support depends on the processor and operating system. Upstream <code>perf c2c</code> still exists specifically to locate expensive shared cache lines, with different facilities and limitations across Intel, AMD, Arm64, and PowerPC. Intel&#39;s current VTune documentation also retains a false-sharing workflow. Treat the local book&#39;s 2020 screenshots and event names as examples of evidence, not commands guaranteed to work unchanged on your machine. [Current checks: <a href="https://man7.org/linux/man-pages/man1/perf-c2c.1.html" target="_blank" rel="noreferrer">https://man7.org/linux/man-pages/man1/perf-c2c.1.html</a> and <a href="https://www.intel.com/content/www/us/en/docs/vtune-profiler/cookbook/2023-0/false-sharing.html" target="_blank" rel="noreferrer">https://www.intel.com/content/www/us/en/docs/vtune-profiler/cookbook/2023-0/false-sharing.html</a>.]</p>
+<h2 id="why-the-earlier-chapters-suddenly-matter">Why the earlier chapters suddenly matter</h2>
+<p>Read backward from the fifth thread and the first half of the book becomes an investigation kit.</p>
+<p>Chapter 8 supplies the closest dependency: <strong>layout is behavior</strong>. Its cache-friendly structures, alignment discussion, and padding example explain how two fields that are separate in the language can remain coupled in the cache. It also states the trade-off the late chapter needs: separating fields may prevent contention, but wasted padding can reduce cache and memory-bandwidth efficiency. Without that tension, “align everything” would merely replace one performance superstition with another. [Receipt: “Cache-Friendly Data Structures,” especially alignment and padding, PDF/printed pp. 113–118.]</p>
+<p>Chapter 6 supplies the workflow: <strong>identify the bottleneck category, locate the responsible code, then fix it</strong>. Its Top-Down Microarchitecture Analysis section repeatedly moves from a high-level stall category to a source location before recommending a change. Chapter 11 reuses that order for coherence: an aggregate memory-bound signal is a reason to inspect contested accesses, not proof that a particular structure is guilty. [Receipt: “Top-Down Microarchitecture Analysis,” PDF/printed pp. 73–82; false-sharing workflow, pp. 158–159.]</p>
+<p>Chapters 3 and 4 supply the vocabulary that makes the evidence legible. The cache hierarchy and performance-monitoring unit explain why the CPU observes events below the source-language abstraction. The metrics chapter explains retired versus executed instructions, utilization, cycles, cache misses, and pipeline slots. Chapter 11&#39;s warning about a spinning thread follows directly: a high utilization number reports that a processor was occupied, not that the application was making useful progress. [Receipt: memory hierarchy and PMU, PDF/printed pp. 36–45; terminology and metrics, pp. 46–51; effective utilization and spin time, pp. 149–150.]</p>
+<p>Chapter 2 reaches bedrock: <strong>a scaling curve is trustworthy only when its measurements are comparable</strong>. Frequency, temperature, neighboring processes, filesystem state, affinity, and layout can change between runs. The chapter recommends repeated measurements and warns against declaring a winner from one convenient summary. Without that discipline, a noisy fifth run can masquerade as a fifth-thread regression. [Receipt: noise and comparable environments, PDF/printed pp. 18–20; repeated manual measurements, pp. 22–24; microbenchmark hazards, pp. 27–28.]</p>
+<p>The backward trail is now visible:</p>
+<blockquote>
+<p>Chapter 11&#39;s cache-line diagnosis depends on Chapter 8&#39;s layout trade-offs, Chapter 6&#39;s identify-then-locate workflow, Chapters 3–4&#39;s hardware metrics, and Chapter 2&#39;s repeatable measurements.</p>
+</blockquote>
+<p>The earlier material no longer asks you to memorize a processor diagram. It earns its place by helping you explain a curve that should have risen and did not.</p>
+<h2 id="what-has-aged-and-one-claim-to-correct">What has aged—and one claim to correct</h2>
+<p>This local PDF is the first edition, released in 2020. The author released a substantially expanded second edition in 2024 and makes both editions available free. The newer edition adds a multi-workload thread-count-scaling case study on newer hardware; it is the right continuation after this local reading mission. The author&#39;s second-edition material still calls thread-count scaling especially valuable, which is strong evidence that the selected payoff survived the revision. [Current-edition checks: <a href="https://easyperf.net/about_me" target="_blank" rel="noreferrer">https://easyperf.net/about_me</a> and <a href="https://easyperf.net/blog/2024/05/10/Thread-Count-Scaling-Part1" target="_blank" rel="noreferrer">https://easyperf.net/blog/2024/05/10/Thread-Count-Scaling-Part1</a>.]</p>
+<p>The durable parts are the experiment and the causal categories: serial work, imbalance, waiting, contention, coherence, and oversubscription. The per-CPU event names, tool screens, links, and platform-specific recipes are not durable. Verify them against current documentation for the exact CPU and kernel you are measuring.</p>
+<p>There is also one sentence not to carry forward. PDF/printed p. 158 says true sharing implies data races. The example on that page does contain an unsynchronized update, but the general claim is too broad: multiple cores can truly share one location through atomics or correct synchronization. Keep the useful distinction instead. <strong>True sharing means the threads contend over the same logical data; false sharing means distinct logical data collide at cache-line granularity.</strong> Race freedom and coherence cost are different questions. [Receipt: “True Sharing” and “False Sharing,” PDF/printed pp. 158–159.]</p>
+<section class="mission" data-mission="performance-analysis-tuning-modern-cpus"><div class="mission__label">Your one reading mission</div><h2 id="one-reading-mission">Your one reading mission</h2>
+<p>Read <strong>Chapter 11 in full, PDF/printed pages 147–160</strong>. Use one real, fixed workload whose worker count you can control. Keep its input and machine conditions unchanged.</p>
+<p>Run it five times at each of <strong>1, 2, 4, and all logical CPUs</strong>. Record the median elapsed time or throughput for each setting, plus task-clock/CPU utilization and context switches if your platform exposes them. While reading, carry three questions:</p>
+<ul>
+<li>Where does the scaling curve first stop paying for another worker?</li>
+<li>At that point, is the strongest evidence for serial work, imbalance, waiting/spinning, oversubscription, or cache-line contention?</li>
+<li>What one observation would distinguish your leading explanation from the nearest alternative?</li>
+</ul>
+<p>You are finished when you produce a four-row <strong>thread-count autopsy</strong> with columns <code>workers</code>, <code>median result</code>, <code>change from previous row</code>, <code>observed overhead</code>, and <code>leading explanation</code>. Under it, write exactly one next probe—not a fix—to gather the missing evidence. It might target a contended wait path or an expensive shared cache line, but it must follow from the measurements you recorded.</p>
+<p>Do not pad a structure, replace a lock, or change an algorithm during this mission. The payoff is learning to make the curve name the next question. When you can explain why the fifth thread deserves investigation rather than celebration, the rest of the book has a destination: it is the route from “more hardware should have helped” to evidence about what the hardware actually did.</p>
+</section></article>
+    <div class="mission-action" data-mission-action="performance-analysis-tuning-modern-cpus">
+      <div><strong>Make the reading count.</strong><span>Complete the artifact described in the mission, then mark it done.</span></div>
+      <button type="button" data-complete-mission="performance-analysis-tuning-modern-cpus">Mark mission complete</button>
+    </div>
+    <nav class="essay-pager" aria-label="Adjacent essays">
+    <a href="learning-systems-thinking.html"><span>Previous</span>The Mission Stayed the Same. Every Word Changed.</a>
+    <a class="essay-pager__next" href="efficient-cloud-finops.html"><span>Next</span>A Discount Can Fossilize Waste</a>
+  </nav>
+    <footer class="article-footer">Original companion prose directs you back to the cited edition. Source PDFs and extracted text remain private and are not published here.</footer>
+  </main>
+  </div>
+</body>
+</html>

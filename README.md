@@ -1,6 +1,6 @@
 # Finish First
 
-A reader-facing collection of eleven source-backed essays that begin with the valuable idea near the
+A reader-facing collection of fourteen source-backed essays that begin with the valuable idea near the
 end of a technical book, trace its prerequisites backward, and finish with one exact reading mission.
 
 The published HTML book is generated from the original Markdown essays. Source PDFs and full-text

@@ -120,6 +120,39 @@ export const essays = [
     artifact: "Five-field fault case",
     mission: "PDF pages 315–321",
     caution: "Treat regulatory, standards, vendor, price, and tool guidance as a 2025 snapshot."
+  },
+  {
+    slug: "engineering-leadership",
+    title: "What Decision Would You Make Differently?",
+    book: "Engineering Leadership: The Hard Parts",
+    authors: "Juan Pablo Buriticá & James Turnbull",
+    domain: "Engineering leadership",
+    payoff: "Treat every metric as a product with a customer, a decision, an owner, and a retirement condition — or the dashboard becomes a weapon before it becomes an insight.",
+    artifact: "Six-field metric spec",
+    mission: "PDF pages 300–324",
+    caution: "First edition, 2026; the local file is an EPUB reflow, so receipts use PDF pages and chapter/section titles with no printed-page mapping."
+  },
+  {
+    slug: "web-hacking-arsenal",
+    title: "The Finding Was Valid. The Report Decided Whether It Counted.",
+    book: "Web Hacking Arsenal",
+    authors: "Rafay Baloch",
+    domain: "Security",
+    payoff: "Severity is argued in the client's business terms, not computed from a vector string — the report, not the vulnerability, decides whether a true finding counts.",
+    artifact: "Six-line severity decision card",
+    mission: "PDF pages 547–555",
+    caution: "First edition, 2024–2025; treat CVSS version, OWASP numbering, and named tools as snapshots to check against current standards — the reporting method is the durable payoff."
+  },
+  {
+    slug: "think-stats",
+    title: "ttest_ind Returned a Number. The Last Chapter Tells You What You Bought.",
+    book: "Think Stats",
+    authors: "Allen B. Downey",
+    domain: "Statistics",
+    payoff: "Read every closed-form statistical test as a simulation someone stopped running, and keep the simulation as the shortcut's reference implementation.",
+    artifact: "Six-line shortcut-validity card",
+    mission: "PDF pages 288–303",
+    caution: "Third edition, 2025, and current; the mission depends on the book's live companion notebooks and datasets on GitHub."
   }
 ];
 
@@ -133,5 +166,10 @@ export const skips = [
     slug: "security-driven-software-development",
     book: "Security-Driven Software Development",
     reason: "Obsolete and unsafe examples, weak threat-to-test traceability, and a thin final validation report outweigh the useful premise."
+  },
+  {
+    slug: "chatgpt-for-cybersecurity",
+    book: "ChatGPT for Cybersecurity Cookbook",
+    reason: "The capstone recipe runs on OpenAI's Assistants API, removed in August 2026, and no durable method redeems the aging: a 2024 cookbook whose scripts feed attacker-controllable data into prompts and execute the replies never once mentions prompt injection or hallucination."
   }
 ];

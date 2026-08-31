@@ -1,0 +1,117 @@
+slug: engineering-leadership
+locator_note: >
+  This edition has no printed page numbers (calibre EPUB-to-PDF reflow). PDF pages
+  below are reproducible only against the file with sha256
+  997b2d599d69ebb1bc7caa4a2f159b0a61743a349963159af829ddf6b233bc7f. Section titles
+  are given alongside every range because they are the edition-portable half of the
+  locator; the book's own index and cross-references use the same convention.
+
+missions:
+  - id: m1-metric-spec
+    status: recommended
+    purpose: >
+      Learn the book's central late-book move — measurement built as a product with
+      customers, a question, and a decision behind every number — and leave with one
+      metric you can defend or one you can justifiably delete.
+    reading:
+      - section_ids: [ch10-product, ch10-design, ch10-want-need, ch10-questions, ch10-choosing, ch10-take-stock]
+        pdf_pages: "300-312"
+        printed_pages: unknown
+        label: "Chapter 10, opening through 'Take Stock of What You Already Measure' (the design half)"
+      - section_ids: [ch10-human-side, ch10-qual-quant, ch10-goodhart, ch10-context, ch10-measured, ch10-visible, ch10-maintenance]
+        pdf_pages: "315-324"
+        printed_pages: unknown
+        label: "Chapter 10, 'The Human Side of Metrics' through 'Metrics Need Ongoing Maintenance, Just Like Code'"
+    optional_reading:
+      - section_ids: [ch10-velocity]
+        pdf_pages: "312-314"
+        printed_pages: unknown
+        label: "Velocity: The Most Misused Metric in Software — read only if story points are a live argument where you work"
+    estimated_pages: 23
+    questions:
+      - "For each number my team or my leadership currently looks at: what decision would somebody make differently if it moved?"
+      - "Which of my current metrics are attached to an individual rather than to the team, and what would people start doing if they optimized for them?"
+      - "What valuable work does my team do that appears on no dashboard, and who knows that I know it matters?"
+    artifact:
+      name: "One-page metric spec"
+      description: >
+        Six fields for a single number — either one you already publish and cannot
+        defend, or one you have recently been asked for.
+      fields:
+        - "Customer: engineers, engineering managers, or leaders outside engineering"
+        - "Question it answers"
+        - "Decision it changes"
+        - "Success criterion"
+        - "Owner"
+        - "Retirement condition — what would have to be true for you to delete it"
+      follow_up: >
+        Before proposing any new collection, check whether the data already exists in
+        Git, CI/CD, the issue tracker, or monitoring (Chapter 10, 'Take Stock of What
+        You Already Measure', PDF pp. 310-312).
+    expected_evidence: >
+      A completed spec, or a documented failure to complete it. A blank
+      'decision it changes' line is a valid and useful result: it identifies a metric
+      to retire or a request to send back with the book's own question attached.
+    completion_is_not: "Reading twenty-three pages."
+    source_of_artifact_design: >
+      Derived from Table 10-1's component/question/success-criteria/metrics/maintenance
+      breakdown (PDF pp. 306-308) plus the ownership and retirement rules (PDF pp.
+      321-324). Labeled inferred: the six-field form is this companion's compression of
+      the book's material, not a template printed in the source.
+
+  - id: m2-prerequisites
+    status: optional-prequel
+    purpose: >
+      For a reader who wants the dependency trail before the payoff rather than after.
+      Establishes why measurement is second-to-last in the book rather than first.
+    reading:
+      - section_ids: [ch1-symptoms, ch1-no-measurement, ch1-opportunity]
+        pdf_pages: "14-22"
+        printed_pages: unknown
+        label: "Chapter 1, chaos symptoms including 'No Meaningful Measurement' and 'Chaos or Opportunity?'"
+      - section_ids: [ch2-pillars, ch2-product]
+        pdf_pages: "30-33, 58-60"
+        printed_pages: unknown
+        label: "Chapter 2, the five pillars and the Product pillar"
+      - section_ids: [ch3-outcomes, ch3-failure-modes]
+        pdf_pages: "80-85"
+        printed_pages: unknown
+        label: "Chapter 3, 'Focus on Outcomes' through 'Failure Modes of Outcome Obsession'"
+      - section_ids: [ch4-safety]
+        pdf_pages: "97-99"
+        printed_pages: unknown
+        label: "Chapter 4, 'It Starts with Safety'"
+      - section_ids: [ch5-good-direction, ch5-traps, ch5-lighthouse]
+        pdf_pages: "118-126, 130-131"
+        printed_pages: unknown
+        label: "Chapter 5, drift, direction, and 'Be the Lighthouse'"
+    estimated_pages: 27
+    questions:
+      - "Which of the ten chaos symptoms describe my organization right now?"
+      - "Is my team's current measurable activity pointing at an outcome, or substituting for one?"
+      - "Do people on my team tell me bad news before I ask?"
+    expected_evidence: >
+      A named chaos symptom, a named anchor outcome for the next six weeks, and an
+      honest answer to the third question. Chapter 5's own closing instruction is the
+      cheapest version: one outcome, one not-doing list, repeated until obvious
+      (PDF p. 144).
+
+  - id: m3-synthesis
+    status: optional-coda
+    purpose: >
+      Read only after m1. Places the metrics payoff inside the book's layered model and
+      supplies the rollout discipline that keeps the spec from becoming a program.
+    reading:
+      - section_ids: [ch11-foundation, ch11-lighthouse, ch11-engine, ch11-compass]
+        pdf_pages: "330-335"
+        printed_pages: unknown
+        label: "Chapter 11, the foundation/lighthouse/engine/compass stack"
+      - section_ids: [ch11-practice]
+        pdf_pages: "338-340"
+        printed_pages: unknown
+        label: "Chapter 11, 'The Practice: Making It Real'"
+    estimated_pages: 9
+    questions:
+      - "Which layer of the stack is actually my weakest, and is a metric the right tool for it?"
+      - "What is the one thing I will commit to for a month before adding a second?"
+    expected_evidence: "One named layer, one named commitment, and a date to reassess."

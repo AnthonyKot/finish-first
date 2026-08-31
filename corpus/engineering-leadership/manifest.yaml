@@ -1,0 +1,75 @@
+slug: engineering-leadership
+title: "Engineering Leadership: The Hard Parts"
+subtitle: "Navigating Chaos to Build Teams That Deliver"
+authors:
+  - Juan Pablo Buriticá
+  - James Turnbull
+publisher: "O'Reilly Media, Inc."
+edition: "First Edition"
+publication_date: "2026-01"
+revision_history: "2026-01-20: First Release"
+isbn_13: "978-1-098-17563-4"
+copyright: "© 2026 Worthwhile Technology LLC and James Turnbull"
+source:
+  local_copy: "resources/engineering-leadership.pdf"
+  sha256: "997b2d599d69ebb1bc7caa4a2f159b0a61743a349963159af829ddf6b233bc7f"
+  byte_size: 3179685
+  pdf_pages: 395
+  pdf_version: "1.4"
+  page_size: "612 x 792 pts (letter)"
+  encrypted: false
+  tagged: false
+  producer: "calibre (4.99.5)"
+  creator: "calibre (4.99.5)"
+  creation_date: "2026-01-21"
+  artifact_type: "EPUB-to-PDF conversion, not a publisher-typeset print PDF"
+extraction:
+  tool: "pdftotext -layout (Poppler)"
+  state: "pass"
+  full_text_location: "workspace/engineering-leadership/"
+  word_count: 91285
+  empty_page_chunks: [1, 64, 142, 164, 219, 222]
+  spot_checks:
+    - pdf_page: 4
+      printed_page: unknown
+      region: "front matter"
+      result: "copyright page, edition, revision history, and ISBN all legible"
+    - pdf_page: 14
+      printed_page: unknown
+      region: "beginning"
+      result: "Chapter 1 opens cleanly; heading, paragraphs, punctuation coherent"
+    - pdf_page: 118
+      printed_page: unknown
+      region: "middle"
+      result: "Chapter 5 opens cleanly; case study prose and sidebar coherent"
+    - pdf_page: 308
+      printed_page: unknown
+      region: "end"
+      result: "Table 10-1 extracts as readable rows with component/description columns"
+    - pdf_page: 344
+      printed_page: unknown
+      region: "end"
+      result: "final page of Chapter 11 coherent through the closing paragraph"
+    - pdf_page: 345
+      printed_page: unknown
+      region: "back matter"
+      result: "index is coherent but references section titles, not page numbers"
+  known_limitations:
+    - "PRIMARY: this edition has no printed page numbers. The calibre reflow carries no running headers or footers, no page number appears anywhere in the extracted body, and the converted file contains no table of contents with page numbers. printed_page is `unknown` for every row of structure.tsv because the numbers are absent from the artifact, not because extraction missed them."
+    - "PDF page numbers are file-specific. They are reproducible only against a file matching the sha256 above; a differently converted copy of the same EPUB will not align. Every derived receipt therefore pairs a PDF page with a chapter and section title."
+    - "The edition's native addressing is section-based, which supports section-level receipts: the index (PDF pp. 345-393) points at section titles rather than pages, and the body contains 61 `Chapter N` cross-references and zero `see page N` cross-references."
+    - "The PDF is untagged; reading order should be checked around sidebars, tables, and footnote blocks. Observed in practice: footnotes are appended after the last body paragraph of a chapter's final page."
+    - "Eight figures (2-1, 3-1, 5-1, 6-1, 6-2, 7-1, 8-1, 8-2) are images and extract as captions only. PDF p. 31 is caption-only for this reason. No derived claim depends on a figure's contents."
+    - "Tables extract as readable text (verified for Table 2-1 and Table 10-1), but column alignment is approximate."
+editorial_gate:
+  verdict: "PASS"
+  currency_assessment: "current; first edition January 2026, reviewed 2026-08-31. Named tools and AI productivity figures are 2025-era snapshots and are not load-bearing."
+  reflow_assessment: "PASS with stated limitation. Chapter boundaries are exact within this file and independently confirmed by each chapter's closing 'In Chapter N, we'll...' handoff. Section titles make receipts checkable against any copy of the edition. Page-precision is never claimed."
+  duplication_check: "distinct from corpus/staff-engineers-path. Reilly's book is the individual staff+ IC path and catalytic influence; this book is managing a team through organizational chaos. The two selected payoffs do not overlap."
+  selected_payoff: "Build your measurement system as a product with named customers, a question and a decision behind every number, an owner, a version, and a retirement condition."
+  rejected_alternatives:
+    - "Chapter 11 synthesis (PDF pp. 328-344): useful as a map of the book and the reason ch. 10 sits where it does, but recapitulates rather than adds. Used as supporting frame, not as the payoff."
+provenance:
+  metadata_basis: "copyright and revision pages (PDF pp. 4-5) plus PDF metadata, observed in this exact file"
+  structure_basis: "chapter-opening pages located in the extracted text and cross-confirmed by each chapter's closing forward-reference; no printed contents page exists in this conversion"
+  reviewed_on: "2026-08-31"

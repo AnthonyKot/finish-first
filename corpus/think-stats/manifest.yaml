@@ -1,0 +1,91 @@
+slug: think-stats
+title: "Think Stats"
+subtitle: "Exploratory Data Analysis"
+authors:
+  - Allen B. Downey
+edition: "Third Edition"
+publication_date: "2025-04"
+first_release_date: "2025-04-04"
+copyright_year: 2025
+publisher: "O'Reilly Media, Inc."
+isbn_print: "978-1-098-19025-5"
+language: en
+prior_editions:
+  - "First Edition, July 2011"
+  - "Second Edition, October 2014"
+
+source:
+  file: "resources/think-stats.pdf"
+  local_only: true
+  sha256: "9ed31061c1536e0ea04d109dddeb51120a2e0e35af8161105e6b7bd6f8dbdad9"
+  bytes: 20786292
+  pdf_version: "1.5"
+  page_count: 324
+  embedded_metadata_title: "Think Stats"
+  embedded_metadata_author: "Allen B. Downey;"
+  producer: "Antenna House PDF Output Library 6.2.658 (Linux64)"
+  creator: "AH CSS Formatter V6.2 MR7 for Linux64"
+  creation_date: "2025-04-03T16:05:48+02:00"
+  mod_date: "2025-04-04T20:40:02+02:00"
+  tagged: false
+
+extraction:
+  status: "pass_with_limitations"
+  tool: "pdftotext 24.02.0 (poppler)"
+  outputs:
+    - "workspace/think-stats/book.txt"
+    - "workspace/think-stats/book-layout.txt"
+  page_chunks: 324
+  nonempty_page_chunks: 317
+  intentional_blank_pages: [30, 58, 100, 144, 178, 250, 306]
+  unicode_replacement_characters: 0
+  spot_checks:
+    - { region: title_and_copyright, pdf_pages: "3-4", result: clean }
+    - { region: table_of_contents, pdf_pages: "5-8", result: clean }
+    - { region: beginning, pdf_page: 21, printed_page: 7, result: clean }
+    - { region: middle, pdf_page: 156, printed_page: 142, result: clean }
+    - { region: selected_payoff, pdf_pages: "275-305", printed_pages: "261-291", result: clean }
+    - { region: ending, pdf_page: 303, printed_page: 289, result: clean }
+  limitations:
+    - "This book argues visually and has NO numbered figure captions anywhere: zero occurrences of the token 'Figure' in the extracted text. Plots are introduced in prose as 'the following figure' and the images themselves do not extract at all. Every claim about what a plot shows was taken from the surrounding prose, which describes each result explicitly; the plots must be viewed in the PDF or regenerated from the notebooks."
+    - "Prose and Python code blocks extract cleanly with indentation preserved. Rendered DataFrame/Series/Hist output tables lose column alignment (observed at PDF p. 116 printed p. 102, and PDF p. 300 printed p. 286): values are readable but row/column association must be confirmed against the PDF."
+    - "The third edition deliberately contains almost no mathematical notation (stated by the author, PDF p. 11 / printed p. ix); no Greek letters, radicals, or superscript glyphs appear in the extracted text. Formulas appear as Python expressions and extract cleanly. This removes the usual equation-extraction risk for this title."
+    - "Section boundaries in structure.tsv are derived from the printed table of contents at page granularity. Adjacent sections frequently share a page (e.g. 'Sources of Error' and 'Glossary' both begin on printed p. 143), so an end_pdf_page is the last page a section can occupy, not proof it fills that page."
+    - "Datasets and runnable notebooks are external to the PDF; the book instructs the reader to download them per chapter. Verified 2026-08-31 as public at https://github.com/AllenDowney/ThinkStats with a free online edition at https://allendowney.github.io/ThinkStats/."
+
+editorial_gate:
+  status: pass
+  reviewed_on: "2026-08-31"
+  selected_payoff: "A closed-form statistical test is a simulation somebody stopped running; Chapter 14 shows how to check whether its assumptions still hold, and keeps the simulation as the analytic method's reference implementation."
+  rationale: >-
+    Chapter 14 is the only chapter that reverses the book's method, deriving analytically what the
+    previous thirteen chapters computed by resampling, and it never presents a formula without first
+    plotting the simulated null beside the analytic model. It then breaks the Central Limit Theorem
+    on purpose (Pareto with infinite variance; serially correlated exponentials) so the reader can
+    recognise the two conditions most often violated by real engineering data. The closing section
+    states an explicit three-step process ending in mutual validation between computational and
+    analytic results. That is a concrete, transferable engineering discipline, not a restatement
+    that statistics is important.
+  duplication: "Distinct. No statistics, inference, or exploratory-data-analysis book is on the shelf. The nearest neighbour, Machine Learning Engineering, covers ML system operation and says nothing about the validity conditions of statistical tests."
+  currency: >-
+    Very low staleness risk. Third edition, copyright 2025, first release 2025-04-04. The stack
+    taught (NumPy, SciPy, Pandas, StatsModels, empiricaldist, lifelines) is current as of 2026-08,
+    and the underlying results (CLT, t distribution, chi-squared, permutation testing) are
+    foundational. The only fragility is the external notebook/dataset dependency.
+  caution: >-
+    On printed p. 142 (PDF p. 156) the author takes an explicit position against the standard
+    frequentist prohibition, arguing a 90% confidence interval may be read as a 90% chance the true
+    value falls inside. He flags the disagreement himself, but a reader should know this is a stance
+    rather than consensus before repeating it in a review. Separately, the book's own strongest
+    caveat sits earlier than the payoff (PDF p. 157 / printed p. 143): confidence intervals quantify
+    sampling variability only, and sampling bias and measurement error are often larger.
+  rejected_alternatives:
+    - "Chapter 13, 'Expected Remaining Lifetime' (PDF pp. 268-271; printed pp. 254-257): memorable and concrete, but narrower and it does not reframe the earlier chapters."
+    - "Chapter 12, Time Series Analysis / ARIMA (PDF pp. 219-249; printed pp. 205-235): the longest late chapter, but it reads as a technique tour rather than a synthesis."
+    - "Chapter 11, 'statistically significant but not predictive' (PDF p. 206; printed p. 192): a sharp idea, retained as a dependency node rather than the headline payoff."
+
+locators:
+  convention: "pdf_page is the one-based physical PDF page; printed_page is the page number printed in the book."
+  printed_to_pdf_offset_for_numbered_body: 14
+  printed_to_pdf_offset_for_roman_front_matter: 2
+  offset_verified: "Uniform across all 301 numbered body pages (PDF 15 = printed 1 through PDF 322 = printed 308); no offset breaks detected. Chapter starts confirmed against 'CHAPTER n' headings at PDF pp. 15, 31, 45, 59, 77, 101, 123, 145, 163, 179, 199, 219, 251, 275."

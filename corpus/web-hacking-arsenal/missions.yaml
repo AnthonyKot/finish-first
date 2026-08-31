@@ -1,0 +1,83 @@
+slug: web-hacking-arsenal
+locator_note: "printed_page + 31 = pdf_page throughout the numbered body."
+
+primary_mission:
+  id: M1
+  title: "Rewrite one finding until it forces a decision"
+  payoff_id: P1
+  purpose: >-
+    Learn the book's argument that a finding is not a deliverable - a decision is - by applying
+    its risk-assessment and organization sections to one vulnerability you already believe is
+    real.
+  range:
+    printed_pages: "516-524"
+    pdf_pages: "547-555"
+    span: "14.6 Narrative of the Report through the end of 14.10 Technical Report"
+  pages: 9
+  estimated_minutes: 45
+  why_this_range: >-
+    These nine pages contain the whole reasoning spine: the narrative argument (14.6), the
+    tester/client asset-value gap (14.7), the three stated limits of CVSS (14.7.2), the
+    likelihood-by-impact matrix and its plain-language rating definitions (14.8, 14.8.1), and
+    the sample findings table plus the finding template (14.10). The sections before and after
+    are structure and hygiene; these are the judgment.
+  questions:
+    - "Which of the fifteen sample findings on printed p. 522 (PDF p. 553) would change severity in your own system, and what business fact - not what technical fact - moves it?"
+    - "The author says testers have limited knowledge of how clients value their assets (printed p. 517 / PDF p. 548). What is the one question you would have to ask a client to place your finding on the matrix honestly?"
+    - "Read the rating definitions on printed p. 520 (PDF p. 551). What moves a rating there that a CVSS vector string does not carry?"
+  artifact:
+    name: "One-finding decision card"
+    spec: >-
+      One page, six lines, about a single real or recently read vulnerability. (1) Finding title
+      written as a business consequence, not a vulnerability class. (2) The one asset-value
+      question you would ask the client. (3) Likelihood and impact placed on the book's matrix,
+      with the reason in one sentence each. (4) The rating you would assign and the sentence
+      from printed p. 520 that justifies it. (5) The decision you want and the named role who
+      makes it. (6) One line saying what you deliberately left out and why.
+    rule: "Write `unknown` where you would have to guess. An unknown that names the missing fact is a better card than a confident number."
+  completion_signal: >-
+    The card is done when line 1 could be read aloud to a non-technical executive and still name
+    the loss, and when line 6 records something you cut. It is not done when every field is full.
+  safety_note: >-
+    This mission is written, not executed. It uses a finding you already hold or an example from
+    the book; it does not ask you to test any system you are not authorized to test.
+
+alternate_missions:
+  - id: M2
+    title: "Read the two executive summaries side by side"
+    payoff_id: P3
+    range:
+      printed_pages: "509-513"
+      pdf_pages: "540-544"
+      span: "14.1 Introduction through 14.3.3 Recommendations Report"
+    note: >-
+      Requires the PDF, not the text extraction: the good summary (Figure 14.1, printed p. 511)
+      and the failing one (Figure 14.2, printed p. 512) are images. The author's three-bullet
+      critique on printed p. 512 extracts; the thing being critiqued does not.
+    artifact: "A four-row table: the author's three named defects, plus one you find yourself."
+  - id: M3
+    title: "Argue one business logic case study without a scanner"
+    payoff_id: P5
+    range:
+      printed_pages: "316-326"
+      pdf_pages: "347-357"
+      span: "8.1 Introduction through the end of 8.2"
+    note: >-
+      Eight real-engagement case studies whose severity is a business fact. Pair with M1: pick
+      one and write its decision card.
+    artifact: "For two case studies, one sentence each on the rule the application believed and the rule it actually enforced."
+  - id: M4
+    title: "Audit your own report template against 14.13"
+    payoff_id: P6
+    range:
+      printed_pages: "529-530"
+      pdf_pages: "560-561"
+      span: "14.13 Report Writing Tips"
+    artifact: "The book's five QA checks turned into a checklist, with a pass/fail mark against your last written report or write-up."
+
+sequencing:
+  recommended_first: M1
+  then: "M3 if the finding you chose is a logic flaw; M2 if you have never written for an executive tier."
+  do_not_start_with: >-
+    Chapters 3-13 read linearly. They are the arsenal, and they are the reason this book gets
+    abandoned around printed p. 200.

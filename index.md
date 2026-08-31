@@ -13,7 +13,7 @@ the dimensions entangled in one real choice, model the consequences in context, 
 bottom line in terms a stakeholder can judge. The mission asks for a five-row trade-off table rather
 than another opinion about tools. That habit transfers to nearly every essay below.
 
-## Eleven destinations worth reaching
+## Fourteen destinations worth reaching
 
 ### The model may be wrong; the product must still know what to do
 
@@ -84,9 +84,33 @@ separates physical sign, abnormal symptom, underlying etiology, and the promoter
 fault appear. Its mission builds one fault case and one disconfirming experiment before repair erases
 the evidence.
 
+### The dashboard is a product, or it becomes a weapon
+
+[**What Decision Would You Make Differently?**](essays/engineering-leadership.md) reads *Engineering
+Leadership: The Hard Parts* backward from its metrics chapter: every number needs a customer, a decision
+it changes, an owner, a version, and a retirement condition, or in a chaotic organization it becomes a
+weapon before it becomes an insight. The mission is a six-field metric spec for one number you cannot
+currently defend.
+
+### The finding was valid; the report decided whether it counted
+
+[**The Finding Was Valid. The Report Decided Whether It Counted.**](essays/web-hacking-arsenal.md) takes
+the last chapter of *Web Hacking Arsenal* as its payoff: severity is argued in the client's business
+terms, not computed from a vector string, and the same true vulnerability counts differently depending on
+whether its impact was rebuilt in context. The mission is a six-line severity decision card. Keep the
+reporting method; check CVSS version, OWASP numbering, and tool names against current standards.
+
+### Every statistical test is a simulation someone stopped running
+
+[**ttest_ind Returned a Number. The Last Chapter Tells You What You Bought.**](essays/think-stats.md)
+uses the final chapter of *Think Stats* (3rd ed.) to show that each closed-form test is an analytic
+shortcut for a simulation — and that you should keep the simulation as the shortcut's reference
+implementation. The mission runs one simulated and one analytic test on your own data and asks which
+number you would defend in review.
+
 ## Transparent skips
 
-These books were inspected rather than silently omitted. Clean extraction did not earn either one an
+These books were inspected rather than silently omitted. Clean extraction did not earn any of them an
 essay.
 
 - [***Building LLM Powered Applications* — skip verdict**](notes/review-building-llm-powered-applications.md):
@@ -95,6 +119,10 @@ essay.
 - [***Security-Driven Software Development* — skip verdict**](notes/review-security-driven-software-development.md):
   obsolete and unsafe examples, weak threat-to-test traceability, and a thin final validation report
   outweigh its useful “build security in” premise.
+- [***ChatGPT for Cybersecurity Cookbook* — skip verdict**](notes/review-chatgpt-for-cybersecurity.md):
+  the capstone recipe runs on OpenAI's Assistants API (removed August 2026) and no durable method
+  redeems the aging — a 2024 cookbook that feeds attacker-controllable data into prompts and executes
+  the replies never once names prompt injection or hallucination.
 
 Choose one destination, do its one mission, and return with the artifact the essay requests. The
 shelf has worked only when a book produces a new observation, explanation, experiment, or decision—not

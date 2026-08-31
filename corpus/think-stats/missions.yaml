@@ -1,0 +1,78 @@
+slug: think-stats
+locator_note: "PDF page = printed page + 14 for the numbered body of this 324-page PDF."
+
+primary_mission:
+  id: m1
+  payoff_id: p1
+  title: "The shortcut-validity card"
+  purpose: >-
+    Turn the abstract worry "am I allowed to use this test?" into a ten-line procedure the reader
+    runs once on a column of their own data, so that the difference between a simulated p-value and
+    an analytic one becomes something they have personally observed rather than read about.
+  read:
+    pdf_pages: "288-303"
+    printed_pages: "274-289"
+    sections:
+      - "Central Limit Theorem (ch14_s05)"
+      - "The Limits of the Central Limit Theorem (ch14_s06)"
+      - "Applying the CLT (ch14_s07)"
+      - "Correlation Test (ch14_s08)"
+      - "Chi-squared Test (ch14_s09)"
+      - "Computation and Analysis (ch14_s10)"
+    length_pages: 16
+  bring_your_own:
+    requirement: "One column of numbers from the reader's own work, not a book dataset."
+    examples:
+      - "request or query latencies"
+      - "invoice or revenue amounts"
+      - "session durations"
+      - "ticket resolution times"
+      - "commit or diff sizes"
+  questions:
+    - "Which of the CLT's three conditions does my column violate: identical distribution, independence, or finite variance? Assume one is violated until checked; latencies and revenue are usually heavy-tailed and anything indexed by time is usually serially correlated."
+    - "At what n does the normal probability plot of my sums actually straighten out: 10, 100, or never?"
+    - "If I ran the analytic test and the simulated test on my real question, would they agree to the precision I intend to report?"
+  expected_evidence:
+    artifact: "A one-page shortcut-validity card with exactly six lines."
+    fields:
+      - "the question actually being asked of the column (a difference, a correlation, or a proportion)"
+      - "the simulated null: how you shuffle or resample to produce it, in one sentence"
+      - "the simulated p-value"
+      - "the analytic p-value from the matching scipy.stats call"
+      - "the gap between them, and whether it changes any decision"
+      - "the condition that would make you stop trusting the analytic one"
+    completion_test: >-
+      The reader can say which of the two numbers on the card they would defend in a review, and
+      why. The sixth line must be written even when the two numbers matched.
+  supporting_resource:
+    note: "Chapter 14 ships as a runnable Jupyter notebook; running it regenerates the plots that do not extract from the PDF."
+    urls:
+      - "https://github.com/AllenDowney/ThinkStats"
+      - "https://allendowney.github.io/ThinkStats/"
+    verified_on: "2026-08-31"
+
+follow_on_missions:
+  - id: m2
+    payoff_id: p1
+    title: "Walk the shortcut back"
+    trigger: "Only if m1 produced a gap the reader could not explain."
+    read:
+      pdf_pages: "152-157"
+      printed_pages: "138-143"
+      sections: ["Sampling Distributions", "Standard Error", "Confidence Intervals", "Sources of Error"]
+    purpose: "Rebuild the sampling distribution by resampling, so the analytic object has a hand-built counterpart."
+    expected_evidence: "One sentence distinguishing the standard deviation of the reader's column from the standard error of its mean, with both numbers computed."
+  - id: m3
+    payoff_id: p6
+    title: "Significance is not usefulness"
+    trigger: "Only if m1's question was a correlation and the p-value came back small."
+    read:
+      pdf_pages: "184,206"
+      printed_pages: "170,192"
+      sections: ["Coefficient of Determination", "Control Variables"]
+    purpose: "Pair every small p-value the reader reports with an R-squared, so significance is never mistaken for predictive value."
+    expected_evidence: "The R-squared for the reader's own relationship, reported next to its p-value, with one sentence on whether the relationship is worth acting on."
+
+not_recommended_as_first_step:
+  - reason: "Chapter 14 opens with a Normal class and distribution algebra (PDF pp. 280-287; printed pp. 266-273). It is the derivation, not the payoff, and reading it first turns a sixteen-page mission into a thirty-page one."
+  - reason: "Reading Chapter 1 forward. The reader has already tried that route in other books and stopped; this shelf exists because linear reading is the failure mode, not the plan."

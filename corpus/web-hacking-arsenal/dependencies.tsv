@@ -1,0 +1,19 @@
+payoff_id	prerequisite_id	relationship	source_sections	note
+P1	P3	requires	ch14_audience, ch14_organizing	A finding cannot produce a decision until the report knows which reader must make it.
+P1	P2	requires	ch14_risk, ch14_ratings	Persuasion collapses into a number unless impact is rebuilt from the client's asset value.
+P1	P4	requires	ch14_narrative	A list of fifteen findings is not a claim; the narrative is what an executive acts on.
+P1	P6	requires	ch14_tips	Inconsistent hosts, mismatched charts, or a stale template destroy the credibility of a correct finding.
+P2	P5	depends-on	ch08_intro, ch08_cases	Business logic chapter is where the book proves that severity is a property of the application's purpose, not the payload.
+P2	P7	depends-on	ch13_intro, ch13_method	Exploitability under a real filter is the likelihood evidence a risk matrix needs.
+P2	ch07	depends-on	ch07_authz, ch07_idor, ch07_forgotpw, ch07_ratelimit	Auth/authz supplies the highest-severity findings in the sample table and the clearest same-class/different-impact contrasts.
+P4	ch02	depends-on	ch02_intro, ch02_attacksurface	The story's cast is the attack surface; an unenumerated host cannot appear in the narrative.
+P1	ch03	vocabulary	ch03_sqli, ch03_ssti	Findings F1 (SQLi) and F5 (SSTI) in the Chapter 14 sample table are Chapter 3 material.
+P1	ch04	vocabulary	ch04_context, ch04_rootcause	Findings F7 and F10 (stored and reflected XSS) are Chapter 4 material; 4.12 supplies the root-cause language a finding needs.
+P1	ch06	vocabulary	ch06	Finding F11 (IDOR in file download) touches Chapter 6's file-system attacks.
+P1	ch07	vocabulary	ch07_idor, ch07_forgotpw, ch07_captcha, ch07_ratelimit	Findings F2, F4, F9, F12, F14 in the sample table all resolve to Chapter 7 sections.
+P1	ch09	vocabulary	ch09_xxe, ch09_ssrf	Findings F3 (XXE in file upload) and F6 (SSRF in image-processing API) are Chapter 9 material.
+P1	ch11	vocabulary	ch11_serverless	Finding F8 (hardcoded API keys) connects to Chapter 11's sensitive-information-exposure material.
+P1	ch12	vocabulary	ch12_uiredress	Finding F13 (missing X-Frame-Options / clickjacking) is Chapter 12's UI-redressing section.
+P1	ch02	vocabulary	ch02_intro	Finding F15 (server info disclosure) is Chapter 2 fingerprinting material.
+P6	P9	constrains	ch14_chatgpt	The QA pass is also the anonymization and hallucination check on any LLM-drafted section.
+P3	ch01	background	ch01	HTTP mechanics and browser security policy give the technical tier something to verify.

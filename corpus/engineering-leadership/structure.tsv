@@ -1,0 +1,99 @@
+section_id	title	level	printed_page	pdf_page	end_pdf_page
+cover	Cover (blank in extraction)	1	unknown	1	1
+praise	Praise for Engineering Leadership: The Hard Parts	1	unknown	2	2
+title-page	Title page	1	unknown	3	3
+copyright	Copyright, edition, and revision history	1	unknown	4	5
+preface	Preface	1	unknown	6	13
+chapter-1	Chapter 1. Embracing the Unknown	2	unknown	14	28
+ch1-symptoms	What Does Chaos Look Like? (ten symptoms)	3	unknown	14	20
+ch1-no-measurement	No Meaningful Measurement	3	unknown	20	20
+ch1-opportunity	Chaos or Opportunity?	3	unknown	21	22
+ch1-conclusion	Conclusion: From Chaos to Clarity	3	unknown	27	28
+chapter-2	Chapter 2. Understanding Your Role	2	unknown	29	62
+ch2-framework	Table 2-1. Leadership intervention framework	3	unknown	32	32
+ch2-pillars	The Five Pillars of Engineering Leadership	3	unknown	32	35
+ch2-people	People: It All Starts with Your Team	3	unknown	36	41
+ch2-mission	Mission: You've Got a Crew; Now You Need a Place to Go	3	unknown	42	46
+ch2-plan	Plan: You Know Where to Go; Now Chart the Course	3	unknown	47	52
+ch2-process	Process: The System That Keeps Things Moving	3	unknown	53	56
+ch2-product	Product: What Are We Actually Delivering?	3	unknown	57	60
+ch2-conclusion	Conclusion: Pulling It All Together	3	unknown	61	62
+chapter-3	Chapter 3. Navigating Chaos	2	unknown	63	96
+ch3-diagnose	Diagnose Context	3	unknown	65	75
+ch3-thrive	Thrive in Chaos	3	unknown	76	79
+ch3-outcomes	Focus on Outcomes	3	unknown	80	85
+ch3-failure-modes	Failure Modes of Outcome Obsession	3	unknown	84	85
+ch3-shift-roles	Shift Between Roles	3	unknown	86	92
+ch3-conclusion	Conclusion: Pulling It All Together	3	unknown	95	96
+chapter-4	Chapter 4. Building Cohesive Teams	2	unknown	97	117
+ch4-safety	It Starts with Safety	3	unknown	97	98
+ch4-functional	Get a Functional Team, Fast	3	unknown	99	106
+ch4-capabilities	Capacity Is Not Enough; Build Capabilities	3	unknown	107	112
+ch4-growth	Growing Without Losing the Plot	3	unknown	113	116
+ch4-conclusion	Conclusion: From Chaos to Cohesion	3	unknown	116	117
+chapter-5	Chapter 5. Setting Direction	2	unknown	118	144
+ch5-drift-causes	What Causes Drift	3	unknown	119	124
+ch5-drift-cost	The Silent Cost of Drift	3	unknown	123	125
+ch5-good-direction	What Good Direction Looks Like	3	unknown	125	127
+ch5-traps	Traps That Cause Drift	3	unknown	127	130
+ch5-lighthouse	Be the Lighthouse	3	unknown	130	132
+ch5-alignment	Creating Alignment	3	unknown	132	136
+ch5-conclusion	Conclusion: Pulling It All Together	3	unknown	143	144
+chapter-6	Chapter 6. Shipping Products and Code in Chaotic Environments	2	unknown	145	184
+ch6-prioritization	Prioritization Techniques	3	unknown	155	168
+ch6-backlogs	Managing Backlogs Effectively	3	unknown	169	179
+ch6-linear	Not Everything Is a Product / When Linear Makes Sense	3	unknown	180	183
+ch6-conclusion	Conclusion: Driving to Execution	3	unknown	183	184
+chapter-7	Chapter 7. Budgeting, Costs, and Vendors	2	unknown	185	215
+ch7-why	Why Budgeting Matters	3	unknown	186	193
+ch7-costs	Understanding Cost Management	3	unknown	194	196
+ch7-budget	Creating and Managing a Budget	3	unknown	196	206
+ch7-vendors	Vendor Management	3	unknown	206	213
+ch7-conclusion	Conclusion: Budget as Strategy	3	unknown	214	215
+chapter-8	Chapter 8. Technical Principles and Strategy	2	unknown	216	250
+ch8-principles	Establishing Technical Principles	3	unknown	223	230
+ch8-scaling	Scaling Without Overengineering	3	unknown	231	237
+ch8-strategy	Developing Your Technical Strategy	3	unknown	238	248
+ch8-conclusion	Conclusion: Enabling Execution with Technical Strategy	3	unknown	249	250
+chapter-9	Chapter 9. Collaborative Technical Practices and Decision Making	2	unknown	251	299
+ch9-shared-principles	Shared Technical Principles	3	unknown	252	256
+ch9-communication	Communication, Collaboration, and Execution	3	unknown	257	291
+ch9-rfc	RFC on RFCs	3	unknown	285	291
+ch9-decisions	Decision Making in Chaotic Conditions	3	unknown	292	297
+ch9-psych-safety	Psychological Safety	3	unknown	293	295
+ch9-conclusion	Conclusion: Collaboration Is the Glue	3	unknown	298	299
+chapter-10	Chapter 10. Metrics That Matter for Engineering Teams	2	unknown	300	327
+ch10-why-measure	Why Measure Anything at All?	3	unknown	300	302
+ch10-product	Metrics as a Product	3	unknown	302	303
+ch10-design	Design Intentionally	3	unknown	303	304
+ch10-want-need	The Trap of Want Versus Need	3	unknown	304	306
+ch10-questions	Constructing Questions (incl. Table 10-1)	3	unknown	306	308
+ch10-choosing	Choosing the Right Metrics for Your Context	3	unknown	308	310
+ch10-take-stock	Take Stock of What You Already Measure	3	unknown	310	312
+ch10-velocity	Velocity: The Most Misused Metric in Software	3	unknown	312	314
+ch10-customers	Build Your Metrics with Your Customers in Mind	3	unknown	314	315
+ch10-human-side	The Human Side of Metrics	3	unknown	315	318
+ch10-qual-quant	Balancing Quantitative and Qualitative Data	3	unknown	318	318
+ch10-goodhart	Humans and Metrics / Goodhart's Law	3	unknown	318	319
+ch10-context	Context ignorance	3	unknown	319	320
+ch10-measured	"What gets measured gets done" (invisible work)	3	unknown	320	321
+ch10-visible	Make Metrics Visible and Accessible	3	unknown	321	321
+ch10-maintenance	Metrics Need Ongoing Maintenance, Just Like Code	3	unknown	321	324
+ch10-ai	AI Doesn't Change Your Approach to Metrics	3	unknown	324	325
+ch10-conclusion	Conclusion: Measurement as Illumination	3	unknown	325	327
+chapter-11	Chapter 11. Fitting It All Together	2	unknown	328	344
+ch11-symphony	The Symphony of Chaos	3	unknown	329	330
+ch11-foundation	The Foundation: People and Safety	3	unknown	330	331
+ch11-lighthouse	The Lighthouse: Direction, Not Drift	3	unknown	331	332
+ch11-engine	The Engine: Process and Execution	3	unknown	332	334
+ch11-compass	The Compass: Metrics and Measurement	3	unknown	334	335
+ch11-ecosystem	The Ecosystem: Building Beyond Your Team	3	unknown	335	336
+ch11-evolution	The Evolution: From Chaos to Capability	3	unknown	336	337
+ch11-reality	The Reality: It's Harder Than It Looks	3	unknown	337	338
+ch11-practice	The Practice: Making It Real	3	unknown	338	340
+ch11-future	The Future: Beyond Survival	3	unknown	340	341
+ch11-call	The Call: Your Turn to Lead	3	unknown	341	343
+ch11-end	The End, and the Beginning	3	unknown	343	344
+index	Index (references section titles, not page numbers)	1	unknown	345	393
+about-authors	About the Authors	1	unknown	394	394
+colophon	Colophon	1	unknown	395	395

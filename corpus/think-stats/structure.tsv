@@ -1,0 +1,140 @@
+section_id	title	level	printed_page	pdf_page	end_pdf_page
+front_matter	Cover, title page, and copyright page	0	unknown	1	4
+toc	Table of Contents	0	iii	5	8
+preface	Preface	0	vii	9	14
+ch01	Chapter 1: Exploratory Data Analysis	1	1	15	30
+ch01_s01	Evidence	2	1	15	16
+ch01_s02	The National Survey of Family Growth	2	3	17	17
+ch01_s03	Reading the Data	2	4	18	20
+ch01_s04	Validation	2	7	21	23
+ch01_s05	Transformation	2	10	24	24
+ch01_s06	Summary Statistics	2	11	25	25
+ch01_s07	Interpretation	2	12	26	26
+ch01_s08	Glossary	2	13	27	28
+ch01_s09	Exercises	2	15	29	30
+ch02	Chapter 2: Distributions	1	17	31	44
+ch02_s01	Frequency Tables	2	17	31	32
+ch02_s02	NSFG Distributions	2	19	33	36
+ch02_s03	Outliers	2	23	37	37
+ch02_s04	First Babies	2	24	38	39
+ch02_s05	Effect Size	2	26	40	41
+ch02_s06	Reporting Results	2	28	42	42
+ch02_s07	Glossary	2	29	43	43
+ch02_s08	Exercises	2	29	43	44
+ch03	Chapter 3: Probability Mass Functions	1	31	45	58
+ch03_s01	PMFs	2	31	45	47
+ch03_s02	Summarizing a PMF	2	34	48	49
+ch03_s03	The Class Size Paradox	2	36	50	52
+ch03_s04	NSFG Data	2	39	53	53
+ch03_s05	Other Visualizations	2	40	54	54
+ch03_s06	Glossary	2	41	55	55
+ch03_s07	Exercises	2	42	56	58
+ch04	Chapter 4: Cumulative Distribution Functions	1	45	59	76
+ch04_s01	Percentiles and Percentile Ranks	2	45	59	61
+ch04_s02	CDFs	2	48	62	65
+ch04_s03	Comparing CDFs	2	52	66	67
+ch04_s04	Percentile-Based Statistics	2	54	68	71
+ch04_s05	Random Numbers	2	58	72	73
+ch04_s06	Glossary	2	60	74	74
+ch04_s07	Exercises	2	61	75	76
+ch05	Chapter 5: Modeling Distributions	1	63	77	100
+ch05_s01	The Binomial Distribution	2	63	77	81
+ch05_s02	The Poisson Distribution	2	68	82	85
+ch05_s03	The Exponential Distribution	2	72	86	89
+ch05_s04	The Normal Distribution	2	76	90	92
+ch05_s05	The Lognormal Distribution	2	79	93	96
+ch05_s06	Why Model?	2	83	97	97
+ch05_s07	Glossary	2	84	98	98
+ch05_s08	Exercises	2	84	98	100
+ch06	Chapter 6: Probability Density Functions	1	87	101	122
+ch06_s01	Comparing Distributions	2	87	101	103
+ch06_s02	Probability Density	2	90	104	106
+ch06_s03	The Exponential PDF	2	93	107	108
+ch06_s04	Comparing PMFs and PDFs	2	95	109	110
+ch06_s05	Kernel Density Estimation	2	97	111	114
+ch06_s06	The Distribution Framework	2	101	115	119
+ch06_s07	Glossary	2	106	120	120
+ch06_s08	Exercises	2	107	121	122
+ch07	Chapter 7: Relationships Between Variables	1	109	123	144
+ch07_s01	Scatter Plots	2	109	123	127
+ch07_s02	Decile Plots	2	114	128	129
+ch07_s03	Correlation	2	116	130	133
+ch07_s04	Strength of Correlation	2	120	134	135
+ch07_s05	Rank Correlation	2	122	136	138
+ch07_s06	Correlation and Causation	2	125	139	139
+ch07_s07	Glossary	2	126	140	140
+ch07_s08	Exercises	2	127	141	144
+ch08	Chapter 8: Estimation	1	131	145	162
+ch08_s01	Weighing Penguins	2	131	145	148
+ch08_s02	Robustness	2	135	149	150
+ch08_s03	Estimating Variance	2	137	151	151
+ch08_s04	Sampling Distributions	2	138	152	154
+ch08_s05	Standard Error	2	141	155	155
+ch08_s06	Confidence Intervals	2	142	156	156
+ch08_s07	Sources of Error	2	143	157	157
+ch08_s08	Glossary	2	143	157	158
+ch08_s09	Exercises	2	145	159	162
+ch09	Chapter 9: Hypothesis Testing	1	149	163	178
+ch09_s01	Flipping Coins	2	149	163	165
+ch09_s02	Testing a Difference in Means	2	152	166	168
+ch09_s03	Other Test Statistics	2	155	169	169
+ch09_s04	Testing a Correlation	2	156	170	171
+ch09_s05	Testing Proportions	2	158	172	175
+ch09_s06	Glossary	2	162	176	176
+ch09_s07	Exercises	2	162	176	178
+ch10	Chapter 10: Least Squares	1	165	179	198
+ch10_s01	Least Squares Fit	2	165	179	182
+ch10_s02	Coefficient of Determination	2	169	183	184
+ch10_s03	Minimizing MSE	2	171	185	186
+ch10_s04	Estimation	2	173	187	188
+ch10_s05	Visualizing Uncertainty	2	175	189	190
+ch10_s06	Transformation	2	177	191	195
+ch10_s07	Glossary	2	182	196	196
+ch10_s08	Exercises	2	182	196	198
+ch11	Chapter 11: Multiple Regression	1	185	199	218
+ch11_s01	StatsModels	2	185	199	202
+ch11_s02	On to Multiple Regression	2	189	203	204
+ch11_s03	Control Variables	2	191	205	208
+ch11_s04	Nonlinear Relationships	2	195	209	211
+ch11_s05	Logistic Regression	2	198	212	215
+ch11_s06	Glossary	2	202	216	216
+ch11_s07	Exercises	2	203	217	218
+ch12	Chapter 12: Time Series Analysis	1	205	219	250
+ch12_s01	Electricity	2	205	219	219
+ch12_s02	Decomposition	2	206	220	226
+ch12_s03	Prediction	2	213	227	230
+ch12_s04	Multiplicative Model	2	217	231	235
+ch12_s05	Autoregression	2	222	236	237
+ch12_s06	Moving Average	2	224	238	239
+ch12_s07	Retrodiction with Autoregression	2	226	240	241
+ch12_s08	ARIMA	2	228	242	243
+ch12_s09	Prediction with ARIMA	2	230	244	244
+ch12_s10	Glossary	2	231	245	245
+ch12_s11	Exercises	2	232	246	250
+ch13	Chapter 13: Survival Analysis	1	237	251	274
+ch13_s01	Survival Functions	2	237	251	252
+ch13_s02	Hazard Function	2	239	253	254
+ch13_s03	Marriage Data	2	241	255	257
+ch13_s04	Weighted Bootstrap	2	244	258	259
+ch13_s05	Estimating Hazard Functions	2	246	260	262
+ch13_s06	Estimating Survival Functions	2	249	263	264
+ch13_s07	Lifelines	2	251	265	265
+ch13_s08	Confidence Intervals	2	252	266	267
+ch13_s09	Expected Remaining Lifetime	2	254	268	271
+ch13_s10	Glossary	2	258	272	272
+ch13_s11	Exercises	2	258	272	274
+ch14	Chapter 14: Analytic Methods	1	261	275	306
+ch14_s01	Normal Probability Plots	2	261	275	279
+ch14_s02	Normal Distributions	2	266	280	283
+ch14_s03	Distribution of Sample Means	2	270	284	285
+ch14_s04	Distribution of Differences	2	272	286	287
+ch14_s05	Central Limit Theorem	2	274	288	289
+ch14_s06	The Limits of the Central Limit Theorem	2	276	290	291
+ch14_s07	Applying the CLT	2	278	292	294
+ch14_s08	Correlation Test	2	281	295	298
+ch14_s09	Chi-squared Test	2	285	299	301
+ch14_s10	Computation and Analysis	2	288	302	303
+ch14_s11	Glossary	2	289	303	303
+ch14_s12	Exercises	2	289	303	306
+index	Index	0	293	307	322
+back_matter	About the Author and colophon	0	unknown	323	324

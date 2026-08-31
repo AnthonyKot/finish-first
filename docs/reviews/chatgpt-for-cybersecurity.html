@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The capstone recipe runs on OpenAI's Assistants API, removed in August 2026, and no durable method redeems the aging: a 2024 cookbook whose scripts feed attacker-controllable data into prompts and execute the replies never once mentions prompt injection or hallucination.">
+  <meta name="theme-color" content="#153b35">
+  <meta property="og:title" content="ChatGPT for Cybersecurity Cookbook — skip verdict">
+  <meta property="og:description" content="The capstone recipe runs on OpenAI's Assistants API, removed in August 2026, and no durable method redeems the aging: a 2024 cookbook whose scripts feed attacker-controllable data into prompts and execute the replies never once mentions prompt injection or hallucination.">
+  <meta property="og:type" content="website">
+  <title>ChatGPT for Cybersecurity Cookbook — skip verdict · Finish First</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23153b35'/%3E%3Ctext x='17' y='44' font-size='35' fill='%23fffdf8'%3EF%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="review-view" data-active-slug="">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <header class="site-header">
+    <a class="wordmark" href="../index.html" aria-label="Finish First home">
+      <span class="wordmark__mark">F<span>←</span></span>
+      <span><strong>Finish First</strong><small>technical books, read backward</small></span>
+    </a>
+    <div class="header-actions">
+      <span class="progress-summary" data-progress-summary>0 of 14 missions</span>
+      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="book-navigation">Contents</button>
+    </div>
+  </header>
+  <div class="page-shell">
+    <aside class="book-nav" id="book-navigation" data-book-nav>
+      <div class="book-nav__intro">
+        <a href="../index.html">The shelf</a>
+        <p>14 destinations. One exact mission each.</p>
+      </div>
+      <nav aria-label="Book contents">
+    <a class="book-nav__item" href="../essays/software-architecture-hard-parts.html" data-mission-link="software-architecture-hard-parts">
+      <span class="book-nav__number">01</span>
+      <span><small>Architecture</small>The Architecture Decision Hidden Behind the Technology Argument</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/machine-learning-engineering.html" data-mission-link="machine-learning-engineering">
+      <span class="book-nav__number">02</span>
+      <span><small>ML systems</small>The Model Is Allowed to Be Wrong. The System Is Not Allowed to Be Helpless.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/staff-engineers-path.html" data-mission-link="staff-engineers-path">
+      <span class="book-nav__number">03</span>
+      <span><small>Engineering leadership</small>The Staff Engineer Who Can Leave the Room</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/refactoring-to-rust.html" data-mission-link="refactoring-to-rust">
+      <span class="book-nav__number">04</span>
+      <span><small>Migration</small>The Migration Unit Is a Seam, Not a Codebase</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/practical-systems-programming-go.html" data-mission-link="practical-systems-programming-go">
+      <span class="book-nav__number">05</span>
+      <span><small>Systems programming</small>A File Indexer Is a Chain of Promises</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/database-internals.html" data-mission-link="database-internals">
+      <span class="book-nav__number">06</span>
+      <span><small>Distributed systems</small>The Database Committed. Your Client Timed Out. Both Are True.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/defending-apis.html" data-mission-link="defending-apis">
+      <span class="book-nav__number">07</span>
+      <span><small>Security</small>API Security Is a Coverage System, Not a Product Purchase</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/learning-systems-thinking.html" data-mission-link="learning-systems-thinking">
+      <span class="book-nav__number">08</span>
+      <span><small>Systems thinking</small>The Mission Stayed the Same. Every Word Changed.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/performance-analysis-tuning-modern-cpus.html" data-mission-link="performance-analysis-tuning-modern-cpus">
+      <span class="book-nav__number">09</span>
+      <span><small>Performance</small>The Fifth Thread Made the Program Slower</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/efficient-cloud-finops.html" data-mission-link="efficient-cloud-finops">
+      <span class="book-nav__number">10</span>
+      <span><small>Cloud economics</small>A Discount Can Fossilize Waste</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/designing-electronics-that-work.html" data-mission-link="designing-electronics-that-work">
+      <span class="book-nav__number">11</span>
+      <span><small>Electronics</small>The Enclosure Did Not Cause the Failure. It Exposed It.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/engineering-leadership.html" data-mission-link="engineering-leadership">
+      <span class="book-nav__number">12</span>
+      <span><small>Engineering leadership</small>What Decision Would You Make Differently?</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/web-hacking-arsenal.html" data-mission-link="web-hacking-arsenal">
+      <span class="book-nav__number">13</span>
+      <span><small>Security</small>The Finding Was Valid. The Report Decided Whether It Counted.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/think-stats.html" data-mission-link="think-stats">
+      <span class="book-nav__number">14</span>
+      <span><small>Statistics</small>ttest_ind Returned a Number. The Last Chapter Tells You What You Bought.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a></nav>
+      <a class="book-nav__skips" href="../index.html#transparent-skips">Editorial skips →</a>
+    </aside>
+    <main id="main" class="review-page">
+    <a class="back-link" href="../index.html#transparent-skips">← Back to the shelf</a>
+    <div class="review-label">Editorial record · not selected</div>
+    <article class="prose review-prose"><h1 id="editorial-gate-chatgpt-for-cybersecurity-cookbook">Editorial gate — <em>ChatGPT for Cybersecurity Cookbook</em></h1>
+<p><strong>Verdict: SKIP.</strong> The PDF is correctly identified and extracts cleanly with a stable
+page mapping, so receipts would have been reliable. The book fails the other three
+gate conditions at once. Its final chapter is built on an OpenAI API that stopped
+answering five days ago; its most durable-sounding late idea is asserted in a single
+bullet and never demonstrated; and its flagship scripts do not run as printed while
+executing unreviewed model output with <code>shell=True</code>. A 2024 LLM cookbook can survive
+model churn on the strength of a method. This one has no method underneath the
+recipes.</p>
+<h2 id="identity">Identity</h2>
+<ul>
+<li><strong>Observed:</strong> <em>ChatGPT for Cybersecurity Cookbook: Learn practical generative AI
+recipes to supercharge your cybersecurity skills</em>, by Clint Bodungen. The title page
+is PDF p. 2. Foreword by Aaron Crow (PDF p. 5); technical reviewers Aaron Shbeeb,
+Pascal Ackerman, and Bradley Jackson (PDF p. 7).</li>
+<li><strong>Observed:</strong> First published March 2024 by Packt Publishing; copyright 2024;
+production reference 1130324; ISBN 978-1-80512-404-7. The copyright page is PDF p. 3.</li>
+<li><strong>Observed:</strong> 372 physical PDF pages; SHA-256
+<code>1ad374f18e5fa6bd12c57dcdbada96b009f0a6d49401a4339e931f174aa1440c</code>; 12,025,836 bytes.
+The embedded PDF Title and Author fields are blank; identity was recovered from the
+rendered title and copyright pages. Creator: Adobe InDesign 18.5 (Windows); Producer:
+Adobe PDF Library 17.0; CreationDate 2024-03-13.</li>
+<li><strong>Observed, current check (2026-08-31):</strong> Packt and the retail listings still carry
+only the March 2024 first edition; a targeted search surfaced no second edition. That
+is not proof none exists, but no newer edition repairs the problems below:
+<a href="https://www.packtpub.com/en-us/product/chatgpt-for-cybersecurity-cookbook-9781805124047" target="_blank" rel="noreferrer">https://www.packtpub.com/en-us/product/chatgpt-for-cybersecurity-cookbook-9781805124047</a>.</li>
+</ul>
+<h2 id="extraction-gate-passes">Extraction gate — PASSES</h2>
+<ul>
+<li><strong>Observed:</strong> <code>pdftotext</code> (flow and <code>-layout</code>) produced 372 page chunks plus a
+trailing form-feed artifact, 91,708 words, and <strong>zero</strong> Unicode replacement
+characters. Eight chunks are text-empty: PDF pp. 1, 15, 59, 99, 129, 207, 299, 361.
+Spot checks show these are the cover and right-hand chapter-opening separators, not
+missing body prose.</li>
+<li><strong>Observed:</strong> The printed table of contents is readable on PDF pp. 8–14. The numbered
+body uses a stable <code>pdf_page = printed_page + 23</code> mapping with no drift: Chapter 1 at
+PDF p. 24 / printed p. 1; Chapter 5 at PDF p. 170 / printed p. 147; Chapter 8 at PDF
+p. 276 / printed p. 253; Chapter 10 at PDF p. 328 / printed p. 305; Index at PDF
+p. 362 / printed p. 339; back matter through PDF p. 372 / printed p. 349.</li>
+<li><strong>Observed:</strong> Beginning (PDF p. 24), middle (PDF p. 244 / printed p. 221), late
+(PDF p. 328 / printed p. 305), and back matter (PDF p. 369 / printed p. 346) preserve
+headings, code blocks, paragraph order, and page labels.</li>
+<li><strong>Observed limitation:</strong> the book is heavily screenshot-driven, especially Chapters 9
+and 10, where several recipes are UI click-throughs. Figure captions extract; the
+images do not. Nothing in this verdict rests on unextracted visual content.</li>
+</ul>
+<p>Extraction quality is not the reason for the skip.</p>
+<h2 id="currency-gate-fails">Currency gate — FAILS</h2>
+<ul>
+<li><strong>Observed in the book:</strong> the capstone recipe of the whole book, <em>Building Advanced
+Cybersecurity Assistants with OpenAI</em>, is built entirely on the Assistants API beta —
+<code>client.beta.assistants.create</code>, <code>client.beta.threads.create</code>,
+<code>client.beta.threads.runs.create</code>, <code>tools=[{&quot;type&quot;: &quot;retrieval&quot;}]</code>, <code>file_ids=</code> — with
+<code>model=&quot;gpt-4-turbo-preview&quot;</code> (PDF pp. 352–360 / printed pp. 329–337).</li>
+<li><strong>Observed, current check (2026-08-31):</strong> OpenAI notified developers on 2025-08-26
+that the Assistants API was deprecated and would be removed one year later. It was
+removed on <strong>2026-08-26</strong>; <code>/v1/assistants</code>, <code>/v1/threads</code>, and <code>/v1/threads/runs</code>
+now return errors, and OpenAI directs new work to the Responses API. The book&#39;s final
+recipe is therefore not merely dated — it cannot execute:
+<a href="https://platform.openai.com/docs/deprecations" target="_blank" rel="noreferrer">https://platform.openai.com/docs/deprecations</a> and
+<a href="https://community.openai.com/t/assistants-api-beta-deprecation-august-26-2026-sunset/1354666" target="_blank" rel="noreferrer">https://community.openai.com/t/assistants-api-beta-deprecation-august-26-2026-sunset/1354666</a>.</li>
+<li><strong>Observed in the book:</strong> <code>gpt-3.5-turbo</code> is the hardcoded default across the working
+scripts (for example PDF p. 68 / printed p. 45; PDF p. 238 / printed p. 215; PDF
+p. 263 / printed p. 240; PDF p. 283 / printed p. 260), and the FAISS log-triage recipe
+pins <code>text-embedding-ada-002</code> (PDF p. 292 / printed p. 269).</li>
+<li><strong>Observed, current check (2026-08-31):</strong> OpenAI has scheduled <code>gpt-3.5-turbo</code> for
+retirement on 2026-10-23 and <code>gpt-3.5-turbo-instruct</code> for 2026-09-28. The scripts are
+weeks from failing outright: <a href="https://platform.openai.com/docs/deprecations" target="_blank" rel="noreferrer">https://platform.openai.com/docs/deprecations</a>.</li>
+<li><strong>Observed in the book:</strong> Chapter 10 is a set of UI walkthroughs of the late-2023
+ChatGPT interface — the Image Viewer upload flow, the GPT Builder and Zapier AI
+Actions wiring, the separate &quot;web browsing&quot; mode, and &quot;Advanced Data Analysis&quot; as a
+distinct feature (PDF pp. 330–351 / printed pp. 307–328). Every one of those surfaces
+has since been renamed, merged, or rebuilt. Chapter 9&#39;s installs point at
+<code>github.com/imartinez/privateGPT</code> with a <code>poetry install --with ui,local</code> path (PDF
+p. 318 / printed p. 295); development moved to <code>zylon-ai/private-gpt</code> and the install
+path changed: <a href="https://github.com/zylon-ai/private-gpt" target="_blank" rel="noreferrer">https://github.com/zylon-ai/private-gpt</a>.</li>
+<li><strong>Observed:</strong> the author concedes the problem in the chapter&#39;s own opening — ChatGPT
+&quot;has outpaced our ability to update each chapter with all of the latest features&quot;
+(PDF p. 328 / printed p. 305). That is an honest disclosure in 2024. In 2026 it
+describes the whole book.</li>
+</ul>
+<h2 id="late-payoff-gate-fails">Late-payoff gate — FAILS</h2>
+<p>The gate allows a stale edition to pass on a durable method found near the end. Two
+candidates were examined, and both collapse under inspection.</p>
+<ul>
+<li><strong>Candidate 1 — the local drop-in.</strong> The strongest durable idea in the book is that a
+local OpenAI-compatible inference endpoint makes privacy a configuration choice rather
+than a rewrite: LMStudio&#39;s &quot;ability to mimic the format of ChatGPT&#39;s API makes it a
+seamless substitute for any recipe in this book&quot; (PDF p. 308 / printed p. 285). That
+is one bullet, asserted and never demonstrated. <strong>Observed:</strong> the strings <code>base_url</code>
+and <code>api_base</code> appear <strong>zero</strong> times in the full extracted text. Every earlier recipe
+instantiates a bare <code>client = OpenAI()</code> with a hardcoded OpenAI model name, so the
+&quot;seamless substitute&quot; is not seamless and the book never shows the substitution it
+promises. The local chapter itself only reaches the endpoint via raw <code>curl</code> and
+PowerShell to <code>localhost:1234</code> (PDF pp. 306–307 / printed pp. 283–284).</li>
+<li><strong>Candidate 2 — the detection-rule loop.</strong> <em>Building Custom Threat Detection Rules</em>
+has the right shape: identify a unique threat, draft, test in an isolated environment,
+refine against false positives, deploy, monitor (PDF pp. 266–269 / printed
+pp. 243–246). <strong>Observed:</strong> no rule is ever shown, no test corpus is defined, no
+metric is named, and the recipe is four pages of sub-step bullets. Worse, the single
+worked example is a category error: it asks ChatGPT to draft a <strong>YARA</strong> rule to detect
+repeated failed <strong>SSH login attempts</strong> from an IP address, and calls <code>192.168.1.101</code> —
+an RFC 1918 private address — an &quot;unknown external IP&quot; (PDF p. 267 / printed p. 244).
+YARA matches file and memory content; that scenario belongs to auth-log, Sigma, or
+Suricata tooling. A reader who follows the recipe will produce a rule that cannot fire.</li>
+<li><strong>Observed, and decisive:</strong> the terms <strong>&quot;prompt injection&quot; and &quot;hallucination&quot; each
+appear zero times in the entire extracted text</strong> (both the flow and layout
+extractions), as do &quot;untrusted,&quot; &quot;ground truth,&quot; and &quot;human-in-the-loop.&quot; This is a
+2024 cybersecurity book whose recipes feed attacker-influenceable text straight into
+prompts — Windows <code>tasklist</code> and <code>netstat</code> output (PDF p. 262 / printed p. 239),
+streamed syslog lines (PDF pp. 256–257 / printed pp. 233–234), PCAP contents, scraped
+OSINT job postings, and Gmail message bodies pulled in through Zapier (PDF p. 337 /
+printed p. 314) — and then executes the model&#39;s reply. The book never names the two
+failure modes that define its own subject.</li>
+<li><strong>Observed:</strong> the recurring &quot;Note of caution&quot; boxes are real but narrow, and all three
+say the same thing: do not send sensitive data to the API, and wait for the local-model
+chapter (PDF p. 259 / printed p. 236; PDF p. 286 / printed p. 263; PDF p. 289 /
+printed p. 266; PDF p. 298 / printed p. 275). Data residency is the only risk the book
+treats seriously. Model error, injected instructions, and unsafe execution are not
+treated at all.</li>
+</ul>
+<h2 id="correctness-gate-fails">Correctness gate — FAILS</h2>
+<p>The flagship script of Chapter 6, the <em>GPT-powered Kali Linux terminal</em>, is the clearest
+single piece of evidence.</p>
+<ul>
+<li><strong>Observed:</strong> it pipes the model&#39;s raw reply into
+<code>subprocess.Popen(command, shell=True, ...)</code> with no confirmation step and no
+allowlist (PDF pp. 238–240 / printed pp. 215–217). &quot;Command validation&quot; appears only
+as enhancement #2 in the <em>There&#39;s more…</em> wishlist (PDF p. 242 / printed p. 219).</li>
+<li><strong>Observed:</strong> the load-bearing prompt file, <code>prompt4.txt</code>, in a recipe titled
+<em>GPT-powered Kali Linux terminals</em>, instructs the model: &quot;Provide me with the
+<strong>Windows</strong> CLI command necessary to complete the following request&quot; (PDF p. 239 /
+printed p. 216).</li>
+<li><strong>Observed:</strong> the &quot;completed script&quot; cannot run, for at least three independent
+reasons. It calls <code>client.chat.completions.create(model=..., prompt=prompt, ...)</code> —
+<code>prompt</code> is a legacy Completions parameter, not a Chat Completions one; it catches
+<code>openai.error.APIError</code>, which was removed in <code>openai-python</code> v1.x, the very version
+the same file imports with <code>from openai import OpenAI</code>; and it reads
+<code>response[&#39;choices&#39;].message.content.strip()</code>, mixing subscript and attribute access
+(PDF pp. 238 and 240 / printed pp. 215 and 217).</li>
+<li><strong>Observed:</strong> the API key is read from a plaintext <code>openai-key.txt</code> beside the script,
+and this is presented under the heading &quot;Security measures&quot; (PDF pp. 240–241 /
+printed pp. 217–218).</li>
+<li><strong>Observed:</strong> an unremoved editorial instruction survives into the published prose on
+the same page: &quot;the connection to the OpenAI API,Remove this from the sentence. GPT-3.5
+and GPT-4 models are autoregressive language model that use deep learning…&quot; (PDF p. 241
+/ printed p. 218). Present in both extractions; not an extraction artifact.</li>
+</ul>
+<p>It is not an isolated page.</p>
+<ul>
+<li><strong>Observed:</strong> the Chapter 7 APT hunter calls <code>client.chat.completions.creat(</code> and
+omits the <code>return</code> in its step-by-step form (PDF p. 261 / printed p. 238), and detects
+&quot;low-and-slow&quot; persistent threats by reading <code>wevtutil qe Security /c:10</code> — the last
+ten Security events (PDF p. 262 / printed p. 239).</li>
+<li><strong>Observed:</strong> Chapter 9 recommends <code>auto_run: true</code> and <code>interpreter -y</code> to skip
+confirmation (PDF pp. 312–313 / printed pp. 289–290) for a tool the book describes as
+&quot;a function-calling language model equipped with an <code>exec()</code> function&quot; (PDF p. 311 /
+printed p. 288), and proposes driving it with incident-response prompts such as
+&quot;Isolate the infected system from the network&quot; (PDF p. 310 / printed p. 287) — that
+is, auto-executing LLM-authored commands on a host during a live incident.</li>
+<li><strong>Observed:</strong> Chapter 10&#39;s closing <em>There&#39;s more…</em> presents an invented Assistants API
+surface as illustration of &quot;the breadth and depth of functionalities offered by the
+Assistants API&quot;: <code>client.beta.streams.create</code>, <code>client.notifications.subscribe</code>,
+<code>client.dalle.generate</code>, <code>threads.create(persistent=True)</code>,
+<code>purpose=&#39;knowledge-retrieval&#39;</code>, <code>tools=[{&quot;type&quot;: &quot;custom_tool&quot;, ...}]</code>, and
+<code>privacy_mode=True</code> (PDF pp. 358–360 / printed pp. 335–337). Two items are hedged as
+&quot;potential future&quot; or &quot;hypothetical&quot;; the rest are not. The same list labels the
+knowledge-retrieval entry &quot;Code Interpreter Tool&quot; twice.</li>
+<li><strong>Observed:</strong> the capstone script as typeset substitutes guillemets and curly quotes
+for ASCII string delimiters — <code>file=open(«data.txt», «rb&quot;)</code>, <code>purpose=›assistants›</code>
+(PDF p. 355 / printed p. 332). Extraction produced zero replacement characters and
+renders ASCII quotes correctly everywhere else, so this is <strong>inferred</strong> to be a
+typesetting failure in the source rather than an extraction defect. As printed, the
+book&#39;s final script is not valid Python.</li>
+</ul>
+<h2 id="distinctiveness">Distinctiveness</h2>
+<ul>
+<li><strong>Observed:</strong> the shelf&#39;s <em>Defending APIs</em> essay already carries the risk-prioritized
+security-lifecycle payoff, and no accepted essay covers LLM-assisted security
+operations. This candidate had a genuinely open lane. It does not fail on duplication;
+it fails on its own evidence.</li>
+</ul>
+<h2 id="decision">Decision</h2>
+<p>Do not create a manifest, structure map, or essay for this candidate. An essay strong
+enough for this shelf would have to migrate the API surface, replace the models, supply
+the injection and hallucination discipline the book never mentions, correct the YARA
+scenario, and add the evaluation the recipes lack — at which point it would be an
+original essay on LLM-assisted security operations that happens to cite a 2024 PDF, not
+a reverse overview of this book.</p>
+<p>For the shelf, prefer a source whose late chapters treat model output as untrusted
+input: one that defines an evaluation set for a detection or triage task, states a
+false-positive budget, handles instructions injected through the artifacts under
+analysis, and gates the execution of generated commands. Keep this PDF, if at all, as a
+2024 snapshot of what practitioners were being told to try.</p>
+</article>
+    <footer class="article-footer">A skip is part of the shelf’s trust model: readable extraction alone does not create an essay obligation.</footer>
+  </main>
+  </div>
+</body>
+</html>

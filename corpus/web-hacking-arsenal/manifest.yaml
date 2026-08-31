@@ -1,0 +1,133 @@
+slug: web-hacking-arsenal
+title: "Web Hacking Arsenal"
+subtitle: "A Practical Guide to Modern Web Pentesting"
+authors:
+  - Rafay Baloch
+edition: "First edition"
+publication_date: "2025"
+copyright_year: 2025
+publisher: "CRC Press (Taylor & Francis Group, LLC), Boca Raton"
+isbn_print_hbk: "978-1-032-44717-9"
+isbn_print_pbk: "978-1-032-44719-3"
+isbn_ebook: "978-1-003-37356-8"
+doi: "10.1201/9781003373568"
+lccn: "2024007038"
+language: en
+
+source:
+  file: "resources/web-hacking-arsenal.pdf"
+  local_only: true
+  sha256: "e59f61dd659eed6f1fc9dce7507db5d4b4f609722b4d11e273a60373fd8832c1"
+  bytes: 8957628
+  pdf_version: "1.7"
+  page_count: 578
+  page_size_pts: "442.08 x 663.12"
+  embedded_metadata_title: "Web Hacking Arsenal; A Practical Guide to Modern Web Pentesting"
+  embedded_metadata_author: "Rafay Baloch"
+  creator: "Adobe InDesign 16.4 (Windows)"
+  producer: "Adobe PDF Library 16.0"
+  creation_date: "2024-06-28"
+  mod_date: "2024-07-11"
+  note: >-
+    The PDF was produced in mid-2024; the printed copyright page states a first edition
+    published 2025 by CRC Press with copyright 2025. Both facts are recorded rather than
+    reconciled.
+
+extraction:
+  status: "pass_with_limitations"
+  tool: "pdftotext -layout (Poppler)"
+  outputs:
+    - "workspace/web-hacking-arsenal/book.txt"
+    - "workspace/web-hacking-arsenal/book-layout.txt"
+  page_chunks: 578
+  nonempty_page_chunks: 572
+  words_layout: 110697
+  bytes_layout: 854454
+  intentional_blank_pages: [1, 3, 21, 25, 29, 31]
+  unicode_replacement_characters: 1
+  spot_checks:
+    - { region: title_and_copyright, pdf_pages: "4-5", result: clean }
+    - { region: contents, pdf_pages: "6-20", result: clean }
+    - { region: beginning, pdf_page: 32, printed_page: 1, result: clean }
+    - { region: middle_case_studies, pdf_pages: "347-352", printed_pages: "316-321", result: clean }
+    - { region: selected_payoff, pdf_pages: "540-561", printed_pages: "509-530", result: "prose clean; figure bodies absent" }
+    - { region: back_matter, pdf_page: 578, printed_page: 547, result: clean }
+  limitations:
+    - >-
+      The book is figure-heavy: 462 "Figure N.M" captions extract, but the images themselves
+      do not. Chapter 14 alone carries 20 figure captions (Figures 14.1-14.21) across printed
+      pp. 511-528. The exemplar executive summary, the counter-example "fail" summary, the
+      strategic-recommendation sample, the risk matrix, the historical-comparison charts, the
+      technical-finding template, and all four ChatGPT outputs exist only as images. Their
+      captions and the author's surrounding analysis extract; their content is unknown from
+      text alone and must be read in the PDF.
+    - >-
+      Code listings, HTTP requests, JSON bodies, and shell commands extract with layout
+      wrapping. Long tokens can break across lines (e.g. the intentional HPP example on
+      printed p. 508 / PDF p. 539 also legitimately splits a keyword). Extracted listings are
+      readable for comprehension but must not be treated as copy-paste-accurate.
+    - >-
+      One U+FFFD replacement character appears on PDF p. 483 (printed p. 452) inside a quoted
+      origin string in the PostMessage section. It is isolated and does not affect the
+      selected payoff.
+    - >-
+      Screenshots of tool interfaces (Burp, ZAP, CVSS calculators, dashboards) are the primary
+      evidence for many procedural steps. Any claim about what a screenshot shows is unknown
+      from the extraction and is not made in the essay.
+    - >-
+      No table of figures, no bibliography section, and no glossary were found in the
+      extracted front or back matter; the copyright page states the book "includes
+      bibliographical references and index." Per-chapter "Extra Mile" sections carry the
+      external references instead (14 occurrences, one per chapter).
+
+editorial_gate:
+  status: pass
+  reviewed_on: "2026-08-31"
+  selected_payoff: >-
+    A vulnerability is not the deliverable; the decision it produces is. The same true finding
+    changes value depending on whether its impact is argued in the client's business context.
+  rationale: >-
+    Chapter 14 (Report Writing, printed pp. 509-530 / PDF pp. 540-561) is the last chapter and
+    the only method-shaped one. It separates three reader tiers, treats the narrative as the
+    unit of persuasion, states plainly why the author's practice often declines to use CVSS,
+    and gives a rating scheme in which visibility and exploit difficulty - not a vector string -
+    move the rating. The book supplies two concrete consequences of getting this wrong or right:
+    valid bug bounty findings set aside because the write-up was hard to follow (printed p. 509
+    / PDF p. 540), and a doubled Synack reward after patient-data context was added to a report
+    (printed p. 523 / PDF p. 554). This reasoning does not decay the way the payload chapters do.
+  duplication: >-
+    Distinct from the selected Defending APIs essay. That essay covers a defender's
+    organization-wide coverage program; this one covers the tester's deliverable - how a
+    finding becomes a decision an owner acts on. No other selected essay addresses offensive
+    testing or findings communication.
+  currency: >-
+    Pass for the reporting method and the business-logic reasoning that feeds it. Do not treat
+    the technical chapters as a 2026 payload reference; the book self-flags payload decay
+    (printed p. 472 / PDF p. 503). Three specific reporting details in Chapter 14 are stale and
+    are flagged in the essay: CVSS is described as "currently at version 3.1" (printed p. 517 /
+    PDF p. 548) though CVSS v4.0 was released 2023-11-01; OSVDB is recommended as a reference
+    database (printed p. 517 / PDF p. 548) though it shut down in April 2016; and "OWASP Top 10"
+    is named as a web methodology without an edition (printed p. 520 / PDF p. 551) - the 2025
+    edition has since reordered categories and folded SSRF into Broken Access Control.
+  caution: >-
+    Authorized-testing context only. The essay directs the reader to the book's methodology and
+    reasoning and deliberately does not reproduce payloads, bypasses, or step-by-step exploit
+    sequences.
+
+locators:
+  convention: >-
+    pdf_page is the one-based physical PDF page; printed_page is the page number printed in the
+    book. Two offsets apply.
+  printed_to_pdf_offset_for_numbered_body: 31
+  printed_to_pdf_offset_for_roman_front_matter: 1
+  offset_verified_at:
+    - { printed: 1, pdf: 32, anchor: "Chapter 1 opening" }
+    - { printed: 37, pdf: 68, anchor: "Chapter 2 opening" }
+    - { printed: 316, pdf: 347, anchor: "Chapter 8 opening" }
+    - { printed: 472, pdf: 503, anchor: "Chapter 13 opening" }
+    - { printed: 509, pdf: 540, anchor: "Chapter 14 opening" }
+    - { printed: 531, pdf: 562, anchor: "Index first page" }
+    - { printed: 547, pdf: 578, anchor: "Index last page / last PDF page" }
+  offset_stability: >-
+    Observed constant at +31 from the first numbered body page through the final index page;
+    every chapter opening in the printed contents resolves to the predicted PDF page.

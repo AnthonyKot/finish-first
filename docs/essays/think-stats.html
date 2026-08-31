@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Read every closed-form statistical test as a simulation someone stopped running, and keep the simulation as the shortcut's reference implementation.">
+  <meta name="theme-color" content="#153b35">
+  <meta property="og:title" content="ttest_ind Returned a Number. The Last Chapter Tells You What You Bought.">
+  <meta property="og:description" content="Read every closed-form statistical test as a simulation someone stopped running, and keep the simulation as the shortcut's reference implementation.">
+  <meta property="og:type" content="website">
+  <title>ttest_ind Returned a Number. The Last Chapter Tells You What You Bought. · Finish First</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23153b35'/%3E%3Ctext x='17' y='44' font-size='35' fill='%23fffdf8'%3EF%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="article-view" data-active-slug="think-stats">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <header class="site-header">
+    <a class="wordmark" href="../index.html" aria-label="Finish First home">
+      <span class="wordmark__mark">F<span>←</span></span>
+      <span><strong>Finish First</strong><small>technical books, read backward</small></span>
+    </a>
+    <div class="header-actions">
+      <span class="progress-summary" data-progress-summary>0 of 14 missions</span>
+      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="book-navigation">Contents</button>
+    </div>
+  </header>
+  <div class="page-shell">
+    <aside class="book-nav" id="book-navigation" data-book-nav>
+      <div class="book-nav__intro">
+        <a href="../index.html">The shelf</a>
+        <p>14 destinations. One exact mission each.</p>
+      </div>
+      <nav aria-label="Book contents">
+    <a class="book-nav__item" href="../essays/software-architecture-hard-parts.html" data-mission-link="software-architecture-hard-parts">
+      <span class="book-nav__number">01</span>
+      <span><small>Architecture</small>The Architecture Decision Hidden Behind the Technology Argument</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/machine-learning-engineering.html" data-mission-link="machine-learning-engineering">
+      <span class="book-nav__number">02</span>
+      <span><small>ML systems</small>The Model Is Allowed to Be Wrong. The System Is Not Allowed to Be Helpless.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/staff-engineers-path.html" data-mission-link="staff-engineers-path">
+      <span class="book-nav__number">03</span>
+      <span><small>Engineering leadership</small>The Staff Engineer Who Can Leave the Room</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/refactoring-to-rust.html" data-mission-link="refactoring-to-rust">
+      <span class="book-nav__number">04</span>
+      <span><small>Migration</small>The Migration Unit Is a Seam, Not a Codebase</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/practical-systems-programming-go.html" data-mission-link="practical-systems-programming-go">
+      <span class="book-nav__number">05</span>
+      <span><small>Systems programming</small>A File Indexer Is a Chain of Promises</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/database-internals.html" data-mission-link="database-internals">
+      <span class="book-nav__number">06</span>
+      <span><small>Distributed systems</small>The Database Committed. Your Client Timed Out. Both Are True.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/defending-apis.html" data-mission-link="defending-apis">
+      <span class="book-nav__number">07</span>
+      <span><small>Security</small>API Security Is a Coverage System, Not a Product Purchase</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/learning-systems-thinking.html" data-mission-link="learning-systems-thinking">
+      <span class="book-nav__number">08</span>
+      <span><small>Systems thinking</small>The Mission Stayed the Same. Every Word Changed.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/performance-analysis-tuning-modern-cpus.html" data-mission-link="performance-analysis-tuning-modern-cpus">
+      <span class="book-nav__number">09</span>
+      <span><small>Performance</small>The Fifth Thread Made the Program Slower</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/efficient-cloud-finops.html" data-mission-link="efficient-cloud-finops">
+      <span class="book-nav__number">10</span>
+      <span><small>Cloud economics</small>A Discount Can Fossilize Waste</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/designing-electronics-that-work.html" data-mission-link="designing-electronics-that-work">
+      <span class="book-nav__number">11</span>
+      <span><small>Electronics</small>The Enclosure Did Not Cause the Failure. It Exposed It.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/engineering-leadership.html" data-mission-link="engineering-leadership">
+      <span class="book-nav__number">12</span>
+      <span><small>Engineering leadership</small>What Decision Would You Make Differently?</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item" href="../essays/web-hacking-arsenal.html" data-mission-link="web-hacking-arsenal">
+      <span class="book-nav__number">13</span>
+      <span><small>Security</small>The Finding Was Valid. The Report Decided Whether It Counted.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a>
+    <a class="book-nav__item is-active" href="../essays/think-stats.html" data-mission-link="think-stats">
+      <span class="book-nav__number">14</span>
+      <span><small>Statistics</small>ttest_ind Returned a Number. The Last Chapter Tells You What You Bought.</span>
+      <span class="book-nav__check" aria-label="Mission completed">✓</span>
+    </a></nav>
+      <a class="book-nav__skips" href="../index.html#transparent-skips">Editorial skips →</a>
+    </aside>
+    <main id="main" class="essay-page">
+    <header class="essay-hero">
+      <div class="essay-kicker"><span>14</span>Statistics</div>
+      <p class="essay-book">From <cite>Think Stats</cite> by Allen B. Downey</p>
+      <p class="essay-payoff">Read every closed-form statistical test as a simulation someone stopped running, and keep the simulation as the shortcut's reference implementation.</p>
+      <div class="essay-meta"><span>PDF pages 288–303</span><span>Produces: Six-line shortcut-validity card</span></div>
+    </header>
+    <aside class="currency-note"><strong>Edition boundary</strong>Third edition, 2025, and current; the mission depends on the book's live companion notebooks and datasets on GitHub.</aside>
+    <article class="prose"><h1 id="ttest-ind-returned-a-number-the-last-chapter-tells-you-what-you-bought"><code>ttest_ind</code> Returned a Number. The Last Chapter Tells You What You Bought.</h1>
+<p>You have two groups and a difference between their means. You import <code>scipy.stats</code>, call
+<code>ttest_ind</code>, and get a p-value in a millisecond. The number arrives with no warning label.</p>
+<p>What did you just agree to?</p>
+<p>The reward waiting at the very end of Allen Downey&#39;s <em>Think Stats</em>, third edition, is an answer to
+that question and a working method for checking it. Chapter 14, &quot;Analytic Methods,&quot; is the only
+chapter where the book turns around and does with formulas what the previous thirteen chapters did
+with random numbers. It is not a bolted-on math appendix. It is where the computational approach
+finally gets audited, and where you learn that <strong>every closed-form statistical test is a simulation
+somebody stopped running, on the assumption that its answer had stopped changing.</strong> The book&#39;s last
+section states the rule that follows: when you replace a simulation with a formula, keep the
+simulation as the thing that proves the formula still applies. [Receipt: &quot;Computation and Analysis,&quot;
+PDF pp. 302–303; printed pp. 288–289.]</p>
+<p>That is worth reaching, because it converts a vague professional anxiety — <em>am I allowed to use this
+test?</em> — into a procedure you can run in ten lines of Python.</p>
+<h2 id="the-promise-a-shortcut-you-can-audit">The promise: a shortcut you can audit</h2>
+<p>Downey&#39;s framing is unusually direct for a statistics text. He lists three advantages of
+computational methods: they are easier to explain, they are robust and versatile because they
+require fewer assumptions, and they are <em>debuggable</em>, where analytic methods are &quot;often like a black
+box: you plug in numbers and they spit out results,&quot; easy to get subtly wrong and hard to diagnose.
+He then lists the drawbacks honestly — they can be slow, and randomized methods do not produce the
+same result twice, which makes them harder to check. [Receipt: PDF p. 302; printed p. 288.]</p>
+<p>From that trade he derives a three-step process: explore computationally and stop if the runtime is
+acceptable; if it is not, look for optimizations, of which an analytic method is one; and if you do
+swap one in, keep the computational method as a basis of comparison, &quot;providing mutual validation
+between the computational and analytic results.&quot; He adds that for many practical problems you never
+leave step one. [Receipt: PDF pp. 302–303; printed pp. 288–289.]</p>
+<p>Read as an engineering rule: the formula is the optimized path, the simulation is the reference
+implementation, and you do not delete the reference implementation when you ship the optimization.
+You keep it as the test that tells you when the optimization&#39;s preconditions quietly stopped
+holding.</p>
+<h2 id="the-idea-three-tests-each-shown-to-be-an-approximation">The idea: three tests, each shown to be an approximation</h2>
+<p>The chapter earns that conclusion by doing the work three times, and every time the analytic answer
+is placed beside a simulated one before it is trusted.</p>
+<p>It begins by building a <code>Normal</code> class — an object holding <code>mu</code> and <code>sigma2</code> — and giving it
+arithmetic. <code>__add__</code> adds means and <em>adds</em> variances; <code>__mul__</code> scales the mean by a factor and the
+variance by its square; <code>__sub__</code> subtracts the means and, uncomfortably, still adds the variances.
+Each operation is verified against a random sample before it is used. [Receipt: PDF pp. 280–286;
+printed pp. 266–272.] Out of that algebra falls the standard-error formula: after multiplying the
+variance by <em>n</em> and dividing by <em>n²</em>, &quot;the net effect was to divide the variance by n,&quot; so the
+standard error is the standard deviation over √<em>n</em>. The familiar expression is not asserted — it is
+derived, then checked against the sampling distribution it summarizes. [Receipt: PDF p. 285;
+printed p. 271.]</p>
+<p>Then the load-bearing caveat. All of that holds because normal distributions are closed under
+addition, and the Central Limit Theorem is what extends it to data that is not normal. Downey states
+the CLT and immediately attaches three conditions: the values must come from the same distribution,
+they must be drawn independently, and the distribution must have finite mean and variance.
+[Receipt: PDF p. 288; printed p. 274.]</p>
+<p>What makes the chapter unusual is that he then <em>breaks</em> it, on purpose. Sums of exponential values
+look normal by <em>n</em> = 10; sums of the more skewed lognormal still deviate in the tails at <em>n</em> = 100
+[Receipt: PDF pp. 288–290; printed pp. 274–276]; sums from a Pareto distribution with <code>alpha=1</code>,
+which has infinite mean and variance, are &quot;nothing like a normal distribution&quot; even at <em>n</em> = 100;
+and serially correlated exponentials with <code>rho=0.8</code> converge slowly and may not converge at all if
+distant elements are correlated too. [Receipt: &quot;The Limits of the Central Limit Theorem,&quot; PDF
+pp. 290–292; printed pp. 276–278.]</p>
+<p>That is the payoff in operational form. Heavy tails and serial correlation are not exotic; they are
+the two most common properties of data a working engineer actually holds — request latencies,
+revenue per customer, file sizes, anything sampled over time. The chapter also names the diagnostic,
+and it is a picture: the <em>normal probability plot</em>, introduced first precisely because, unlike
+overlaying a fitted CDF, it does not depend on your ability to estimate the model&#39;s parameters.
+[Receipt: PDF pp. 276–279; printed pp. 262–265.]</p>
+<p>Three tests then follow, and the pattern never varies — simulate, plot the simulated null against
+the analytic model, then use the formula.</p>
+<p><strong>Difference in means.</strong> The Chapter 9 pregnancy-length comparison, redone analytically: the normal
+approximation gives p = 0.170, <code>ttest_ind</code> gives 0.1676, and Chapter 9&#39;s permutation test gave 0.18,
+which the book calls consistent. Downey is explicit that the measurements are <em>not</em> normal and that
+the approximation is licensed here only by large samples and modest skewness. [Receipt: &quot;Applying
+the CLT,&quot; PDF pp. 292–295; printed pp. 278–281.]</p>
+<p><strong>Correlation.</strong> Pearson&#39;s <em>r</em> is transformed by <code>r * sqrt((n-2)/(1-r**2))</code>, which follows a Student
+<em>t</em> distribution with <em>n</em>−2 degrees of freedom — exactly for normal samples, approximately for
+others as <em>n</em> grows — and the permuted correlations are shown to match that model before it is used.
+The analytic p-value is 5.72e-11; <code>pearsonr</code> returns 5.72e-11. Here the formula buys something
+resampling cannot: resampling could only establish p &lt; 0.001 without enormous effort. Then Downey
+undercuts his own win — below 0.001 it usually does not matter how much smaller the number is.
+[Receipt: &quot;Correlation Test,&quot; PDF pp. 295–299; printed pp. 281–285.]</p>
+<p><strong>Chi-squared.</strong> Simulated fair-die rolls are shown to follow a chi-squared distribution with <em>n</em>−1
+degrees of freedom; the analytic p-value 0.0407 matches <code>chisquare</code>. The section closes with a
+warning worth more than the technique: the chi-squared statistic is used because its null
+distribution is cheap to compute, but &quot;in context, it might not be the statistic that best
+quantifies the difference between the observed and expected outcomes.&quot; [Receipt: &quot;Chi-squared Test,&quot;
+PDF pp. 299–302; printed pp. 285–288.]</p>
+<p>Three sections, one lesson: named tests are not a menu of correct answers for situations. They are
+cached results, and the cache has invalidation conditions.</p>
+<h2 id="the-backward-dependency-trail">The backward dependency trail</h2>
+<p>Read from Chapter 14 and the earlier chapters stop being a curriculum. Each supplies a piece the
+last chapter needs.</p>
+<p><strong>Chapter 9 supplies the thing being approximated.</strong> It builds hypothesis testing out of three parts
+and nothing else — a test statistic, a null hypothesis, and a p-value — using 140 heads in 250 coin
+spins, simulated ten thousand times. [Receipt: &quot;Flipping Coins,&quot; PDF pp. 164–166; printed
+pp. 150–152.] The pregnancy-length test is then a permutation test: pool both groups, shuffle,
+re-split at the original sizes, and count how often chance produces a difference as large as the
+observed 0.078 weeks. [Receipt: PDF pp. 166–168; printed pp. 152–154.] Without this chapter,
+<code>ttest_ind</code> is a black box. With it, the t test is visibly a faster way to compute a number you
+already know how to produce by shuffling — which is why you can tell when the faster way is wrong.</p>
+<p><strong>Chapter 8 supplies the object the formulas describe.</strong> The sampling distribution — what the
+estimate would do if you collected the sample again — is built by resampling penguin weights, and
+the standard error is simply its standard deviation. Downey draws the distinction most readers carry
+incorrectly: standard deviation quantifies variation in measurements, standard error quantifies the
+precision of an estimate, and &quot;they are answers to different questions.&quot; He then shows that
+<code>np.std(sample) / np.sqrt(n)</code> reproduces the resampled result. [Receipt: &quot;Sampling Distributions&quot;
+through &quot;Confidence Intervals,&quot; PDF pp. 152–156; printed pp. 138–142.] Chapter 14&#39;s whole <code>Normal</code>
+algebra is a derivation of that shortcut; you cannot appreciate a shortcut whose destination you
+have never reached on foot.</p>
+<p>Chapter 8 also carries the caution that outranks everything else in the book. Confidence intervals
+quantify variability due to sampling only; sampling bias, self-selection, and measurement error are
+separate, and &quot;often it is not the biggest&quot; source of error. [Receipt: &quot;Sources of Error,&quot; PDF
+p. 157; printed p. 143.] No amount of Chapter 14 rescues a badly drawn sample.</p>
+<p><strong>Chapters 4 to 6 supply the models and the instruments.</strong> Chapter 5 works through the binomial,
+Poisson, exponential, normal, and lognormal distributions, then asks &quot;Why Model?&quot; — answering that
+theoretical distributions are abstractions and a form of data compression, that all models are
+imperfect, and, pointedly, that they &quot;lend themselves to mathematical analysis, as we&#39;ll see in
+Chapter 14.&quot; The book names its own destination two hundred pages early. [Receipt: PDF p. 97;
+printed p. 83.] Chapter 6 establishes that a Pmf and a Cdf are interconvertible, which is what makes
+&quot;plot the empirical CDF against the analytic CDF&quot; a valid test rather than a coincidence of shapes
+[Receipt: PDF pp. 116–117; printed pp. 102–103], and Chapter 4 is where the CDF — the comparison
+device on nearly every page of Chapter 14 — is built. [Receipt: &quot;CDFs&quot; through &quot;Comparing CDFs,&quot;
+PDF pp. 62–67; printed pp. 48–53.] Chapter 7 defines the correlation statistics the correlation test
+is testing, and separates them from causation. [Receipt: PDF pp. 130–140; printed pp. 116–126.]</p>
+<p><strong>Chapters 10 and 11 supply the reason significance is not enough.</strong> Chapter 10 derives R² as the
+fractional reduction in mean squared error and shows r² = R². [Receipt: PDF p. 184; printed p. 170.]
+Chapter 11 then plants the sentence every reader who has shipped a p-value should keep visible:
+maternal age predicts birth weight with a small p-value <em>and</em> a small R², which &quot;seems
+contradictory&quot; but is not — &quot;a relationship can be statistically significant but not very useful for
+prediction.&quot; [Receipt: PDF p. 206; printed p. 192.] Chapter 14 makes p-values cheap. Chapter 11 is
+why cheap p-values are not the goal.</p>
+<p>The reverse path is therefore:</p>
+<p><strong>honest sample → sampling distribution → simulated null → fitted model → analytic shortcut, kept
+under simulation&#39;s supervision.</strong></p>
+<h2 id="what-has-aged-and-one-position-to-notice">What has aged, and one position to notice</h2>
+<p>Very little. This is the third edition, copyright 2025, O&#39;Reilly, first release 2025-04-04, ISBN
+978-1-098-19025-5. [Receipt: copyright page, PDF p. 4.] The stack it teaches — NumPy, SciPy, Pandas,
+StatsModels, plus the author&#39;s <code>empiricaldist</code> and, in Chapter 13, <code>lifelines</code> — is current, and
+every chapter ships as a Jupyter notebook designed to run on Colab without installing anything.
+[Receipt: &quot;What&#39;s New?&quot; and &quot;Using the Code,&quot; PDF pp. 11–12; printed pp. ix–x.] Those notebooks are
+public at <a href="https://github.com/AllenDowney/ThinkStats" target="_blank" rel="noreferrer">https://github.com/AllenDowney/ThinkStats</a>, with a free online edition at
+<a href="https://allendowney.github.io/ThinkStats/" target="_blank" rel="noreferrer">https://allendowney.github.io/ThinkStats/</a> (checked 2026-08-31). That external dependency is the
+only real fragility: datasets are downloaded by the notebooks rather than bundled, so a dead link is
+a broken exercise, not a broken book.</p>
+<p>One thing to notice rather than distrust. On printed page 142, Downey takes an explicit position
+against the standard textbook prohibition, arguing that a 90% confidence interval may be read as a
+90% chance the true value falls inside, and flagging that a strict frequentist reading forbids this.
+[Receipt: PDF p. 156; printed p. 142.] He is transparent about it — but know it is a stance, not
+consensus, because a reviewer trained on the orthodox definition will read your write-up differently
+than you intended.</p>
+<p>An honest extraction note. This book argues visually: there are no numbered figure captions
+anywhere, only unnumbered plots introduced as &quot;the following figure,&quot; and none of the plot images
+extract to text. Every claim above about <em>what a plot shows</em> comes from the surrounding prose, which
+describes each result explicitly. The plots themselves must be seen in the PDF or, better,
+regenerated by running the notebook. That is exactly the mission below.</p>
+<section class="mission" data-mission="think-stats"><div class="mission__label">Your one reading mission</div><h2 id="one-reading-mission">Your one reading mission</h2>
+<p>Read <strong>PDF pages 288–303 (printed pages 274–289)</strong>: &quot;Central Limit Theorem&quot; through the end of
+&quot;Computation and Analysis.&quot; Sixteen pages. Skip nothing, but do not try to hold the <code>Normal</code> class
+algebra in your head — it is on pages you can return to.</p>
+<p>Then open one dataset you already own. Not penguins. A column of numbers from your own work:
+request latencies, invoice amounts, session durations, ticket resolution times, commit sizes.</p>
+<p>Carry three questions into the pages:</p>
+<ol>
+<li>Which of the CLT&#39;s three conditions does my column violate — identical distribution,
+independence, or finite variance? (Latencies and revenue are usually heavy-tailed; anything
+indexed by time is usually serially correlated. Assume you are violating one until you check.)</li>
+<li>At what <em>n</em> does the normal probability plot of my sums actually straighten out — 10, 100, or
+never?</li>
+<li>If I ran the analytic test and the simulated test on my real question, would they agree to the
+precision I intend to report?</li>
+</ol>
+<p><strong>Completion evidence — a shortcut-validity card.</strong> One page, six lines, for your column: the
+question you would actually ask of it (a difference, a correlation, or a proportion); the simulated
+null, in one sentence, describing how you shuffle or resample; the simulated p-value; the analytic
+p-value from the matching <code>scipy.stats</code> call; the gap between them and whether it changes any
+decision; and the condition that would make you stop trusting the analytic one.</p>
+<p>Write that last line even if the two numbers matched. Especially if they matched — a shortcut that
+agrees today is the only kind that can silently stop agreeing later.</p>
+<p>You are done when you can say which of the two numbers on your card you would defend in a review,
+and why. If the answer is &quot;the simulated one, because I watched it converge,&quot; Chapter 14 has already
+paid for itself, and the thirteen chapters behind it have become a route rather than a queue.</p>
+<hr>
+<p>Locator convention: <code>PDF p. N</code> is the physical page of the local 324-page PDF; <code>printed p. M</code> is the
+number printed in the book. For the numbered body, PDF = printed + 14. For the edition identity,
+extraction limits, and the 2026 currency check, see
+<a href="../reviews/think-stats.html"><code>notes/review-think-stats.md</code></a>.</p>
+</section></article>
+    <div class="mission-action" data-mission-action="think-stats">
+      <div><strong>Make the reading count.</strong><span>Complete the artifact described in the mission, then mark it done.</span></div>
+      <button type="button" data-complete-mission="think-stats">Mark mission complete</button>
+    </div>
+    <nav class="essay-pager" aria-label="Adjacent essays">
+    <a href="web-hacking-arsenal.html"><span>Previous</span>The Finding Was Valid. The Report Decided Whether It Counted.</a>
+    <a class="essay-pager__next" href="../index.html"><span>Return</span>The complete shelf</a>
+  </nav>
+    <footer class="article-footer">Original companion prose directs you back to the cited edition. Source PDFs and extracted text remain private and are not published here.</footer>
+  </main>
+  </div>
+</body>
+</html>

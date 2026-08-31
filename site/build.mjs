@@ -93,7 +93,7 @@ function shell({ title, description, prefix = "", activeSlug = "", body, pageCla
     <aside class="book-nav" id="book-navigation" data-book-nav>
       <div class="book-nav__intro">
         <a href="${prefix}index.html">The shelf</a>
-        <p>Eleven destinations. One exact mission each.</p>
+        <p>${essays.length} destinations. One exact mission each.</p>
       </div>
       <nav aria-label="Book contents">${navItems(prefix, activeSlug)}</nav>
       <a class="book-nav__skips" href="${prefix}index.html#transparent-skips">Editorial skips →</a>
@@ -166,12 +166,12 @@ function homePage() {
     <section class="home-hero">
       <div class="home-hero__eyebrow">A finish-first companion to technical books</div>
       <h1>See the destination.<br><em>Then read toward it.</em></h1>
-      <p>Eleven original essays begin with the valuable idea waiting near the end of a technical book. Each traces the prerequisites backward and gives you one exact reading mission with PDF-page receipts.</p>
+      <p>${essays.length} original essays begin with the valuable idea waiting near the end of a technical book. Each traces the prerequisites backward and gives you one exact reading mission with PDF-page receipts.</p>
       <div class="home-hero__actions">
         <a class="button button--primary" href="essays/software-architecture-hard-parts.html">Read the recommended start</a>
-        <a class="button button--quiet" href="#the-shelf">Browse eleven ideas</a>
+        <a class="button button--quiet" href="#the-shelf">Browse ${essays.length} ideas</a>
       </div>
-      <div class="home-proof"><span><strong>11</strong> accepted books</span><span><strong>2</strong> transparent skips</span><span><strong>1</strong> mission per essay</span></div>
+      <div class="home-proof"><span><strong>${essays.length}</strong> accepted books</span><span><strong>${skips.length}</strong> transparent skips</span><span><strong>1</strong> mission per essay</span></div>
     </section>
     <section class="start-card" aria-labelledby="start-title">
       <div class="start-card__number">01</div>
@@ -179,7 +179,7 @@ function homePage() {
       <a href="essays/software-architecture-hard-parts.html">Begin with the trade-off table <span>→</span></a>
     </section>
     <section class="shelf-section" id="the-shelf">
-      <div class="section-heading"><div><span class="section-label">The shelf</span><h2>Eleven destinations worth reaching</h2></div><p>Choose the idea that touches a decision you face now. The order is a recommendation, not a prerequisite chain.</p></div>
+      <div class="section-heading"><div><span class="section-label">The shelf</span><h2>${essays.length} destinations worth reaching</h2></div><p>Choose the idea that touches a decision you face now. The order is a recommendation, not a prerequisite chain.</p></div>
       <div class="shelf-grid">${cards}</div>
     </section>
     <section class="how-section">

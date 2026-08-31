@@ -1,0 +1,76 @@
+section_id	title	level	printed_page	pdf_page	end_pdf_page
+blurb	Back-cover description	0	unknown	2	2
+title_page	Title page	0	unknown	4	4
+copyright	Copyright, CIP data, ISBNs, DOI	0	unknown	5	5
+toc	Contents	0	v	6	20
+foreword	Foreword (Tod Beardsley)	0	xxi	22	24
+preface	Preface	0	xxv	26	27
+acknowledgments	Acknowledgments	0	xxvii	28	28
+about_author	About the Author	0	xxix	30	30
+ch01	Introduction to Web and Browser	1	1	32	67
+ch02	Intelligence Gathering and Enumeration	1	37	68	123
+ch02_intro	2.1 Introduction (active vs passive enumeration; interpreting tool output)	2	37	68	70
+ch02_attacksurface	2.13 Mapping the Attack Surface Using Crawling/Spidering	2	75	106	108
+ch02_cloud	2.18 Cloud Enumeration	2	85	116	122
+ch03	Introduction to Server-Side Injection Attacks	1	93	124	182
+ch03_sqli	3.2 Introduction to SQL Injection	2	93	124	137
+ch03_ssti	3.8 Server-Side Template Injections (SSTI)	2	137	168	170
+ch04	Client-Side Injection Attacks	1	152	183	230
+ch04_context	4.4 Understanding Context in XSS	2	154	185	186
+ch04_rootcause	4.12 Root Cause Analysis	2	166	197	198
+ch05	Cross-Site Request Forgery Attacks	1	200	231	257
+ch06	Webapp File System Attack	1	227	258	290
+ch07	Authentication, Authorization, and SSO Attacks	1	260	291	346
+ch07_ratelimit	7.4 Bypassing Rate-Limiting Mechanism	2	268	299	300
+ch07_captcha	7.5 Bypassing CAPTCHA	2	270	301	306
+ch07_forgotpw	7.7 Abusing Forgot Password Functionality	2	279	310	312
+ch07_resetpoison	7.8 Password Reset Link Poisoning via Host Header Injection	2	282	313	314
+ch07_authz	7.9 Attacking Authorization	2	284	315	327
+ch07_idor	7.9.2 Insecure Direct Object References (IDOR)	3	287	318	319
+ch07_oauth	7.11 Attacking OAuth 2.0	2	299	330	335
+ch07_saml	7.12 Attacking SAML	2	305	336	340
+ch08	Business Logic Flaws	1	316	347	365
+ch08_intro	8.1 Introduction (scanners are poor at logic flaws)	2	316	347	347
+ch08_cases	8.2 Business Logic Flaws (real-engagement case studies)	2	316	347	357
+ch08_race	8.3 Race Condition Vulnerabilities	2	327	358	363
+ch08_extra	8.4 Extra Mile	2	333	364	365
+ch09	Exploring XXE, SSRF, and Request Smuggling Techniques	1	335	366	403
+ch09_xxe	9.3 XXE (XML External Entity)	2	339	370	379
+ch09_ssrf	9.5 Server-Side Request Forgery (SSRF)	2	353	384	396
+ch09_smuggling	9.6 HTTP Request Smuggling/HTTP Desync Attacks	2	366	397	402
+ch10	Attacking Serialization	1	373	404	433
+ch11	Pentesting Web Services and Cloud Services	1	403	434	468
+ch11_graphql	11.5 GraphQL Vulnerabilities	2	420	451	455
+ch11_serverless	11.9 Serverless Applications Vulnerabilities	2	431	462	463
+ch12	Attacking HTML5	1	438	469	502
+ch12_cors	12.2 Cross-Origin Resource Sharing	2	438	469	473
+ch12_uiredress	12.8 UI Redressing Attacks	2	466	497	501
+ch13	Evading Web Application Firewalls (WAFs)	1	472	503	539
+ch13_intro	13.1 Introduction to WAF (detection methods; payload-aging caveat)	2	472	503	510
+ch13_method	13.2 Bypass WAF - Methodology Exemplified at XSS	2	480	511	512
+ch13_extra	13.10 Extra Mile	2	508	539	539
+ch14	Report Writing	1	509	540	561
+ch14_intro	14.1 Introduction (valid findings dismissed for presentation)	2	509	540	540
+ch14_audience	14.2 Reporting Audience (three reader tiers)	2	509	540	541
+ch14_execsummary	14.3 Executive Summary	2	510	541	543
+ch14_execstructure	14.3.1 Structure of an Executive Summary	3	510	541	542
+ch14_execfail	14.3.2 Executive Summary Fail	3	512	543	543
+ch14_recommendations	14.3.3 Recommendations Report	3	513	544	544
+ch14_findings	14.4 Findings Summary	2	513	544	546
+ch14_strengths	14.4.1 Overall Strengths	3	514	545	545
+ch14_weaknesses	14.4.2 Overall Weaknesses	3	515	546	546
+ch14_historical	14.5 Historical Comparison	2	515	546	546
+ch14_narrative	14.6 Narrative of the Report	2	516	547	547
+ch14_risk	14.7 Risk Assessment	2	516	547	550
+ch14_cvss	14.7.1 CVSS Scoring	3	517	548	549
+ch14_cvss_limits	14.7.2 Limitations of CVSS	3	519	550	550
+ch14_matrix	14.8 Risk Matrix	2	519	550	551
+ch14_ratings	14.8.1 Risk Assessment and Reporting (rating definitions)	3	520	551	551
+ch14_methodology	14.9 Methodology (OSSTMM, NIST, OWASP Top 10)	2	520	551	551
+ch14_technical	14.10 Technical Report (findings table F1-F15; finding template)	2	520	551	555
+ch14_organizing	14.11 Organizing the Report (inverse pyramid)	2	524	555	556
+ch14_tools	14.12 Report Writing Tools (Dradis, AttackForge)	2	525	556	559
+ch14_chatgpt	14.12.1 ChatGPT for Report Writing (four sample prompts)	3	525	556	559
+ch14_tips	14.13 Report Writing Tips (template, QA process)	2	529	560	561
+ch14_extra	14.14 Extra Mile	2	530	561	561
+index	Index	0	531	562	578

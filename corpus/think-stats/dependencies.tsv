@@ -1,0 +1,17 @@
+payoff_id	prerequisite_id	relationship	why	source_sections	pdf_pages	printed_pages	evidence
+p1	p3	summarises	The three worked tests are the evidence that produces the closing recommendation.	ch14_s07,ch14_s08,ch14_s09	292-302	278-288	observed
+p1	d_ch09_null	requires	The computational half of "mutual validation" is the simulated null hypothesis built in Chapter 9: a test statistic, a null hypothesis model, and a p-value counted from simulated results.	ch09_s01,ch09_s02	164-168	150-154	observed
+p1	d_ch08_sampdist	requires	The quantity both methods estimate is the sampling distribution, constructed by resampling before any formula appears; standard error is defined as its standard deviation.	ch08_s04,ch08_s05	152-155	138-141	observed
+p2	d_ch05_models	requires	Recognising a heavy-tailed column requires the theoretical distributions of Chapter 5; the lognormal and Pareto counterexamples are meaningless without them.	ch05_s01,ch05_s05,ch05_s06	77-97	63-83	observed
+p2	p5	uses	The failures of the CLT are demonstrated with normal probability plots, not with test statistics.	ch14_s01	275-279	261-265	observed
+p3	d_ch09_perm	replaces	Chapter 14's t test recomputes exactly the pregnancy-length comparison Chapter 9 solved by pooling and shuffling; the resampled and analytic p-values are compared (0.170 analytic vs ttest_ind 0.1676).	ch09_s02,ch14_s07	166-168,292-295	152-154,278-281	observed
+p3	d_ch09_corr	replaces	The correlation test replaces the Chapter 9 permutation test for correlation between birth weight and mother's age; the analytic method buys a precise small p-value (5.72e-11) that resampling could only bound below 0.001.	ch09_s04,ch14_s08	170-171,295-299	156-157,281-285	observed
+p3	d_ch09_prop	replaces	The chi-squared test replaces the Chapter 9 crooked-die proportion test; the analytic and SciPy p-values agree at 0.0407.	ch09_s05,ch14_s09	172-175,299-302	158-161,285-288	observed
+p3	d_ch07_corr	requires	Pearson correlation, standard scores, and rank correlation are defined in Chapter 7; the correlation test tests the statistic defined there.	ch07_s03,ch07_s06	130-140	116-126	observed
+p4	d_ch08_se	derives	Chapter 8 obtains sd/sqrt(n) empirically by resampling penguin weights; Chapter 14 derives the same expression from the algebra of normal distributions.	ch08_s05,ch08_s06	155-156	141-142	observed
+p5	d_ch04_cdf	requires	Comparing an empirical CDF with a model CDF is the book's standard fit check; the CDF is defined and used for comparison in Chapter 4.	ch04_s02,ch04_s03	62-67	48-53	observed
+p5	d_ch06_framework	requires	Pmf and Cdf are shown to be interconvertible, which is what makes CDF-against-model comparison a valid test rather than a shape coincidence.	ch06_s06	115-119	101-105	observed
+p1	d_ch05_whymodel	forward_reference	Chapter 5 explicitly names Chapter 14 as the destination: theoretical distributions "lend themselves to mathematical analysis, as we'll see in Chapter 14."	ch05_s06	97	83	observed
+p1	p8	bounded_by	Neither method rescues a biased sample; Chapter 8 states that sampling variability is only one source of error and often not the biggest.	ch08_s07	157	143	observed
+p1	p6	bounded_by	Cheap analytic p-values are not the goal: Chapter 11 shows a statistically significant relationship that barely improves prediction.	ch11_s03	206	192	observed
+p3	d_ch01_validation	requires	Before any test, Chapter 1 validates NSFG variables against published tables and transforms raw codes; an unvalidated column makes every downstream p-value meaningless.	ch01_s04,ch01_s05	21-24	7-10	observed

@@ -1,0 +1,25 @@
+payoff_id	prerequisite_id	relationship	source_sections
+p1-metrics-as-product	ch1-no-measurement	diagnosis: names absent measurement as one of ten symptoms of organizational chaos, which is what makes a measurement product urgent rather than optional	ch1-symptoms, ch1-no-measurement
+p1-metrics-as-product	ch1-opportunity	motivation: "No metrics? You define success" reframes the gap as the leader's opening	ch1-opportunity
+p1-metrics-as-product	ch2-pillars	mandate: the Product pillar explicitly owns meaningful measurement, outcome focus, and quality standards; Table 2-1 maps it onto the chaos symptoms	ch2-framework, ch2-pillars
+p1-metrics-as-product	ch2-product	definition: success is not a closed sprint, and outcomes are not always features, so the leader must decide what counts before instrumenting it	ch2-product
+p1-metrics-as-product	ch5-lighthouse	precondition: metrics measure movement against a chosen direction; without an anchor outcome, a metric measures drift precisely	ch5-good-direction, ch5-lighthouse
+p2-decision-test	ch3-outcomes	origin: teams grab measurable activity as a survival response in uncertainty, so a question that separates activity from decision-changing information is needed	ch3-outcomes
+p2-decision-test	ch3-failure-modes	warning: "measurement illusion" (dashboards nobody uses for a decision) is named in ch. 3 with an explicit forward pointer to ch. 10	ch3-failure-modes
+p3-metric-spec	ch2-product	dependency: a success criterion requires a prior definition of what success looks like for this team this quarter	ch2-product
+p3-metric-spec	ch5-good-direction	dependency: per-audience subquestions only decompose cleanly once priorities have been narrowed to a defensible few	ch5-good-direction
+p4-focused-set	ch5-traps	dependency: choosing the one or two context metrics requires knowing your current worst pain, which is the drift diagnostic's output	ch5-drift-causes, ch5-traps
+p4-focused-set	ch3-failure-modes	constraint: outcome rigidity and false precision are the failure modes that a capped, revisited metric set is designed to avoid	ch3-failure-modes
+p5-inventory-first	ch7-vendors	parallel: the build-versus-buy discipline and vendor evaluation habits from the budgeting chapter apply directly to metrics platforms	ch7-vendors
+p6-safety-requirement	ch4-safety	hard precondition: psychological safety comes before functionality and capability; without it, published metrics produce silence or gaming rather than honest signal	ch4-safety
+p6-safety-requirement	ch9-psych-safety	reinforcement: safety restated as the foundation of collaborative decision making, with the CTO example of ideas shot down until engineers stopped proposing	ch9-psych-safety
+p7-failure-modes	ch4-safety	explanation: Goodhart-style gaming is a safety failure expressing itself numerically	ch4-safety
+p7-failure-modes	ch2-product	explanation: the invisible-work problem is the ch. 2 "outcomes aren't always features" argument reappearing as a dashboard blind spot	ch2-product
+p7-failure-modes	ch7-costs	cross-reference: the book cites cost optimization as a non-technical Goodhart case, where cost savings degrade service quality	ch7-costs
+p8-maintenance	ch9-decisions	dependency: metric ownership and continuous improvement mirror the RFC and post-decision retrospective practices established in ch. 9	ch9-decisions, ch9-conclusion
+p8-maintenance	ch2-process	dependency: metrics maintenance is a process, and ch. 2's rule that process must be lean, shared, and adjusted applies to it	ch2-process
+p9-velocity	ch6-backlogs	context: estimation, cadence, and backlog practice from ch. 6 are where velocity numbers originate	ch6-backlogs
+p10-compass-stack	ch4-safety	layer 1: people and psychological safety as the foundation of the stack	ch4-safety, ch11-foundation
+p10-compass-stack	ch5-lighthouse	layer 2: direction as the lighthouse	ch5-lighthouse, ch11-lighthouse
+p10-compass-stack	ch2-process	layer 3: lightweight process as the engine	ch2-process, ch11-engine
+p10-compass-stack	p1-metrics-as-product	layer 4: metrics as the compass, the feedback loop confirming whether the other three layers work	ch11-compass

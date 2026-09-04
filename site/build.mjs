@@ -107,7 +107,15 @@ function shell({ title, description, prefix = "", activeSlug = "", body, pageCla
 function essayPage(essay, index) {
   const source = fs.readFileSync(path.join(root, "essays", `${essay.slug}.md`), "utf8");
   let article = renderMarkdown(source);
-  article = article.replace(/<h2 id="(?:your-)?one-reading-mission">/i, `<section class="mission" data-mission="${essay.slug}"><div class="mission__label">Your one reading mission</div><h2 id="one-reading-mission">`);
+  const missionLabel = essay.missionLabel ?? "Your one reading mission";
+  const missionOpen = `<section class="mission" data-mission="${essay.slug}"><div class="mission__label">${escapeHtml(missionLabel)}</div>`;
+  // Rewritten essays mark the closing section with <!--mission-->; older sourced drafts
+  // are still matched on their fixed heading.
+  if (article.includes("<!--mission-->")) {
+    article = article.replace("<!--mission-->", missionOpen);
+  } else {
+    article = article.replace(/<h2 id="(?:your-)?one-reading-mission">/i, `${missionOpen}<h2 id="one-reading-mission">`);
+  }
   if (article.includes('<h2 id="receipts">')) {
     article = article.replace('<h2 id="receipts">', `</section><h2 id="receipts">`);
   } else {
@@ -124,7 +132,7 @@ function essayPage(essay, index) {
       <div class="essay-kicker"><span>${String(index + 1).padStart(2, "0")}</span>${escapeHtml(essay.domain)}</div>
       <p class="essay-book">From <cite>${escapeHtml(essay.book)}</cite> by ${escapeHtml(essay.authors)}</p>
       <p class="essay-payoff">${escapeHtml(essay.payoff)}</p>
-      <div class="essay-meta"><span>${escapeHtml(essay.mission)}</span><span>Produces: ${escapeHtml(essay.artifact)}</span></div>
+      <div class="essay-meta"><span>${escapeHtml(essay.mission)}</span><span>You leave with: ${escapeHtml(essay.artifact)}</span></div>
     </header>
     <aside class="currency-note"><strong>Edition boundary</strong>${escapeHtml(essay.caution)}</aside>
     <article class="prose">${article}</article>
@@ -166,7 +174,7 @@ function homePage() {
     <section class="home-hero">
       <div class="home-hero__eyebrow">A finish-first companion to technical books</div>
       <h1>See the destination.<br><em>Then read toward it.</em></h1>
-      <p>${essays.length} original essays begin with the valuable idea waiting near the end of a technical book. Each traces the prerequisites backward and gives you one exact reading mission with PDF-page receipts.</p>
+      <p>${essays.length} original essays begin with the valuable idea waiting near the end of a technical book. Each traces the prerequisites backward, and ends with something you can try before you ever open the book.</p>
       <div class="home-hero__actions">
         <a class="button button--primary" href="essays/software-architecture-hard-parts.html">Read the recommended start</a>
         <a class="button button--quiet" href="#the-shelf">Browse ${essays.length} ideas</a>
@@ -184,7 +192,7 @@ function homePage() {
     </section>
     <section class="how-section">
       <div><span class="section-label">How to use this book</span><h2>Reading is the middle, not the finish.</h2></div>
-      <ol><li><span>01</span><strong>Choose a payoff</strong><p>Start from a consequence worth understanding, not page one.</p></li><li><span>02</span><strong>Follow the trail</strong><p>See which earlier concepts make the payoff legible.</p></li><li><span>03</span><strong>Do one mission</strong><p>Return to exact PDF pages with three guiding questions.</p></li><li><span>04</span><strong>Leave evidence</strong><p>Produce the ledger, experiment, note, or decision the mission requests.</p></li></ol>
+      <ol><li><span>01</span><strong>Choose a payoff</strong><p>Start from a consequence worth understanding, not page one.</p></li><li><span>02</span><strong>Follow the trail</strong><p>See which earlier concepts make the payoff legible.</p></li><li><span>03</span><strong>Do one mission</strong><p>Carry three questions into one focused chapter.</p></li><li><span>04</span><strong>Leave evidence</strong><p>Produce the ledger, experiment, note, or decision the mission requests.</p></li></ol>
     </section>
     <section class="skip-section" id="transparent-skips">
       <div class="section-heading"><div><span class="section-label">Transparent skips</span><h2>Not every clean PDF earns your time.</h2></div><p>These books were identified, extracted, checked for currency, and rejected because their late payoff did not clear the editorial gate.</p></div>
@@ -192,7 +200,7 @@ function homePage() {
     </section>
     <footer class="home-footer"><div><strong>Finish First</strong><p>A source-backed experiment in reading technical books from their payoff backward.</p></div><p>Original companion prose. No source PDFs or full-text extractions are published.</p></footer>
   </main>`;
-  return shell({ title: "See the destination. Then read toward it.", description: "Eleven finish-first essays reveal the late payoff of technical books, trace prerequisites backward, and end with one exact reading mission.", body, pageClass: "home-view" });
+  return shell({ title: "See the destination. Then read toward it.", description: `${essays.length} essays that start at the last chapter of a technical book, work backward to what makes it land, and end with something you can use this week.`, body, pageClass: "home-view" });
 }
 
 fs.writeFileSync(path.join(out, "index.html"), homePage());

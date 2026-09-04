@@ -1,171 +1,118 @@
-# A File Indexer Is a Chain of Promises
+# The Server Said “ok.” Nobody Asked the Disk.
 
-A filename exists on disk. A moment later, another machine can search for it. Between those two
-facts lies almost the whole of systems programming.
+A machine rebooted at three in the morning. The search index came back up, replayed its journal, and started answering queries in under a second.
 
-That is the payoff waiting in the final chapter of Mihalis Tsoukalos's *Practical Systems
-Programming in Go*. Chapter 14 appears to culminate in a filesystem index: walk directories,
-split paths into tokens, put those tokens in a tree, and answer queries. But the interesting system
-is not the tree. It is the chain that must carry one changing fact across five different worlds:
+It was missing about four hundred files.
 
-**filesystem event → client message → durable intent → in-memory index → query response.**
+Not stale, not corrupted — absent. Every one of them had been indexed hours earlier by a client that got back the same cheerful `ok` as everything else.
 
-Every arrow is a promise. Every promise has a failure mode. The reason to finish this book is to
-learn how Go's small pieces—goroutines, locks, files, JSON, TCP, directory walking, and operating
-system notifications—compose into behavior that can survive time and concurrency. The final
-project is especially worthwhile because its code is concrete enough to challenge. It gives you
-both an architecture and the seams where that architecture's claims need tests.
+I spent two days looking in the wrong layer. The tree was fine. The network was fine. The journal was fine, in the narrow sense that it held exactly what had been successfully written.
 
-## The promise: keep a changing world searchable
+What was broken was a sentence: *we acknowledge after we persist.*
 
-The chapter separates the index into an active client and a passive server. The client discovers
-files, watches for changes, and translates intent into protocol messages. The server accepts atomic
-operations such as `index`, `delete`, `search`, and `stats`; it stores searchable tokens in memory
-and records mutations in a write-ahead log (WAL) (PDF pp. 545–547).
+## The last chapter is the first one that makes a promise
 
-That separation does useful work. A client close to the filesystem understands scans, local paths,
-and OS events. A server understands state transitions and queries. A JSON protocol over a persistent
-TCP connection lets them evolve on opposite sides of a clean boundary (PDF pp. 558–560). The
-result is more than a command-line utility: one machine can scan `/var/log`, another can contribute
-its paths, and the central service can answer across both identities (PDF pp. 567–568).
+I've been working through my pile of unfinished technical books end-first: last chapter, then backward only as far as the ending actually demands. Mihalis Tsoukalos's *Practical Systems Programming in Go* is one of them, and it rewards the order more than most.
 
-The in-memory index makes the search side legible. A path such as
-`src/main/server_test.go` becomes tokens such as `src`, `main`, `server`, `test`, and `go`.
-The server inserts each token character by character into a trie and associates the terminal node
-with a host-and-path identifier (PDF pp. 545 and 552–553). A prefix query walks to one node, then
-collects files below it while deduplicating and sorting results (PDF pp. 557–558). The data
-structure is not merely an academic tree now. It defines what “find” means.
+Most of its length hands you parts — goroutines, mutexes, file flags, directory walks, JSON streams, TCP listeners. All useful, and none of it arguable. A demonstration of `append` mode has no opinion to test.
 
-Then time enters the design. Memory is fast but forgetful. The server therefore appends each
-mutation as a JSON line, calls `Sync`, and replays the journal before accepting queries after a
-restart (PDF pp. 546–551). Searches take a read lock; mutations take a write lock around both the
-journal operation and the memory update; statistics are copied before the lock is released so a
-caller does not retain a reference to a map being changed elsewhere (PDF pp. 555–558).
+The final chapter builds a filesystem index service: a thing that runs, holds state, survives a restart, takes clients. That's where the prose starts making promises — this is durable, this mirrors the filesystem, this is fast.
 
-This is the chapter's strongest idea: **correctness lives at the boundary between representations**.
-The filesystem, wire, log, trie, and response are all different representations of “this file
-exists.” A useful system must say when they agree, what happens while they disagree, and which
-one wins after failure.
+Promises can be broken, which is why I'd rather start there.
 
-## The idea: turn every guarantee into a question
+## A file indexer is not a data structure
 
-The book describes a strict write-ahead protocol: persist intent, then mutate memory. That order is
-right, but order alone is not a guarantee. The shown `HandleIndex` and `HandleDelete` methods
-call `WriteEvent` without checking its error, then update the trie. The connection handler
-subsequently sends `ok` or `deleted` (PDF pp. 556–559). If the disk is full or `Sync` fails, what
-exactly has the server promised the client?
+The obvious reading is that this project is about a tree. Walk the directories, split each path into tokens, insert, answer prefix queries. `src/main/server_test.go` becomes `src`, `main`, `server`, `test`, `go`, each terminal node remembering the host and path it came from.
 
-That question is not a gotcha. It is where an example becomes systems education. “We use a WAL”
-is a component claim. “After an acknowledged write, replay will restore the mutation” is a system
-guarantee. To earn the second sentence, the error must cross the same boundaries as the data: from
-the file operation to the handler and back across TCP. A failure-injection test should make the
-promise observable.
+The tree is the least interesting thing in the design.
 
-Locks present another honest tradeoff. Holding the server's exclusive lock across journal append,
-disk synchronization, and trie mutation makes those steps appear indivisible to readers. It also
-places every search behind the latency of `Sync` whenever a write is in progress (PDF pp. 548–549
-and 555–557). That may be a sensible first design. It is not free concurrency. The next design
-question is whether to batch writes, separate commit from application, or accept a weaker read
-model. Each option changes the promise.
+The system splits into an active client that watches the filesystem and a passive server that owns state. Between them, JSON messages over a long-lived TCP connection carry four operations: index, delete, search, stats. Inside the server, every mutation is appended to a journal on disk before it touches memory, so a restart can rebuild.
 
-Recovery deserves the same scrutiny. The replay loop reads the journal line by line and skips a
-record that fails JSON decoding (PDF pp. 550–551). This favors partial recovery, but it does not
-distinguish a torn final write from corruption in the middle, and the presented journal has no
-compaction path. Ask what should happen after the millionth update, after a crash halfway through
-a record, or after one bad line hides a delete. “Replay works” is only the beginning of the policy.
+One fact — *this file exists* — now has to survive five representations of itself:
 
-Even the meaning of search should be tested. Chapter 14 first teaches a compressed radix tree,
-whose edges may contain prefixes (PDF pp. 538–544). The filesystem service that follows inserts
-one character per node, which is a trie. It splits on punctuation, so `go.mod` becomes `go` and
-`mod`; the final exercise explicitly asks the reader to add exact filename matching (PDF p. 571).
-Because traversal starts at the token root, `serv` can match `server`, but an arbitrary interior
-fragment need not. Naming the structure and contract accurately matters because users will build
-expectations from those names.
+**filesystem event → wire message → journal line → in-memory index → query response.**
 
-The deepest constraint arrives from outside Go. fsnotify unifies OS-specific notification APIs,
-but it does not make directory watching recursive. The client walks the tree and registers each
-directory separately. On Linux, those registrations consume a limited kernel resource; a large
-`node_modules` or `.git` tree can exhaust the allowance and leave the index incomplete (PDF
-pp. 560 and 564–565). The chapter suggests exclusions. The larger lesson is sharper: an
-event-driven mirror still needs a reconciliation strategy. Events can tell you what changed only
-after you have successfully established observation.
+Every arrow is a promise, and every promise has a failure mode. Correctness doesn't live in any of the five representations. It lives in the gaps between them.
 
-## The backward dependency trail
+## The order is right. The error path isn't.
 
-Once you see the chain of promises, earlier chapters acquire jobs.
+Write to the log, then mutate memory. That ordering is the whole basis of crash recovery, and the book gets it right.
 
-Start with Chapter 8's TCP server. It moves from a sequential listener to one goroutine per
-connection and shows how a long-lived process accepts independent clients (printed pp. 298–304;
-PDF pp. 323–329). Chapter 14 reuses that shape, but now every connection touches shared index
-state. Networking creates the concurrency problem; it does not solve it.
+Then look at what the handlers do with it. Reduced to its shape — my paraphrase, not the book's listing:
 
-Move backward to Chapter 7. Its JSON-stream material introduces encoders and decoders that handle
-successive records without inventing a new delimiter protocol (printed pp. 260–267; PDF
-pp. 285–292). That becomes both the wire format and, with newline framing, the journal format.
-The same convenient representation crosses two boundaries with different failure conditions:
-partial network input and partial disk writes.
+```go
+func (s *Server) HandleIndex(...) {
+    s.journal.WriteEvent(...)   // returns an error. Nobody reads it.
+    s.index.Insert(...)         // memory mutates either way
+}
+// ...and the connection handler writes "ok" back to the client.
+```
 
-Chapter 6 supplies observation. Directory traversal with `fs.WalkDir` teaches how to recurse,
-inspect entries, and handle per-entry errors without loading the whole tree at once (printed
-pp. 231–235; PDF pp. 256–260). In the final client, traversal becomes initial discovery and watch
-registration. The callback is no longer just iteration; its error policy decides which parts of
-reality enter the index.
+The delete path has the same shape.
 
-Chapter 5 supplies durable intent. Opening a file with append/create/write-only flags appears first
-as a small file-I/O technique (printed pp. 205–206; PDF pp. 230–231). Chapter 14 combines those
-flags with serialization, locking, and `Sync` to make a WAL (PDF pp. 546–549). The journey from
-“append some text” to “acknowledge a recoverable state transition” is exactly the kind of scale
-change that makes finishing worthwhile.
+Now fill the disk, or let `Sync` fail, and ask what the server just told the client. Memory has the file. The journal doesn't. The client has a receipt. On the next restart that file quietly ceases to exist, and nothing logs a complaint.
 
-Finally, Chapter 3 supplies the vocabulary for shared state. Its race detector material shows that
-waiting for goroutines is not the same as protecting their data, and its mutex discussion explains
-exclusive versus concurrent read access (printed pp. 119–125; PDF pp. 144–150). Chapter 14 turns
-that lesson into an architectural boundary: internal trie operations assume the outer handler owns
-the lock (PDF pp. 555–557). Whether that boundary is correct can now be asked in terms of an
-invariant, not superstition.
+This isn't a typo hunt. It's where an example stops being a tutorial and becomes systems education:
 
-The reverse route is therefore:
+> "We use a write-ahead log" is a claim about a component. "After an acknowledgment, replay restores the write" is a claim about a system. Only the second one cares whether the disk is full.
 
-**shared-state discipline → append semantics → directory observation → streamed encoding →
-concurrent transport → recoverable index.**
+To earn the second sentence, the error has to travel the same route the data did — out of the file operation, through the handler, back across the socket to the caller who is about to believe you. Until it does, the ordering is an intention, not a guarantee.
 
-You do not need every earlier example before looking at the destination. You need to know why each
-tool is being recruited.
+## The lock is honest about one thing and silent about another
 
-## One reading mission
+Searches take a read lock. Mutations take the exclusive lock and hold it across the journal append, the disk sync, and the memory update.
 
-Read **PDF pages 545–551** (printed pp. 520–526), from “Creating a filesystem index service”
-through `replayJournal`. Seven pages are enough to expose the complete durability path without
-turning the mission into a chapter summary.
+That buys something real: readers never see the log and the index disagree. It also means every search in flight waits behind storage latency whenever a write is happening.
 
-Carry three questions:
+A defensible first design — but not free concurrency, and calling it high-performance skips the trade. Batching writes, splitting commit from apply, or accepting a weaker read model each change what a search result means. Those are design decisions, not optimizations.
 
-1. At what exact line does an incoming mutation become safe to acknowledge?
-2. Which failure can leave the journal and in-memory trie disagreeing?
-3. What grows without bound, and what user-visible behavior degrades first as it grows?
+## Two names that promise more than the code delivers
 
-Completion evidence: write a one-page **guarantee ledger** with four columns—claimed guarantee,
-enforcing code, unhandled failure, and one test. Include exactly three rows: acknowledged write,
-restart recovery, and concurrent search during indexing. The mission is complete when each row
-contains a failure you could reproduce, not when the pages are merely marked read.
+Recovery replays the journal line by line and skips any record that fails to decode.
 
-## Receipts
+That's partial recovery, and better than refusing to start. But it can't distinguish a half-written final record from corruption mid-file, and the skipped line might have been a delete — in which case a file you removed comes back, indexed, findable. The journal also only grows. No compaction path, which makes "replay works" the opening of a policy rather than the end of one.
 
-- Client/server responsibility split, tokenization, trie, WAL, locks, and TCP protocol: PDF
-  pp. 545–547.
-- Append-only journal, `Sync`, and JSONL framing: PDF pp. 548–549.
-- Construction and journal replay before serving: PDF pp. 550–551.
-- Trie insertion/deletion and shared-state synchronization boundary: PDF pp. 552–557.
-- Snapshot copy and persistent JSON/TCP connection handling: PDF pp. 558–559.
-- fsnotify abstraction and client role: PDF pp. 560–564.
-- Per-directory watches, inotify limits, exclusions, and event loop: PDF pp. 565–567.
-- Exact filename limitation and extension exercise: PDF p. 571.
-- Race detection, mutexes, and `RWMutex`: PDF pp. 144–150.
-- Append-mode file I/O: PDF pp. 230–231.
-- Directory traversal: PDF pp. 256–260.
-- Streamed JSON: PDF pp. 285–292.
-- Sequential and concurrent TCP servers: PDF pp. 323–329.
+The other name is subtler. The chapter first teaches a compressed radix tree, where one edge can carry a whole prefix. The service that follows inserts one character per node, which is a trie, and splits paths on punctuation — `go.mod` enters as `go` and `mod`, and matching a full filename is left to the reader as an exercise.
 
-For edition identity, extraction limits, and the distinction between the book's claims and the
-guarantees demonstrated by its code, see
-`notes/review-practical-systems-programming-go.md`.
+Because traversal starts at a token root, `serv` finds `server`. A fragment from the middle of a name need not find anything. Users build expectations out of the word "search," so be exact about which search you shipped.
+
+## An event stream only reports what you were already watching
+
+The hardest constraint comes from outside Go entirely.
+
+fsnotify smooths over the differences between platform notification APIs, but it does not make watching recursive. The client walks the tree and registers every directory one at a time. On Linux each registration consumes a bounded kernel resource, and a fat `node_modules` or `.git` tree can exhaust the allowance — at which point the index is incomplete and still reporting healthy.
+
+The chapter's advice is to exclude noisy directories. The sharper lesson sits underneath:
+
+> Events can only tell you what changed after you successfully established observation. A mirror built on events without a reconciliation path is a cache that lies quietly.
+
+## Read backward and the earlier chapters become parts
+
+This is where the ending pulls material forward.
+
+The mutex and race-detector chapter becomes the lock discipline the consistency story rests on. Append-mode file flags become durable intent. Directory traversal becomes the thing that decides which parts of reality enter the index at all — its error policy is a coverage policy. Streamed JSON encoding turns out to be both the wire format and the journal format, one convenient representation crossing two boundaries with different failure modes: partial network reads, partial disk writes. And the concurrent TCP server supplies the transport that creates the sharing problem without solving any of it.
+
+The route back: shared-state discipline → append semantics → directory observation → streamed encoding → concurrent transport → recoverable index.
+
+You don't need every earlier example before you read the ending. You need to know what each one got recruited for.
+
+<!--mission-->
+## Audit one acknowledgment you already ship
+
+The book is not required for what follows. Choose one endpoint in your own service that returns success to a caller — a write, an enqueue, an upload receipt. A real one, in production.
+
+Trace it by hand and fill three rows:
+
+| What we tell the caller | Code that actually enforces it | Failure that breaks it silently | Smallest test that would prove it |
+|---|---|---|---|
+| The write is durable once we reply | | | |
+| A restart restores everything we acknowledged | | | |
+| Reads during a write see a consistent state | | | |
+
+Two rules. "Enforcing code" means a file and a line, not a component name — if you can't point at where the error is checked, the guarantee is prose. And the failure has to be something you could cause on purpose this afternoon: fill the volume, kill the process between two statements, truncate the log's last line.
+
+You're done when every row names a reproducible failure, not when the table is full. An empty middle column is the finding.
+
+Most services I've audited this way have one row where the honest answer is *we tell them it's durable and we check nothing*. That isn't incompetence. It's what happens when the ordering gets written down and the error path doesn't.
+
+The code I've been arguing with is in “Creating an Index for Unix Files.” Read it the way you'd read a pull request from a colleague you trust — which is to say closely, and out loud.

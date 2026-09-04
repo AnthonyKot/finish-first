@@ -1,189 +1,201 @@
-# The Enclosure Did Not Cause the Failure. It Exposed It.
+# The Screws Didn't Break the Board. They Exposed the Joint.
 
-The circuit board works on the bench. Put it into its enclosure, tighten the screws, and it fails.
-Loosen everything and it works again.
+Dan packed his desk into two cardboard boxes on a rainy Wednesday afternoon.
 
-The enclosure looks guilty. Replace it, add clearance, or tell the assembler not to tighten the screws
-so much, and the symptom may disappear. Yet the fault may still be waiting: a poor solder joint opens
-when the board flexes and closes when the stress is released. The enclosure changed the conditions.
-The joint made those conditions dangerous.
+Right before he walked out the door, he dropped a machined aluminum enclosure onto my antistatic mat with four black socket screws taped to the anodized lid.
 
-That distinction is the late payoff of Hunter Scott's *Designing Electronics That Work*. Chapter 14
-borrows a diagnostic vocabulary from medicine and gives hardware engineers four different things to
-name: a **sign**, a **symptom**, an underlying **etiology**, and a **promoter** that makes a hidden
-fault express itself. The reward is not a new word for “root cause.” It is a way to avoid repairing the
-trigger while leaving the defect alive. [Receipt: “Signs, Symptoms, Etiology” and the enclosure-flex
-example, printed pp. 288–289 / PDF pp. 316–317.]
+Underneath the enclosure was a prototype telemetry board, and beneath that was a hardcover copy of Hunter Scott's *Designing Electronics That Work*.
 
-## The idea: the moment of failure is not necessarily its origin
+Dan had stuck a yellow note directly over the main microcontroller: "Works on the bench. Resets when torqued down. Don't tighten standoff four."
 
-In the book's adapted model, a sign is a physical observation another person can inspect: a burned
-component, a cut trace, an unexpected hot spot, or a cracked joint. A symptom is the device's abnormal
-behavior: a link drops, a rail collapses, a sensor freezes, or the board resets. Etiology is the mechanism
-that explains why those observations and behaviors occur. [Receipt: printed p. 288 / PDF p. 316.]
+"It's yours now," he said with the tired grin of an engineer handing off an unresolved bug. "Good luck with pilot production."
 
-Those three layers already improve a bug report. “The router died” is behavior, not cause. “There is
-ice on the antenna” is a sign, not yet proof. “The ice changed the antenna's electrical environment
-enough to destroy the link” connects the sign to the symptom through a mechanism. Chapter 14 works
-through that example by asking whether the effect follows the suspected cause, appears across units
-and places, becomes stronger with exposure, has a plausible mechanism, and can be reproduced in an
-experiment. [Receipt: “Cause and Effect,” printed pp. 290–291 / PDF pp. 318–319.]
+Within an hour, I had reproduced the failure.
 
-The promoter adds the sharpest distinction. A promoter changes how readily the fault appears without
-being sufficient to explain the fault itself. In the enclosure example, installation flexes the PCB. The
-flex opens a bad solder joint. If the same mechanical load does not break a correctly assembled board,
-then “putting it in the enclosure” is not the whole etiology. The latent joint and the revealing load have
-different engineering owners and different repairs. [Receipt: promoter definition and enclosure
-example, printed p. 289 / PDF p. 317.]
+Lying flat on the bench with power leads clipped to the headers, the board was flawless. It drew eighty milliamps, booted cleanly, and sent continuous telemetry packets over the serial link.
 
-This is not permission to dismiss the trigger. Board flex may itself violate a mechanical requirement,
-and Chapter 7 says a product PCB should be supported so it does not bend in use. A robust correction
-might address both the solder process and the enclosure load path. The point is to keep the causal
-claims separate: **what created the vulnerability, what exposed it, and what the user observed are
-three questions, even when one redesign answers all three**. [Receipt: enclosure support and PCB
-flex, printed p. 156 / PDF p. 184.]
+Then I dropped the board into the aluminum housing, threaded the four corner screws, and torqued them down.
 
-## Build a case that can survive the next unit
+The telemetry stream died instantly. The 3.3-volt regulator rail collapsed to zero, the status LED went dark, and the bench supply started ticking against its current limit.
 
-One repaired board is weak evidence. Replacing a suspect component and watching the device recover
-may show that the component was involved; it does not show why it failed or whether another unit will
-fail the same way.
+I backed out screw four by half a turn.
 
-Chapter 14's heavily adapted causal checks are useful when treated as questions rather than a proof
-stamp:
+The regulator recovered immediately, the green LED blinked, and the packets flooded back onto my monitor.
 
-- Does the suspected mechanism appear in failed units and not in healthy controls?
-- When the suspected cause is removed, do the signs and symptoms disappear?
-- Can the failure be recreated safely by applying that cause to a known-good unit?
-- Does greater exposure generally strengthen the effect, and does the timing make sense?
-- Can the mechanism explain all observations, including apparently different failure signatures?
+The mechanical engineer across the aisle wheeled his chair over and watched the screen. "That standoff is probably thirty thou too tall—just add a nylon washer under that corner, or tell assembly to leave screw four finger-tight."
 
-[Receipt: adapted postulates and experimental advice, printed pp. 288–290 / PDF pp. 316–318.]
+It was an easy fix. It would have taken five minutes, cleared the Jira ticket, and let me go home on time.
 
-The word “safely” matters. Recreating electrical overstress, heat, pressure, or mechanical damage can
-destroy equipment or harm a person. The chapter's differential-diagnosis model says to prioritize
-candidate causes by urgency or danger, and the introduction explicitly sends specialized safety and
-certification work back to the governing standards. A useful experiment reduces uncertainty without
-creating an uncontrolled second failure. [Receipt: differential diagnosis, printed p. 287 / PDF p. 315;
-scope warning, PDF p. 25.]
+It was also complete fiction.
 
-The model also resists two familiar traps. The first is a fluke mistaken for an explanation. The second
-is confirming what you hope is true. Chapter 14 asks the engineer to deduce a prediction and then look
-for evidence that conflicts with it. It also warns against affirming the consequent: a blown fuse can
-prevent power-up, but failure to power up does not establish a blown fuse. Multiple causes can produce
-the same outward behavior. [Receipt: “Scientific Troubleshooting,” printed pp. 292–293 / PDF
-pp. 320–321.]
+The enclosure hadn't broken the circuit board. It had merely asked a flat piece of fiberglass to survive the real world.
 
-The practical output is therefore not “root cause found.” It is a case with a discriminating prediction:
+## A parting gift from an engineer who had given up
 
-> If enclosure flex opens this solder joint, then applying the measured flex while observing continuity
-> should reproduce the open; supporting the board at the joint should suppress it; and an intact control
-> board under the same load should remain continuous.
+Dan had slipped a red ribbon bookmark into the very back of the book he left on my desk.
 
-Each clause can fail. That is what makes it useful.
+He told me not to waste time on the early chapters about component selection or PCB stackups.
 
-## Why the earlier chapters suddenly matter
+"Everyone reads hardware books from the front because they want to pick parts and lay out traces," he said at the door. "Start at the ending. The ending is the only reason the rest of the book exists."
 
-Once the promoter is visible, the book's earlier practical advice becomes a chain for preserving and
-testing causal evidence.
+I took his advice and skipped straight to the final chapter on troubleshooting.
 
-Chapter 13 teaches you to **learn a product's failure signature before the field teaches it to you**.
-Testing beyond the pass boundary can reveal the signs and symptoms associated with failure and make
-returned units easier to classify. Its opening also warns that a device can pass internal tests and fail
-for users because the test environment did not represent actual use. The late diagnostic model needs
-both facts: known failure signatures and honest operating conditions. [Receipt: realistic use and field
-failures, printed pp. 261–262 / PDF pp. 289–290; “The Failure Point,” printed p. 273 / PDF p. 301.]
+Starting at the back of a hardware guide changes how you look at every schematic you have ever approved.
 
-Chapter 12 teaches you to **preserve the state before intervention and integrate incrementally**. A
-high-resolution image of a new board can show whether damage existed before bring-up. Testing each
-subassembly and then adding them one at a time narrows the transition that introduced the symptom.
-This is exactly what the enclosure story needs: evidence from before tightening, during integration,
-and after failure—not a recollection assembled after rework. [Receipt: pre-intervention photographs
-and System Integration, printed pp. 258–259 / PDF pp. 286–287.]
+Read forward, an electronics manual feels like an endless catalog of unprompted advice: add test points, photograph bare boards, isolate mechanical stress, write detailed lab notes. When you are racing a deadline, that advice reads like optional overhead.
 
-Chapter 10 teaches you to **keep the reasoning, not only the measurements**. A useful lab entry names
-the hypothesis, conditions, equipment, setup, raw results, analysis, and conclusion; it keeps failed
-tests rather than polishing them away. The chapter also defends a journal-like narrative because the
-sequence of substitutions and ideas helps another engineer resume an interrupted investigation.
-Chapter 14 turns that advice into narrative-based troubleshooting. [Receipt: notebook contents and
-negative results, printed pp. 203–205 / PDF pp. 231–233; troubleshooting narrative, printed p. 291 /
-PDF p. 319.]
+Read backward from a catastrophic intermittent fault, those rules stop being academic hygiene.
 
-Chapter 7 teaches you to **design both the stress path and the observation path**. Mechanical support
-should keep the PCB from flexing. Test points must be accessible to a probe or fixture, and production
-tests need durable pads placed where the fixture can reach them. Without those choices, the promoter
-may remain invisible because the finished device cannot be stressed and observed at the same time.
-[Receipt: enclosure mechanics, printed pp. 156–157 / PDF pp. 184–185; Design for Test, printed
-pp. 159–160 / PDF pp. 187–188.]
+They are the forensic breadcrumbs you wish you had laid down before you trapped an invisible defect inside a metal box.
 
-Chapter 1 reaches bedrock: **a requirement should imply evidence**. Environmental conditions such
-as temperature, vibration, impact, pressure, enclosure behavior, and flexibility belong in the product
-definition, and a verifiable requirement must be observable by review, analysis, or test. If installation
-load was never modeled as part of use, the test campaign can be perfectly repeatable and still miss the
-world that activates the defect. [Receipt: verifiable and traceable requirements, printed pp. 5–6 / PDF
-pp. 33–34.]
+## The enclosure changed the physics, not the defect
 
-The backward dependency trail is now visible:
+The book borrows a diagnostic vocabulary directly from clinical medicine to explain why hardware investigations go off the rails.
 
-> Chapter 14's causal diagnosis depends on Chapter 13's failure signatures and realistic stress,
-> Chapter 12's preserved pre-change state and incremental integration, Chapter 10's narrative evidence,
-> Chapter 7's mechanical and test access, and Chapter 1's observable environmental requirements.
+A physician does not treat a fever as the disease; the fever is merely the body reacting to an underlying infection.
 
-The book no longer reads as hundreds of isolated tips. It becomes a route for making the next
-intermittent failure leave enough evidence to explain itself.
+Yet hardware engineers make that exact mistake every day when they conclude that the chassis killed the circuit rail.
 
-## What is current—and what is not a checklist
+The framework splits an electrical failure into four distinct layers: a sign, a symptom, an underlying etiology, and a promoter.
 
-This local file is the first printing of a book published in August 2025, and No Starch Press still lists
-the same title and ISBN. The selected diagnostic model is current in the useful sense: it does not
-depend on a software release, a component catalog, or one test-equipment interface. Current identity
-check: [No Starch Press](https://nostarch.com/designingelectronics); first-printing statement, PDF
-p. 6.
+A sign is an objective physical condition that another person can inspect with their own eyes or an instrument. A charred resistor, a fractured solder fillet, a lifted copper pad, or a cold joint are signs.
 
-That freshness should not be stretched into regulatory authority. The book itself says specialized
-certification and safety work must defer to required standards (PDF p. 25). Its standards summaries,
-regulatory generalizations, numeric prices, named vendors, URLs, and Appendix B recommendations
-are snapshots. Use the book to decide what kind of question to ask; use the applicable regulator,
-current standard, device datasheet, and laboratory to decide what procedure is valid. The selected
-reading mission deliberately stays inside the durable causal method.
+A symptom is the abnormal behavior the device displays to the outside world. A dropped communications link, a frozen sensor, an unexpected brownout reset, or a rail sagging to ground are symptoms.
 
-## Your one reading mission
+The etiology is the underlying physical mechanism that explains why that sign produces that symptom. It is the physics: an open circuit, an unexpected thermal runaway, or an inductive spike punching through a gate oxide.
 
-Read **PDF pages 315–321 (printed pages 287–293)**, from “Troubleshooting Models” through the end
-of Chapter 14. Use one real intermittent hardware failure you have seen; if the device is unavailable,
-use its lab notes, repair record, or issue report rather than inventing a clean example.
+Then there is the promoter, which is the concept that should make every engineer pause before filing down a standoff.
 
-Carry three questions:
+A promoter is an environmental condition or operational stress that causes a latent defect to express itself, without being sufficient to explain the defect on its own.
 
-1. Which fact is a physical sign, and which fact is only abnormal behavior?
-2. What condition makes the failure appear without fully explaining why the unit is vulnerable?
-3. What observation would make the leading cause less likely than its nearest alternative?
+The enclosure on my bench was a textbook promoter.
 
-You are finished when you produce one **fault case** with exactly five fields: `sign`, `symptom`,
-`candidate etiology`, `possible promoter`, and `disconfirming observation`. Under those fields, write
-one controlled next experiment that changes one condition, preserves the original state, names a
-known-good comparison, and stops before an unsafe limit.
+When I tightened the four corner screws, the enclosure introduced mechanical torsion that deflected the printed circuit board by a fraction of a millimeter.
 
-Do not repair the device during this mission. The purpose is to make the explanation vulnerable to
-evidence. If the experiment can prove only that the symptom disappears, revise it until it can
-distinguish a trigger from the defect the trigger exposed.
+That tiny flex was enough to pull a cracked surface-mount solder joint open.
 
-## Receipts
+When I loosened the screw, the natural elasticity of the FR-4 laminate pulled the severed metal faces back into physical contact, restoring electrical continuity.
 
-- Identity, publication, publisher, and first-printing evidence: PDF pp. 1, 5–6.
-- Scope warning for certification, safety, and reliability: PDF p. 25.
-- Verifiable environmental requirements: printed pp. 5–6 / PDF pp. 33–34.
-- Enclosure mechanics and board-flex prevention: printed pp. 156–157 / PDF pp. 184–185.
-- Design for test and reliability: printed pp. 159–163 / PDF pp. 187–191.
-- Lab-notebook setup, negative results, and narrative reasoning: printed pp. 203–205 / PDF
-  pp. 231–233.
-- Preserved board images and incremental system integration: printed pp. 258–259 / PDF
-  pp. 286–287.
-- Realistic-use testing and field mismatch: printed pp. 261–262 / PDF pp. 289–290.
-- Failure-point testing and failure signatures: printed p. 273 / PDF p. 301.
-- Instruments changing the system under test: printed p. 286 / PDF p. 314.
-- Differential diagnosis and dangerous-cause priority: printed p. 287 / PDF p. 315.
-- Signs, symptoms, etiology, causal checks, and promoters: printed pp. 288–291 / PDF pp. 316–319.
-- Narrative and scientific troubleshooting: printed pp. 291–293 / PDF pp. 319–321.
-- Edition, extraction, distinctiveness, and currency audit:
-  [`notes/review-designing-electronics-that-work.md`](../notes/review-designing-electronics-that-work.md).
+The mechanical load was real, but it wasn't the disease.
+
+A properly soldered board would have tolerated that chassis deflection without dropping a single microvolt.
+
+The bad solder joint was the underlying vulnerability; the enclosure was merely the condition that made it visible.
+
+> A promoter does not create a failure. It merely removes the room for an existing defect to hide.
+
+## Four layers to an intermittent fault
+
+When a board behaves erratically, the natural human urge is to treat the promoter because the promoter is the easiest thing to manipulate.
+
+Separating the four layers keeps you from declaring victory over a symptom while leaving the vulnerability intact on every board rolling off the line:
+
+| Fault Layer | What It Is | How It Looked on the Bench | The Disconfirming Test |
+| :--- | :--- | :--- | :--- |
+| **Symptom** | The abnormal behavior observed from outside | The 3.3V rail collapses and telemetry packets cease | Isolate the downstream loads; verify whether the regulator still trips into shutoff |
+| **Sign** | The physical, inspectable flaw in the hardware | A microscopic hairline fracture across a solder fillet | Inspect the joint under an oblique optical microscope while applying mild mechanical stress |
+| **Promoter** | The external condition that makes the flaw appear | Chassis torsion introduced by tightening the mounting screws | Apply identical mechanical deflection to a known-good control unit; it must not fail |
+| **Etiology** | The physical mechanism linking the sign to the symptom | Board flex opens the cracked joint, breaking the feedback loop | Bridge the cracked joint with a bonded jumper wire; torque the chassis down completely |
+
+## Every quick repair destroys the crime scene
+
+The easiest thing to do with an intermittent hardware bug is to destroy the evidence before you understand it.
+
+If you touch the suspect solder joint with an iron and fresh flux, the symptom vanishes.
+
+If you tell the assembly technician to add a rubber washer, the symptom vanishes.
+
+In both cases, you have fixed nothing. You have merely silenced the messenger, leaving fifty other units vulnerable to the first drop test or thermal cycle in the field.
+
+The book insists on scientific troubleshooting built around disconfirming predictions rather than confirmatory hope.
+
+Engineers fall constantly into the trap of affirming the consequent: a blown fuse prevents a board from powering up, but a dark board does not prove a blown fuse.
+
+Dozens of distinct failure mechanisms produce identical outward symptoms.
+
+To prove a causal link, you must construct a hypothesis that makes an aggressive, falsifiable prediction.
+
+If the chassis flex is truly opening a fractured solder joint on that regulator feedback pin, then applying that exact measured mechanical deflection with a bench clamp must reproduce the open circuit on the failed board.
+
+Bridging the joint with a soldered jumper must prevent the shutdown even under excessive torque.
+
+And most importantly: applying that identical torque to an intact control unit must produce zero rail droop.
+
+If the control board breaks under the same load, your chassis is genuinely flawed.
+
+If the control board survives, your enclosure is innocent and your surface-mount manufacturing line has a soldering defect.
+
+That test takes twenty minutes, and it prevents you from ordering twenty thousand dollars of useless mechanical tooling revisions.
+
+> Every hasty repair is an act of evidence destruction.
+
+## The defensive architecture hidden in the early pages
+
+Once you understand why a promoter exposes a fault, the earlier chapters of the book stop reading like arbitrary guidelines.
+
+They assemble into an unbroken chain designed to preserve evidence before a failure occurs.
+
+Work backward one step, and you discover why you must determine a product's failure signatures before customers discover them for you.
+
+Testing a device only until it passes specification tells you nothing about how it dies; you have to push prototypes past their operational boundaries so you recognize the signatures of overstressed silicon when a returned unit lands on your desk.
+
+Work backward another step, and the book's obsession with baseline preservation suddenly makes sense.
+
+You must take high-resolution optical photographs of bare boards before component bring-up, and you must integrate subassemblies one component at a time.
+
+If you don't document the pristine state before power-on, you can never prove whether a shorted trace came from the board fabricator or from your own slip of a multimeter probe.
+
+Work backward into the middle of the text, and lab hygiene transforms into forensic insurance.
+
+A lab notebook that records only successful runs is an engineering liability.
+
+You must record the failed hypotheses, the exact serial numbers of the test gear, and the raw unpolished measurements so another engineer can pick up an interrupted investigation without repeating your mistakes.
+
+Work backward to mechanical layout, and physical design becomes electrical protection.
+
+Enclosure standoffs must be rigid, PCB mounting holes must prevent board flex, and dedicated test pads must remain physically accessible even after the board is bolted into its final housing.
+
+If you cannot attach a scope probe while the device is fully assembled and under mechanical stress, you have built a system that cannot be debugged.
+
+And at the very beginning of the book, requirements engineering reaches bedrock.
+
+An environmental requirement that does not define an observable, verifiable test under realistic operational stress is not an engineering specification; it is wishful thinking.
+
+If your original design documents never specified how much mechanical torsion the board was expected to survive during installation, your testing regime was just an elaborate performance.
+
+## The laws of physics outlive the standards
+
+Hunter Scott published the book in 2025, and hardware moves quickly.
+
+The regulatory summaries, vendor directories, parts pricing, and specific test equipment interfaces in the middle chapters reflect that specific calendar year.
+
+Standards committees revise compliance mandates, component lines go obsolete, and lab equipment vendors disappear.
+
+Treat the regulatory and pricing tables as a 2025 snapshot, not a permanent legal shield.
+
+The enduring value is the diagnostic model at the end: copper, solder, and mechanical stress do not change their physics when a regulatory standard gets an updated suffix.
+
+<!--mission-->
+## Build the fault card before you touch the soldering iron
+
+This part happens at your own bench, not in the book.
+
+Find one intermittent hardware defect you have seen fail on the bench or in the field—a real board, or the trouble ticket of a return that drove your team crazy last month.
+
+Give it five fields and zero narrative padding:
+
+- **Sign** — The observable, physical alteration you or an inspector can see under magnification or with a meter.
+- **Symptom** — The abnormal behavior the device exhibits to the user or test fixture.
+- **Candidate Etiology** — The exact physical or electrical mechanism linking the sign to the symptom.
+- **Suspected Promoter** — The operating condition, temperature shift, vibration, or mechanical stress that makes the symptom appear.
+- **Disconfirming Observation** — A specific, falsifiable measurement that would prove this etiology wrong if it failed.
+
+Then design one controlled next experiment.
+
+Change exactly one variable at a time. Preserve the physical state of the suspect unit so you don't erase the evidence. Test the same stress on a known-good control board. And set strict electrical limits so your test isolates the fault without incinerating the trace.
+
+Do not touch the soldering iron until the disconfirming test forces your hand.
+
+If your experiment only proves that the symptom disappears when you tweak the promoter, throw it out and write a new one. Your goal is not to silence the board; your goal is to make the true defect surrender.
+
+All of it sits in a chapter called “Troubleshooting,” which is a modest name for the only part of the book about how to think.

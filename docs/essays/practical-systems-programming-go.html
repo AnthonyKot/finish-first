@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Audit the guarantees at each boundary between filesystem, wire, journal, memory, and response.">
+  <meta name="description" content="A search index replays its journal after a reboot and comes back four hundred files short — every one of them acknowledged. The last chapter shows exactly where the promise breaks, and its own code does not fix it.">
   <meta name="theme-color" content="#153b35">
-  <meta property="og:title" content="A File Indexer Is a Chain of Promises">
-  <meta property="og:description" content="Audit the guarantees at each boundary between filesystem, wire, journal, memory, and response.">
+  <meta property="og:title" content="The Server Said “ok.” Nobody Asked the Disk.">
+  <meta property="og:description" content="A search index replays its journal after a reboot and comes back four hundred files short — every one of them acknowledged. The last chapter shows exactly where the promise breaks, and its own code does not fix it.">
   <meta property="og:type" content="website">
-  <title>A File Indexer Is a Chain of Promises · Finish First</title>
+  <title>The Server Said “ok.” Nobody Asked the Disk. · Finish First</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23153b35'/%3E%3Ctext x='17' y='44' font-size='35' fill='%23fffdf8'%3EF%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="../assets/styles.css">
   <script defer src="../assets/app.js"></script>
@@ -35,27 +35,27 @@
       <nav aria-label="Book contents">
     <a class="book-nav__item" href="../essays/software-architecture-hard-parts.html" data-mission-link="software-architecture-hard-parts">
       <span class="book-nav__number">01</span>
-      <span><small>Architecture</small>The Architecture Decision Hidden Behind the Technology Argument</span>
+      <span><small>Architecture</small>Nobody in That Microservices Argument Is Discussing the Same Decision</span>
       <span class="book-nav__check" aria-label="Mission completed">✓</span>
     </a>
     <a class="book-nav__item" href="../essays/machine-learning-engineering.html" data-mission-link="machine-learning-engineering">
       <span class="book-nav__number">02</span>
-      <span><small>ML systems</small>The Model Is Allowed to Be Wrong. The System Is Not Allowed to Be Helpless.</span>
+      <span><small>ML systems</small>Nothing Changed. The Model Got Worse Anyway.</span>
       <span class="book-nav__check" aria-label="Mission completed">✓</span>
     </a>
     <a class="book-nav__item" href="../essays/staff-engineers-path.html" data-mission-link="staff-engineers-path">
       <span class="book-nav__number">03</span>
-      <span><small>Engineering leadership</small>The Staff Engineer Who Can Leave the Room</span>
+      <span><small>Engineering leadership</small>Everything Good on My Team Stopped When I Stopped Pushing</span>
       <span class="book-nav__check" aria-label="Mission completed">✓</span>
     </a>
     <a class="book-nav__item" href="../essays/refactoring-to-rust.html" data-mission-link="refactoring-to-rust">
       <span class="book-nav__number">04</span>
-      <span><small>Migration</small>The Migration Unit Is a Seam, Not a Codebase</span>
+      <span><small>Migration</small>The Rewrite Died in Month Seven. One Function Shipped in Week Two.</span>
       <span class="book-nav__check" aria-label="Mission completed">✓</span>
     </a>
     <a class="book-nav__item is-active" href="../essays/practical-systems-programming-go.html" data-mission-link="practical-systems-programming-go">
       <span class="book-nav__number">05</span>
-      <span><small>Systems programming</small>A File Indexer Is a Chain of Promises</span>
+      <span><small>Systems programming</small>The Server Said “ok.” Nobody Asked the Disk.</span>
       <span class="book-nav__check" aria-label="Mission completed">✓</span>
     </a>
     <a class="book-nav__item" href="../essays/database-internals.html" data-mission-link="database-internals">
@@ -65,12 +65,12 @@
     </a>
     <a class="book-nav__item" href="../essays/defending-apis.html" data-mission-link="defending-apis">
       <span class="book-nav__number">07</span>
-      <span><small>Security</small>API Security Is a Coverage System, Not a Product Purchase</span>
+      <span><small>Security</small>The Gateway Was Running. The Zombie Endpoint Leaked the Data Anyway.</span>
       <span class="book-nav__check" aria-label="Mission completed">✓</span>
     </a>
     <a class="book-nav__item" href="../essays/learning-systems-thinking.html" data-mission-link="learning-systems-thinking">
       <span class="book-nav__number">08</span>
-      <span><small>Systems thinking</small>The Mission Stayed the Same. Every Word Changed.</span>
+      <span><small>Systems thinking</small>The Mission Stayed the Same. Every Word Inside It Died.</span>
       <span class="book-nav__check" aria-label="Mission completed">✓</span>
     </a>
     <a class="book-nav__item" href="../essays/performance-analysis-tuning-modern-cpus.html" data-mission-link="performance-analysis-tuning-modern-cpus">
@@ -80,12 +80,12 @@
     </a>
     <a class="book-nav__item" href="../essays/efficient-cloud-finops.html" data-mission-link="efficient-cloud-finops">
       <span class="book-nav__number">10</span>
-      <span><small>Cloud economics</small>A Discount Can Fossilize Waste</span>
+      <span><small>Cloud economics</small>The Reservation Saved Thirty Percent. The Bill Barely Budged.</span>
       <span class="book-nav__check" aria-label="Mission completed">✓</span>
     </a>
     <a class="book-nav__item" href="../essays/designing-electronics-that-work.html" data-mission-link="designing-electronics-that-work">
       <span class="book-nav__number">11</span>
-      <span><small>Electronics</small>The Enclosure Did Not Cause the Failure. It Exposed It.</span>
+      <span><small>Electronics</small>The Screws Didn't Break the Board. They Exposed the Joint.</span>
       <span class="book-nav__check" aria-label="Mission completed">✓</span>
     </a>
     <a class="book-nav__item" href="../essays/engineering-leadership.html" data-mission-link="engineering-leadership">
@@ -95,12 +95,12 @@
     </a>
     <a class="book-nav__item" href="../essays/web-hacking-arsenal.html" data-mission-link="web-hacking-arsenal">
       <span class="book-nav__number">13</span>
-      <span><small>Security</small>The Finding Was Valid. The Report Decided Whether It Counted.</span>
+      <span><small>Security</small>The Bug Was Real. The Report Decided Whether It Counted.</span>
       <span class="book-nav__check" aria-label="Mission completed">✓</span>
     </a>
     <a class="book-nav__item" href="../essays/think-stats.html" data-mission-link="think-stats">
       <span class="book-nav__number">14</span>
-      <span><small>Statistics</small>ttest_ind Returned a Number. The Last Chapter Tells You What You Bought.</span>
+      <span><small>Statistics</small>Your t-Test Returned in a Millisecond. The Last Chapter Tells You What You Bought.</span>
       <span class="book-nav__check" aria-label="Mission completed">✓</span>
     </a></nav>
       <a class="book-nav__skips" href="../index.html#transparent-skips">Editorial skips →</a>
@@ -109,157 +109,108 @@
     <header class="essay-hero">
       <div class="essay-kicker"><span>05</span>Systems programming</div>
       <p class="essay-book">From <cite>Practical Systems Programming in Go</cite> by Mihalis Tsoukalos</p>
-      <p class="essay-payoff">Audit the guarantees at each boundary between filesystem, wire, journal, memory, and response.</p>
-      <div class="essay-meta"><span>PDF pages 545–551</span><span>Produces: Three-row guarantee ledger</span></div>
+      <p class="essay-payoff">A search index replays its journal after a reboot and comes back four hundred files short — every one of them acknowledged. The last chapter shows exactly where the promise breaks, and its own code does not fix it.</p>
+      <div class="essay-meta"><span>Chapter 14 · 6 min read</span><span>You leave with: Three-row guarantee ledger</span></div>
     </header>
     <aside class="currency-note"><strong>Edition boundary</strong>The project is current and instructive, but several shown error paths do not earn their claimed guarantee.</aside>
-    <article class="prose"><h1 id="a-file-indexer-is-a-chain-of-promises">A File Indexer Is a Chain of Promises</h1>
-<p>A filename exists on disk. A moment later, another machine can search for it. Between those two
-facts lies almost the whole of systems programming.</p>
-<p>That is the payoff waiting in the final chapter of Mihalis Tsoukalos&#39;s <em>Practical Systems
-Programming in Go</em>. Chapter 14 appears to culminate in a filesystem index: walk directories,
-split paths into tokens, put those tokens in a tree, and answer queries. But the interesting system
-is not the tree. It is the chain that must carry one changing fact across five different worlds:</p>
-<p><strong>filesystem event → client message → durable intent → in-memory index → query response.</strong></p>
-<p>Every arrow is a promise. Every promise has a failure mode. The reason to finish this book is to
-learn how Go&#39;s small pieces—goroutines, locks, files, JSON, TCP, directory walking, and operating
-system notifications—compose into behavior that can survive time and concurrency. The final
-project is especially worthwhile because its code is concrete enough to challenge. It gives you
-both an architecture and the seams where that architecture&#39;s claims need tests.</p>
-<h2 id="the-promise-keep-a-changing-world-searchable">The promise: keep a changing world searchable</h2>
-<p>The chapter separates the index into an active client and a passive server. The client discovers
-files, watches for changes, and translates intent into protocol messages. The server accepts atomic
-operations such as <code>index</code>, <code>delete</code>, <code>search</code>, and <code>stats</code>; it stores searchable tokens in memory
-and records mutations in a write-ahead log (WAL) (PDF pp. 545–547).</p>
-<p>That separation does useful work. A client close to the filesystem understands scans, local paths,
-and OS events. A server understands state transitions and queries. A JSON protocol over a persistent
-TCP connection lets them evolve on opposite sides of a clean boundary (PDF pp. 558–560). The
-result is more than a command-line utility: one machine can scan <code>/var/log</code>, another can contribute
-its paths, and the central service can answer across both identities (PDF pp. 567–568).</p>
-<p>The in-memory index makes the search side legible. A path such as
-<code>src/main/server_test.go</code> becomes tokens such as <code>src</code>, <code>main</code>, <code>server</code>, <code>test</code>, and <code>go</code>.
-The server inserts each token character by character into a trie and associates the terminal node
-with a host-and-path identifier (PDF pp. 545 and 552–553). A prefix query walks to one node, then
-collects files below it while deduplicating and sorting results (PDF pp. 557–558). The data
-structure is not merely an academic tree now. It defines what “find” means.</p>
-<p>Then time enters the design. Memory is fast but forgetful. The server therefore appends each
-mutation as a JSON line, calls <code>Sync</code>, and replays the journal before accepting queries after a
-restart (PDF pp. 546–551). Searches take a read lock; mutations take a write lock around both the
-journal operation and the memory update; statistics are copied before the lock is released so a
-caller does not retain a reference to a map being changed elsewhere (PDF pp. 555–558).</p>
-<p>This is the chapter&#39;s strongest idea: <strong>correctness lives at the boundary between representations</strong>.
-The filesystem, wire, log, trie, and response are all different representations of “this file
-exists.” A useful system must say when they agree, what happens while they disagree, and which
-one wins after failure.</p>
-<h2 id="the-idea-turn-every-guarantee-into-a-question">The idea: turn every guarantee into a question</h2>
-<p>The book describes a strict write-ahead protocol: persist intent, then mutate memory. That order is
-right, but order alone is not a guarantee. The shown <code>HandleIndex</code> and <code>HandleDelete</code> methods
-call <code>WriteEvent</code> without checking its error, then update the trie. The connection handler
-subsequently sends <code>ok</code> or <code>deleted</code> (PDF pp. 556–559). If the disk is full or <code>Sync</code> fails, what
-exactly has the server promised the client?</p>
-<p>That question is not a gotcha. It is where an example becomes systems education. “We use a WAL”
-is a component claim. “After an acknowledged write, replay will restore the mutation” is a system
-guarantee. To earn the second sentence, the error must cross the same boundaries as the data: from
-the file operation to the handler and back across TCP. A failure-injection test should make the
-promise observable.</p>
-<p>Locks present another honest tradeoff. Holding the server&#39;s exclusive lock across journal append,
-disk synchronization, and trie mutation makes those steps appear indivisible to readers. It also
-places every search behind the latency of <code>Sync</code> whenever a write is in progress (PDF pp. 548–549
-and 555–557). That may be a sensible first design. It is not free concurrency. The next design
-question is whether to batch writes, separate commit from application, or accept a weaker read
-model. Each option changes the promise.</p>
-<p>Recovery deserves the same scrutiny. The replay loop reads the journal line by line and skips a
-record that fails JSON decoding (PDF pp. 550–551). This favors partial recovery, but it does not
-distinguish a torn final write from corruption in the middle, and the presented journal has no
-compaction path. Ask what should happen after the millionth update, after a crash halfway through
-a record, or after one bad line hides a delete. “Replay works” is only the beginning of the policy.</p>
-<p>Even the meaning of search should be tested. Chapter 14 first teaches a compressed radix tree,
-whose edges may contain prefixes (PDF pp. 538–544). The filesystem service that follows inserts
-one character per node, which is a trie. It splits on punctuation, so <code>go.mod</code> becomes <code>go</code> and
-<code>mod</code>; the final exercise explicitly asks the reader to add exact filename matching (PDF p. 571).
-Because traversal starts at the token root, <code>serv</code> can match <code>server</code>, but an arbitrary interior
-fragment need not. Naming the structure and contract accurately matters because users will build
-expectations from those names.</p>
-<p>The deepest constraint arrives from outside Go. fsnotify unifies OS-specific notification APIs,
-but it does not make directory watching recursive. The client walks the tree and registers each
-directory separately. On Linux, those registrations consume a limited kernel resource; a large
-<code>node_modules</code> or <code>.git</code> tree can exhaust the allowance and leave the index incomplete (PDF
-pp. 560 and 564–565). The chapter suggests exclusions. The larger lesson is sharper: an
-event-driven mirror still needs a reconciliation strategy. Events can tell you what changed only
-after you have successfully established observation.</p>
-<h2 id="the-backward-dependency-trail">The backward dependency trail</h2>
-<p>Once you see the chain of promises, earlier chapters acquire jobs.</p>
-<p>Start with Chapter 8&#39;s TCP server. It moves from a sequential listener to one goroutine per
-connection and shows how a long-lived process accepts independent clients (printed pp. 298–304;
-PDF pp. 323–329). Chapter 14 reuses that shape, but now every connection touches shared index
-state. Networking creates the concurrency problem; it does not solve it.</p>
-<p>Move backward to Chapter 7. Its JSON-stream material introduces encoders and decoders that handle
-successive records without inventing a new delimiter protocol (printed pp. 260–267; PDF
-pp. 285–292). That becomes both the wire format and, with newline framing, the journal format.
-The same convenient representation crosses two boundaries with different failure conditions:
-partial network input and partial disk writes.</p>
-<p>Chapter 6 supplies observation. Directory traversal with <code>fs.WalkDir</code> teaches how to recurse,
-inspect entries, and handle per-entry errors without loading the whole tree at once (printed
-pp. 231–235; PDF pp. 256–260). In the final client, traversal becomes initial discovery and watch
-registration. The callback is no longer just iteration; its error policy decides which parts of
-reality enter the index.</p>
-<p>Chapter 5 supplies durable intent. Opening a file with append/create/write-only flags appears first
-as a small file-I/O technique (printed pp. 205–206; PDF pp. 230–231). Chapter 14 combines those
-flags with serialization, locking, and <code>Sync</code> to make a WAL (PDF pp. 546–549). The journey from
-“append some text” to “acknowledge a recoverable state transition” is exactly the kind of scale
-change that makes finishing worthwhile.</p>
-<p>Finally, Chapter 3 supplies the vocabulary for shared state. Its race detector material shows that
-waiting for goroutines is not the same as protecting their data, and its mutex discussion explains
-exclusive versus concurrent read access (printed pp. 119–125; PDF pp. 144–150). Chapter 14 turns
-that lesson into an architectural boundary: internal trie operations assume the outer handler owns
-the lock (PDF pp. 555–557). Whether that boundary is correct can now be asked in terms of an
-invariant, not superstition.</p>
-<p>The reverse route is therefore:</p>
-<p><strong>shared-state discipline → append semantics → directory observation → streamed encoding →
-concurrent transport → recoverable index.</strong></p>
-<p>You do not need every earlier example before looking at the destination. You need to know why each
-tool is being recruited.</p>
-<section class="mission" data-mission="practical-systems-programming-go"><div class="mission__label">Your one reading mission</div><h2 id="one-reading-mission">One reading mission</h2>
-<p>Read <strong>PDF pages 545–551</strong> (printed pp. 520–526), from “Creating a filesystem index service”
-through <code>replayJournal</code>. Seven pages are enough to expose the complete durability path without
-turning the mission into a chapter summary.</p>
-<p>Carry three questions:</p>
-<ol>
-<li>At what exact line does an incoming mutation become safe to acknowledge?</li>
-<li>Which failure can leave the journal and in-memory trie disagreeing?</li>
-<li>What grows without bound, and what user-visible behavior degrades first as it grows?</li>
-</ol>
-<p>Completion evidence: write a one-page <strong>guarantee ledger</strong> with four columns—claimed guarantee,
-enforcing code, unhandled failure, and one test. Include exactly three rows: acknowledged write,
-restart recovery, and concurrent search during indexing. The mission is complete when each row
-contains a failure you could reproduce, not when the pages are merely marked read.</p>
-</section><h2 id="receipts">Receipts</h2>
-<ul>
-<li>Client/server responsibility split, tokenization, trie, WAL, locks, and TCP protocol: PDF
-pp. 545–547.</li>
-<li>Append-only journal, <code>Sync</code>, and JSONL framing: PDF pp. 548–549.</li>
-<li>Construction and journal replay before serving: PDF pp. 550–551.</li>
-<li>Trie insertion/deletion and shared-state synchronization boundary: PDF pp. 552–557.</li>
-<li>Snapshot copy and persistent JSON/TCP connection handling: PDF pp. 558–559.</li>
-<li>fsnotify abstraction and client role: PDF pp. 560–564.</li>
-<li>Per-directory watches, inotify limits, exclusions, and event loop: PDF pp. 565–567.</li>
-<li>Exact filename limitation and extension exercise: PDF p. 571.</li>
-<li>Race detection, mutexes, and <code>RWMutex</code>: PDF pp. 144–150.</li>
-<li>Append-mode file I/O: PDF pp. 230–231.</li>
-<li>Directory traversal: PDF pp. 256–260.</li>
-<li>Streamed JSON: PDF pp. 285–292.</li>
-<li>Sequential and concurrent TCP servers: PDF pp. 323–329.</li>
-</ul>
-<p>For edition identity, extraction limits, and the distinction between the book&#39;s claims and the
-guarantees demonstrated by its code, see
-<code>notes/review-practical-systems-programming-go.md</code>.</p>
-</article>
+    <article class="prose"><h1 id="the-server-said-ok-nobody-asked-the-disk">The Server Said “ok.” Nobody Asked the Disk.</h1>
+<p>A machine rebooted at three in the morning. The search index came back up, replayed its journal, and started answering queries in under a second.</p>
+<p>It was missing about four hundred files.</p>
+<p>Not stale, not corrupted — absent. Every one of them had been indexed hours earlier by a client that got back the same cheerful <code>ok</code> as everything else.</p>
+<p>I spent two days looking in the wrong layer. The tree was fine. The network was fine. The journal was fine, in the narrow sense that it held exactly what had been successfully written.</p>
+<p>What was broken was a sentence: <em>we acknowledge after we persist.</em></p>
+<h2 id="the-last-chapter-is-the-first-one-that-makes-a-promise">The last chapter is the first one that makes a promise</h2>
+<p>I&#39;ve been working through my pile of unfinished technical books end-first: last chapter, then backward only as far as the ending actually demands. Mihalis Tsoukalos&#39;s <em>Practical Systems Programming in Go</em> is one of them, and it rewards the order more than most.</p>
+<p>Most of its length hands you parts — goroutines, mutexes, file flags, directory walks, JSON streams, TCP listeners. All useful, and none of it arguable. A demonstration of <code>append</code> mode has no opinion to test.</p>
+<p>The final chapter builds a filesystem index service: a thing that runs, holds state, survives a restart, takes clients. That&#39;s where the prose starts making promises — this is durable, this mirrors the filesystem, this is fast.</p>
+<p>Promises can be broken, which is why I&#39;d rather start there.</p>
+<h2 id="a-file-indexer-is-not-a-data-structure">A file indexer is not a data structure</h2>
+<p>The obvious reading is that this project is about a tree. Walk the directories, split each path into tokens, insert, answer prefix queries. <code>src/main/server_test.go</code> becomes <code>src</code>, <code>main</code>, <code>server</code>, <code>test</code>, <code>go</code>, each terminal node remembering the host and path it came from.</p>
+<p>The tree is the least interesting thing in the design.</p>
+<p>The system splits into an active client that watches the filesystem and a passive server that owns state. Between them, JSON messages over a long-lived TCP connection carry four operations: index, delete, search, stats. Inside the server, every mutation is appended to a journal on disk before it touches memory, so a restart can rebuild.</p>
+<p>One fact — <em>this file exists</em> — now has to survive five representations of itself:</p>
+<p><strong>filesystem event → wire message → journal line → in-memory index → query response.</strong></p>
+<p>Every arrow is a promise, and every promise has a failure mode. Correctness doesn&#39;t live in any of the five representations. It lives in the gaps between them.</p>
+<h2 id="the-order-is-right-the-error-path-isn-39-t">The order is right. The error path isn&#39;t.</h2>
+<p>Write to the log, then mutate memory. That ordering is the whole basis of crash recovery, and the book gets it right.</p>
+<p>Then look at what the handlers do with it. Reduced to its shape — my paraphrase, not the book&#39;s listing:</p>
+<pre><code class="language-go">func (s *Server) HandleIndex(...) {
+    s.journal.WriteEvent(...)   // returns an error. Nobody reads it.
+    s.index.Insert(...)         // memory mutates either way
+}
+// ...and the connection handler writes &quot;ok&quot; back to the client.
+</code></pre>
+<p>The delete path has the same shape.</p>
+<p>Now fill the disk, or let <code>Sync</code> fail, and ask what the server just told the client. Memory has the file. The journal doesn&#39;t. The client has a receipt. On the next restart that file quietly ceases to exist, and nothing logs a complaint.</p>
+<p>This isn&#39;t a typo hunt. It&#39;s where an example stops being a tutorial and becomes systems education:</p>
+<blockquote>
+<p>&quot;We use a write-ahead log&quot; is a claim about a component. &quot;After an acknowledgment, replay restores the write&quot; is a claim about a system. Only the second one cares whether the disk is full.</p>
+</blockquote>
+<p>To earn the second sentence, the error has to travel the same route the data did — out of the file operation, through the handler, back across the socket to the caller who is about to believe you. Until it does, the ordering is an intention, not a guarantee.</p>
+<h2 id="the-lock-is-honest-about-one-thing-and-silent-about-another">The lock is honest about one thing and silent about another</h2>
+<p>Searches take a read lock. Mutations take the exclusive lock and hold it across the journal append, the disk sync, and the memory update.</p>
+<p>That buys something real: readers never see the log and the index disagree. It also means every search in flight waits behind storage latency whenever a write is happening.</p>
+<p>A defensible first design — but not free concurrency, and calling it high-performance skips the trade. Batching writes, splitting commit from apply, or accepting a weaker read model each change what a search result means. Those are design decisions, not optimizations.</p>
+<h2 id="two-names-that-promise-more-than-the-code-delivers">Two names that promise more than the code delivers</h2>
+<p>Recovery replays the journal line by line and skips any record that fails to decode.</p>
+<p>That&#39;s partial recovery, and better than refusing to start. But it can&#39;t distinguish a half-written final record from corruption mid-file, and the skipped line might have been a delete — in which case a file you removed comes back, indexed, findable. The journal also only grows. No compaction path, which makes &quot;replay works&quot; the opening of a policy rather than the end of one.</p>
+<p>The other name is subtler. The chapter first teaches a compressed radix tree, where one edge can carry a whole prefix. The service that follows inserts one character per node, which is a trie, and splits paths on punctuation — <code>go.mod</code> enters as <code>go</code> and <code>mod</code>, and matching a full filename is left to the reader as an exercise.</p>
+<p>Because traversal starts at a token root, <code>serv</code> finds <code>server</code>. A fragment from the middle of a name need not find anything. Users build expectations out of the word &quot;search,&quot; so be exact about which search you shipped.</p>
+<h2 id="an-event-stream-only-reports-what-you-were-already-watching">An event stream only reports what you were already watching</h2>
+<p>The hardest constraint comes from outside Go entirely.</p>
+<p>fsnotify smooths over the differences between platform notification APIs, but it does not make watching recursive. The client walks the tree and registers every directory one at a time. On Linux each registration consumes a bounded kernel resource, and a fat <code>node_modules</code> or <code>.git</code> tree can exhaust the allowance — at which point the index is incomplete and still reporting healthy.</p>
+<p>The chapter&#39;s advice is to exclude noisy directories. The sharper lesson sits underneath:</p>
+<blockquote>
+<p>Events can only tell you what changed after you successfully established observation. A mirror built on events without a reconciliation path is a cache that lies quietly.</p>
+</blockquote>
+<h2 id="read-backward-and-the-earlier-chapters-become-parts">Read backward and the earlier chapters become parts</h2>
+<p>This is where the ending pulls material forward.</p>
+<p>The mutex and race-detector chapter becomes the lock discipline the consistency story rests on. Append-mode file flags become durable intent. Directory traversal becomes the thing that decides which parts of reality enter the index at all — its error policy is a coverage policy. Streamed JSON encoding turns out to be both the wire format and the journal format, one convenient representation crossing two boundaries with different failure modes: partial network reads, partial disk writes. And the concurrent TCP server supplies the transport that creates the sharing problem without solving any of it.</p>
+<p>The route back: shared-state discipline → append semantics → directory observation → streamed encoding → concurrent transport → recoverable index.</p>
+<p>You don&#39;t need every earlier example before you read the ending. You need to know what each one got recruited for.</p>
+<section class="mission" data-mission="practical-systems-programming-go"><div class="mission__label">Audit one ack this week</div>
+<h2 id="audit-one-acknowledgment-you-already-ship">Audit one acknowledgment you already ship</h2>
+<p>The book is not required for what follows. Choose one endpoint in your own service that returns success to a caller — a write, an enqueue, an upload receipt. A real one, in production.</p>
+<p>Trace it by hand and fill three rows:</p>
+<table>
+<thead>
+<tr>
+<th>What we tell the caller</th>
+<th>Code that actually enforces it</th>
+<th>Failure that breaks it silently</th>
+<th>Smallest test that would prove it</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>The write is durable once we reply</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>A restart restores everything we acknowledged</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Reads during a write see a consistent state</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>Two rules. &quot;Enforcing code&quot; means a file and a line, not a component name — if you can&#39;t point at where the error is checked, the guarantee is prose. And the failure has to be something you could cause on purpose this afternoon: fill the volume, kill the process between two statements, truncate the log&#39;s last line.</p>
+<p>You&#39;re done when every row names a reproducible failure, not when the table is full. An empty middle column is the finding.</p>
+<p>Most services I&#39;ve audited this way have one row where the honest answer is <em>we tell them it&#39;s durable and we check nothing</em>. That isn&#39;t incompetence. It&#39;s what happens when the ordering gets written down and the error path doesn&#39;t.</p>
+<p>The code I&#39;ve been arguing with is in “Creating an Index for Unix Files.” Read it the way you&#39;d read a pull request from a colleague you trust — which is to say closely, and out loud.</p>
+</section></article>
     <div class="mission-action" data-mission-action="practical-systems-programming-go">
       <div><strong>Make the reading count.</strong><span>Complete the artifact described in the mission, then mark it done.</span></div>
       <button type="button" data-complete-mission="practical-systems-programming-go">Mark mission complete</button>
     </div>
     <nav class="essay-pager" aria-label="Adjacent essays">
-    <a href="refactoring-to-rust.html"><span>Previous</span>The Migration Unit Is a Seam, Not a Codebase</a>
+    <a href="refactoring-to-rust.html"><span>Previous</span>The Rewrite Died in Month Seven. One Function Shipped in Week Two.</a>
     <a class="essay-pager__next" href="database-internals.html"><span>Next</span>The Database Committed. Your Client Timed Out. Both Are True.</a>
   </nav>
     <footer class="article-footer">Original companion prose directs you back to the cited edition. Source PDFs and extracted text remain private and are not published here.</footer>

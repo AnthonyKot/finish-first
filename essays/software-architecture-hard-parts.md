@@ -1,65 +1,123 @@
-# The Architecture Decision Hidden Behind the Technology Argument
+# Nobody in That Microservices Argument Is Discussing the Same Decision
 
-You are in a meeting where one person wants microservices, another wants to keep the monolith, and a third has arrived with a diagram copied from a company operating at a scale you do not have. Everyone has evidence. Nobody is quite discussing the same decision.
+Three people, one room, ninety minutes.
 
-The reward waiting at the end of *Software Architecture: The Hard Parts* is not a winning architecture. It is a way to stop asking for one.
+The first wants to split the service. She has scaling numbers. The second wants to keep the monolith. He has an incident report from the last time you split something. The third has arrived with an architecture diagram from a company doing forty times your traffic.
 
-Chapter 15 turns the entire book into a portable decision practice: find the dimensions tangled together, describe how a change in one can force change elsewhere, then compare the consequences in the context of your actual system. That sounds modest. In practice, it changes the architect's job from defending a preferred technology to making the price of each option visible. The promise is that you can leave an architecture argument with a decision that a developer can test, an operator can challenge, and a business stakeholder can understand—not merely a prettier diagram. [Receipt: Chapter 15, PDF pp. 417–434; printed pp. 399–416.]
+All three are right. The meeting still ends with nothing.
 
-## The idea: architecture is the pain you choose on purpose
+For years I read this as a people problem — ego, tribalism, résumé-driven design. It isn't. Watch one of these arguments closely and you notice something stranger: the three of them are answering three different questions, and none of them said which question out loud.
 
-Many technical comparisons are framed as if each option carries a fixed score. Asynchronous communication is scalable. A shared library is fast. Separate services are deployable. A consolidated service is consistent. These statements may be directionally useful, but none is yet a decision. Each hides the sentence that matters: *for this workflow, under these constraints, compared with what?*
+I found the fix in the last chapter of a book I had already failed to finish twice.
 
-The book's late payoff is a three-move analysis:
+## The experiment: read the last chapter first
 
-1. Find the dimensions that are entangled.
-2. Analyze their coupling—where changing one thing may force another thing to change.
-3. Assess the trade-offs by tracing the impact of those changes through the system.
+*Software Architecture: The Hard Parts* is four hundred pages of distributed-systems patterns. I bounced off it twice, both times somewhere in the decomposition chapters, both times convinced I was reading a catalog of things I would never need.
 
-The key is the order. Teams often leap to the third move and create a pros-and-cons list. But a generic list includes every property anyone can remember, whether or not it governs the decision. Chapter 15 instead asks you to discover the decision's local shape first. Which workflow is involved? Which data must agree, and when? Who waits? What must scale independently? Where does failure need to stop? Only after that do the relevant advantages and disadvantages become visible. [Receipt: “Finding Entangled Dimensions” through “Assess Trade-Offs,” PDF pp. 419–421; printed pp. 401–403.]
+So I tried the opposite. I opened the final chapter and read backward from there.
 
-Consider a payment capability. Should card, reward-point, and future payment methods live in one service or separate services? “Microservices improve agility” is not enough. Model concrete changes. Updating only card processing favors separation because testing and deployment can be isolated. Adding a new payment type makes separation look extensible. But a transaction combining multiple payment types introduces coordination; the workflow now has to preserve business correctness across boundaries. The decision is no longer “one versus many.” It becomes a narrower exchange: is independent change more valuable here than simpler consistency and coordination? Chapter 15 reaches that question by running scenarios, not by counting generic benefits. [Receipt: “Model Relevant Domain Cases,” PDF pp. 426–428; printed pp. 408–410.]
+Chapter 15 is called "Build Your Own Trade-Off Analysis," and it retroactively changes what the previous fourteen chapters were. They aren't a catalog. They're a parts bin for one method. And the method's output is not a winning architecture.
 
-That narrowing is the surprising part. Context does not merely add detail to a decision; it removes irrelevant dimensions. The book's shared-library versus shared-service example first appears to favor a library when all generic characteristics are tallied. Once the actual constraint is introduced, the comparison changes. Finding the right context lets the architect compare fewer things and make a simpler design honestly, rather than declaring simplicity as a taste. [Receipt: “The ‘Out-of-Context’ Trap,” PDF pp. 423–425; printed pp. 405–407.]
+It's a way to stop asking for one.
 
-This is also why the authors favor qualitative matrices rather than suspiciously precise scores. Two architectures rarely share enough conditions for a universal numerical ranking. A small ordinal scale—low, medium, high—can still expose relationships and provoke a useful experiment. In the book's saga comparison, coupling, complexity, responsiveness, and scale are evaluated across combinations of communication, consistency, and coordination. The matrix does not prove a universal winner. It reveals patterns worth testing, such as higher workflow coupling tending to constrain independent scale and increase the ways availability can fail. [Receipt: “Analyze Coupling Points” and “Qualitative Versus Quantative Analysis,” PDF pp. 420–423; printed pp. 402–405; worked saga taxonomy in Chapter 12, PDF pp. 341–382; printed pp. 323–364.]
+## Three moves, and the order is the whole trick
 
-The endpoint is not the matrix. It is a bottom-line question a stakeholder can answer. For synchronous versus asynchronous credit approval, Chapter 15 strips away protocol details and asks which outcome matters more: a guarantee that processing has started before the request ends, or greater responsiveness and fault tolerance. A business owner can reason about that. “REST versus messaging” would force the same person to pretend to be a distributed-systems specialist. [Receipt: “Prefer Bottom Line over Overwhelming Evidence,” PDF pp. 428–429; printed pp. 410–411.]
+1. Find the dimensions that are actually tangled together.
+2. Work out where changing one forces the other to change.
+3. Trace what those changes cost — in your system, not in general.
 
-## Why the earlier chapters suddenly matter
+Almost everybody skips to step three and produces a pros-and-cons list.
 
-Read backward from this payoff and the book stops looking like a long catalog of patterns.
+A generic pros-and-cons list is worse than nothing, because it contains every property anyone in the room can remember. Deployability. Scalability. Testability. Consistency. Fault isolation. Twelve rows, all true, none of them decisive. You now have more text and the same argument.
 
-Immediately before the final method, Chapter 12 supplies a laboratory. It varies three dimensions of a distributed transaction: synchronous or asynchronous communication, atomic or eventual consistency, and orchestrated or choreographed coordination. The whimsical saga names are less important than the exercise: hold the dimensions apart, examine each combination, and compare the consequences. By the time Chapter 15 reuses that matrix, you have watched the method operate before being asked to build your own. [Receipt: Chapter 12, especially “Transactional Saga Patterns,” PDF pp. 342–369; printed pp. 324–351.]
+Step one is what makes the list short. Before comparing anything, you answer five questions about the specific decision in front of you:
 
-Move farther backward to Chapter 7 and you find the forces behind a common architecture fight: service size. The chapter labels pressures toward separation—such as independent change, scaling, fault isolation, security, and extensibility—and pressures toward consolidation—such as transaction integrity, workflow reliability, shared-code maintenance, and connected data. Its best move is to translate those technical forces into a choice about business outcomes. The architect does not announce the correct service boundary; the architect asks whether, in this case, faster independent change is worth a harder consistency problem. [Receipt: “Finding the Right Balance,” PDF pp. 226–227; printed pp. 208–209.]
+- Which workflow is involved?
+- Which data has to agree, and *when*?
+- Who is waiting?
+- What has to scale on its own?
+- Where does failure need to stop?
 
-Chapter 2 provides the lens both later chapters depend on. It defines coupling operationally: two parts are coupled when a change in one may require a change in the other. It then separates static coupling—what must be present for a service to operate—from dynamic coupling—how independently deployable parts become coupled while a workflow runs. The distinction matters because a diagram full of separate boxes can still describe a system whose availability, deployment, or data behavior is tightly bound. [Receipt: Chapter 2, PDF pp. 43–61; printed pp. 25–43.]
+Answer those and most of the twelve rows evaporate. This is the part I didn't expect:
 
-Finally, Chapter 1 explains what happens after a decision. An architecture decision record preserves the context, decision, and consequences. A fitness function turns an architectural intention into an objective check where that is possible. Without those two practices, trade-off analysis risks becoming meeting theater: thoughtful reasoning today, unexplained drift six months later. The opening chapter therefore supplies the memory and feedback loop for the method revealed at the end. [Receipt: “Architectural Decision Records” and “Architecture Fitness Functions,” PDF pp. 23–31; printed pp. 5–13.]
+> Context doesn't add detail to a decision. It deletes the parts of the decision that were never yours.
 
-The backward trail is now visible:
+## What it looks like on a real argument
 
-> A defensible decision in Chapter 15 depends on worked comparisons in Chapter 12, opposing boundary forces in Chapter 7, a precise coupling vocabulary in Chapter 2, and the decision records and fitness functions introduced in Chapter 1.
+Payments. One service, or one per method — card, reward points, and whatever finance invents next quarter?
 
-You do not need to absorb this chain all at once. Its value is motivational: when an early chapter asks you to distinguish a static dependency from a runtime one, you know the later payoff. That vocabulary will eventually let you replace a vague architecture debate with a small model of consequences.
+"Microservices improve agility" does not survive step one. So stop asserting and start running scenarios.
 
-## What has aged—and what has not
+**We tune card processing only.** Separation wins. You test and ship one thing, and the reward-points code doesn't move.
 
-This is a first edition published in October 2021. Its examples mention the distributed-systems fashions and products of that period, and its chapter on analytical data should not be treated as a 2026 market survey. The book itself anticipates this problem by focusing on decision mechanics rather than implementation recipes. [Receipt: edition statement, PDF p. 6; “Giving Timeless Advice About Software Architecture,” PDF p. 21; printed p. 3.]
+**Finance adds a new payment type.** Separation wins again. New service, no redeploy of the others.
 
-That distinction is a reason to finish, not an excuse to ignore age. A product recommendation can expire. The habit of exposing context, coupling, and consequences remains useful precisely because products change. When a new platform promises to remove an old trade-off, Chapter 15 gives you a disciplined response: model the relevant workflow, identify which constraint truly disappeared, and look for the cost that moved somewhere else. The chapter's warning against evangelism is not cynicism. It is a request to make enthusiasm survive contact with failure modes. [Receipt: “Avoiding Snake Oil and Evangelism,” PDF pp. 430–433; printed pp. 412–415.]
+**A customer pays with points *and* a card in a single transaction.** Separation loses, badly. You now own a distributed transaction, and "did this purchase happen" becomes a question whose honest answer is *probably*.
 
-## Your one reading mission
+Three scenarios, and the argument has changed shape. It is no longer *one service or many*. It is:
 
-Read **Chapter 15 only: PDF pages 417–434 (printed pages 399–416)**. Use one architecture choice you currently face; do not invent a toy problem.
+> Is independent deployment of payment methods worth more to us than a single-transaction correctness guarantee?
 
-Before page 417, write the choice as one sentence: “Should we ___ or ___ for ___ workflow?” While reading, carry three questions:
+That question has an answer, and somebody in your company already knows it. The original question had no answer and nobody knew it. That is the entire difference between a ninety-minute meeting and a four-minute one.
 
-- Which two to four dimensions are actually entangled in my decision?
-- What concrete change or failure scenario would expose the coupling between them?
-- Which consequence can a product owner, operator, or customer judge without learning the implementation details?
+## The trap that eats good architects
 
-You are finished when you produce a table with no more than five rows: the relevant dimension, option A's consequence, option B's consequence, the evidence you already have, and the smallest test that would reduce uncertainty. Under it, write a two-sentence bottom line: “Choose A when ___ matters more. Choose B when ___ matters more.” Do not choose a winner unless your context supplies the missing priority.
+Here's the move that made me trust the rest of the chapter.
 
-That artifact is small enough to complete in one sitting and concrete enough to expose whether the chapter changed how you think. If it works, the rest of the book is no longer 398 pages standing between you and an ending. It is a set of instruments you can revisit whenever your table contains a vague row. The purpose of finishing is not to collect every pattern name. It is to become the person who can turn an unproductive technology argument into a choice the whole system can live with.
+The book works a shared-library-versus-shared-service comparison and, tallying up the generic characteristics, the library wins. Clean sweep. Then it introduces one real constraint from the actual system — and the comparison inverts.
+
+The generic answer wasn't a weaker version of the right answer. It was pointing the other way.
+
+I've since started calling this out loud in meetings, because you can hear it happening. Somebody says "shared libraries are simpler." True in general. Irrelevant here. The out-of-context comparison is seductive precisely because it's defensible — every individual claim in it survives fact-checking, and the conclusion is still wrong.
+
+Which means: **when your comparison table has more than about five rows, you haven't found the decision yet.** You've found the topic.
+
+## Stop scoring. Use low / medium / high.
+
+The other habit I picked up: no numbers.
+
+Two architectures almost never share enough conditions to justify a precise score, and a spreadsheet that says 7.4 versus 6.8 is fiction wearing a lab coat. Worse, it ends the conversation — nobody argues with a decimal.
+
+Low, medium, high does the actual job. It exposes relationships. Run the payment saga across communication (sync/async), consistency (atomic/eventual), and coordination (orchestrated/choreographed) with an ordinal scale, and a pattern shows up immediately: the more tightly a workflow is coupled, the harder it becomes to scale its pieces independently, and the more distinct ways it can become unavailable.
+
+That's not a winner. It's a testable claim — and a testable claim is what you actually wanted out of the meeting.
+
+## The one sentence that ends it
+
+The endpoint isn't the table. It's a question a non-engineer can answer.
+
+Synchronous or asynchronous credit approval, stripped of protocol talk, is this:
+
+> Would you rather be certain the charge has started before the customer's request returns, or have a faster checkout that survives a downstream outage?
+
+A product owner answers that in four seconds.
+
+Ask the same person "REST or messaging?" and you've required them to pretend to be a distributed-systems engineer. So they defer to whoever sounds most confident.
+
+Which is how you got the meeting.
+
+## What ages, and what doesn't
+
+The book is a 2021 first edition. Its product examples are period pieces, and the analytical-data chapter should not be read as a market survey.
+
+I'd argue that's a reason to take the method more seriously, not less. Every few years something arrives promising to have abolished an old trade-off. The chapter gives you a disciplined response: model the workflow, identify which constraint genuinely disappeared, then go find where the cost moved. It didn't leave. It relocated.
+
+<!--mission-->
+## Try this in your next architecture meeting
+
+None of this needs the book. Take one real decision you're currently facing — not a toy one.
+
+Write it as a single sentence: *"Should we ___ or ___ for ___ workflow?"*
+
+Then build a table with **no more than five rows**:
+
+| Dimension | Option A costs you | Option B costs you | What we already know | Smallest test that would settle it |
+|---|---|---|---|---|
+
+Under it, two sentences: *"Choose A when ___ matters more. Choose B when ___ matters more."*
+
+Don't pick a winner unless your context supplies the missing priority. If it doesn't, you've just learned the most useful thing available: the decision isn't yours to make yet, and you know exactly which fact you're missing.
+
+That table takes twenty minutes. If it changes how the next meeting goes, the four hundred pages behind Chapter 15 stop being an obstacle and become instruments — the things you go back for when a row in your table is vague and you can't say why.
+
+“Build Your Own Trade-Off Analysis” is where this came from, and the only chapter I'd insist on.

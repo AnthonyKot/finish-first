@@ -7,106 +7,123 @@ the books, not a substitute for them.
 
 ## Start here: turn the argument into a decision
 
-[**The Architecture Decision Hidden Behind the Technology Argument**](essays/software-architecture-hard-parts.md)
-is the best entry point to the shelf. Its destination is a method, not a preferred architecture: find
-the dimensions entangled in one real choice, model the consequences in context, and state the
-bottom line in terms a stakeholder can judge. The mission asks for a five-row trade-off table rather
-than another opinion about tools. That habit transfers to nearly every essay below.
+[**Nobody in That Microservices Argument Is Discussing the Same Decision**](essays/software-architecture-hard-parts.md)
+is the best entry point to the shelf. Three people in a room, all of them right, and the meeting still
+ends with nothing — because they are answering three different questions and nobody said which. The
+last chapter of *The Hard Parts* supplies the fix: find the dimensions entangled in one real choice,
+run scenarios instead of asserting, and end on a question a product owner can answer in four seconds.
+You leave with a five-row table instead of another opinion about tools, and the habit transfers to
+nearly every essay below.
 
 ## Fourteen destinations worth reaching
 
-### The model may be wrong; the product must still know what to do
+### The dashboards were green for eleven days
 
-[**The Model Is Allowed to Be Wrong. The System Is Not Allowed to Be Helpless.**](essays/machine-learning-engineering.md)
-uses *Machine Learning Engineering* to design a failure envelope around fallible predictions:
-fallbacks, abstention, undo, observability, gradual rollout, and rollback. Its mission produces a
-five-field failure-envelope note for one real ML system.
+[**Nothing Changed. The Model Got Worse Anyway.**](essays/machine-learning-engineering.md)
+opens on a model file nobody had touched in four months, three green dashboards, and a
+prediction quietly wrong on a slice of users. *Machine Learning Engineering* supplies the fix
+from the back of the book: a failure envelope — the set of mistakes a product can absorb
+without losing control — built from fallbacks, abstention, undo, one monitored slice, and a
+rollback trigger you commit to before you need it.
 
-### Influence is strongest when it no longer waits for you
+### Being the bottleneck looks exactly like being important
 
-[**The Staff Engineer Who Can Leave the Room**](essays/staff-engineers-path.md) finds the late
-payoff in catalytic leadership: advice, teaching, guardrails, and opportunity should make good
-judgment travel after its originator leaves. The mission turns one recurring demand on you into a
-small transfer experiment.
+[**Everything Good on My Team Stopped When I Stopped Pushing**](essays/staff-engineers-path.md)
+reads Tanya Reilly's late chapter on influence at scale as a dependency audit rather than career
+advice. Advice, teaching, guardrails, and opportunity each run from individual to group to
+catalyst, and one question tells you which column you are stuck in: what currently stops when I
+stop pushing? You leave with a dependency audit and one transfer experiment small enough to
+finish this week.
 
-### A migration succeeds one reversible boundary at a time
+### There is no Tuesday on which you can replace a system
 
-[**The Migration Unit Is a Seam, Not a Codebase**](essays/refactoring-to-rust.md) reads a late
-WebAssembly swap as a general migration method: explicit contract, narrow adapter, behavioral
-oracle, measured benefit, and rollback. The mission is a six-field seam card, not a rewrite plan.
+[**The Rewrite Died in Month Seven. One Function Shipped in Week Two.**](essays/refactoring-to-rust.md)
+opens on an eleven-page Rust proposal, approved in principle, that became a branch nobody could
+merge. The last chapter of *Refactoring to Rust* swaps two WebAssembly modules behind one host
+contract and gives the whole method away: the migration unit is a seam, not a codebase. You leave
+with a six-field seam card — contract, ownership, oracle, measure, switch — written in an hour.
 
-### Correctness hides between representations
+### An acknowledgment is a claim about the disk
 
-[**A File Indexer Is a Chain of Promises**](essays/practical-systems-programming-go.md) follows one
-fact from filesystem event to network message, journal, in-memory trie, and query response. Its
-guarantee ledger asks what an acknowledged write, restart recovery, and concurrent search can
-actually promise—and which failure test would prove each claim.
+[**The Server Said “ok.” Nobody Asked the Disk.**](essays/practical-systems-programming-go.md)
+follows one fact — this file exists — across five representations: filesystem event, wire message,
+journal line, in-memory index, query response. The book's index service writes ahead of memory in
+the right order, then drops the journal's error return and replies `ok` anyway. You leave with an
+audit of one acknowledgment you already ship, in three rows, against a failure you could cause on purpose.
 
 ### A timeout says what the client knows, not what the database did
 
 [**The Database Committed. Your Client Timed Out. Both Are True.**](essays/database-internals.md)
-turns a late consensus failure scenario into an operational model of uncertainty. A proposer can
-disappear before replying while a quorum safely finishes the value. The mission traces that gap in a
-five-moment knowledge ledger and forces the retry contract into view.
+opens on a retry loop that turned one invoice into two. The coordinator died before replying, a new
+quorum recovered the write and committed it anyway, and the client had already decided the operation
+was dead. You leave with a five-moment knowledge ledger and a retry contract written down — plus a
+correction to one sentence in the book that is flatly wrong about quorums.
 
-### API security is lifecycle coverage, not a perimeter purchase
+### You cannot defend a perimeter you have not inventoried
 
-[**API Security Is a Coverage System, Not a Product Purchase**](essays/defending-apis.md) connects
-inventory, design, development, testing, runtime protection, governance, and ownership. Its mission
-builds one evidence-based coverage card for one high-risk API. Use the essay's program shape; check
-current standards before following protocol or product details from the 2024 source.
+[**The Gateway Was Running. The Zombie Endpoint Leaked the Data Anyway.**](essays/defending-apis.md)
+treats inventory, design, development, testing, protection, and governance as one chain of handoffs
+rather than a menu you buy from. Every domain has to produce an observable artifact, not a policy in
+a wiki. You leave with an eight-field coverage card for one high-risk API, and `unknown` written
+wherever you lack evidence. Check current standards before trusting protocol details from the 2024 source.
 
 ### The mission can stay stable while its words expire
 
-[**The Mission Stayed the Same. Every Word Changed.**](essays/learning-systems-thinking.md) makes
-semantic drift concrete. “Publish,” “product,” “customer,” or “release” can keep their spelling while
-architecture, cadence, boundaries, and measures enforce obsolete meanings. The mission builds a
-six-row purpose-word ledger before anyone chooses a replacement platform.
+[**The Mission Stayed the Same. Every Word Inside It Died.**](essays/learning-systems-thinking.md)
+makes semantic drift concrete. "Publish," "product," "people" and "payment" keep their spelling while
+architecture, cadence, boundaries and measures quietly enforce meanings that expired years ago — so a
+modernization program rebuilds the old system with faster tools. You leave with a six-row purpose-word
+ledger, and a test: hand column four to an engineer and a product manager separately and compare.
 
 ### The fifth thread can make the program slower
 
 [**The Fifth Thread Made the Program Slower**](essays/performance-analysis-tuning-modern-cpus.md)
 reads a thread-count curve as evidence about serial work, waiting, oversubscription, and cache-line
-coherence. Its sharpest surprise is false sharing: separate variables can still make cores fight over
-one physical line. The mission measures first and permits exactly one next probe—not a guessed fix.
+coherence. Its sharpest surprise is false sharing: two counters with no lock between them, logical
+strangers but physical roommates in one 64-byte line, and every obvious fix aimed at the wrong layer.
+You leave with a four-row autopsy and exactly one next probe — measured, not guessed.
 
 ### A discount can preserve the waste you meant to remove
 
-[**A Discount Can Fossilize Waste**](essays/efficient-cloud-finops.md) puts cloud optimization in
-dependency order: purpose, architecture, quantity, schedule, then rate commitment for the stable
-remainder. The mission makes every saving keep its service obligation. Treat prices, SKUs, licensing,
-and provider recipes as historical; the sequencing is the durable payoff.
+[**The Reservation Saved Thirty Percent. The Bill Barely Budged.**](essays/efficient-cloud-finops.md)
+puts cloud optimization in strict dependency order: purpose, architecture, quantity, schedule, and
+only then a rate commitment on whatever stable remainder is left. Commit before you climb those rungs
+and you have not saved anything — you have financed the waste for twelve months. You leave with a
+five-row ledger and one sentence to finish before anyone signs.
 
 ### The trigger may expose the defect rather than cause it
 
-[**The Enclosure Did Not Cause the Failure. It Exposed It.**](essays/designing-electronics-that-work.md)
-separates physical sign, abnormal symptom, underlying etiology, and the promoter that makes a latent
-fault appear. Its mission builds one fault case and one disconfirming experiment before repair erases
-the evidence.
+[**The Screws Didn't Break the Board. They Exposed the Joint.**](essays/designing-electronics-that-work.md)
+borrows a vocabulary from clinical medicine — sign, symptom, etiology, and the *promoter* that makes a
+latent fault finally appear — to explain why the easy fix is usually evidence destruction. A promoter
+does not create a failure; it removes the room an existing defect was hiding in. You leave with one
+fault card and one disconfirming experiment to run before the soldering iron comes out.
 
 ### The dashboard is a product, or it becomes a weapon
 
 [**What Decision Would You Make Differently?**](essays/engineering-leadership.md) reads *Engineering
-Leadership: The Hard Parts* backward from its metrics chapter: every number needs a customer, a decision
-it changes, an owner, a version, and a retirement condition, or in a chaotic organization it becomes a
-weapon before it becomes an insight. The mission is a six-field metric spec for one number you cannot
-currently defend.
+Leadership: The Hard Parts* backward from its metrics chapter, where the authors stop being polite.
+Every number needs a customer, a decision it changes, an owner, a version and a retirement condition —
+and a published individual leaderboard is an invitation to sabotage, as one team learned when its
+slowest reviewer started rubber-stamping and bug escape rates tripled in two weeks. You leave with a
+six-field spec for one number you cannot currently defend.
 
 ### The finding was valid; the report decided whether it counted
 
-[**The Finding Was Valid. The Report Decided Whether It Counted.**](essays/web-hacking-arsenal.md) takes
-the last chapter of *Web Hacking Arsenal* as its payoff: severity is argued in the client's business
-terms, not computed from a vector string, and the same true vulnerability counts differently depending on
-whether its impact was rebuilt in context. The mission is a six-line severity decision card. Keep the
-reporting method; check CVSS version, OWASP numbering, and tool names against current standards.
+[**The Bug Was Real. The Report Decided Whether It Counted.**](essays/web-hacking-arsenal.md) takes the
+one chapter of *Web Hacking Arsenal* that nobody reads — the report-writing chapter behind five hundred
+pages of exploit technique — and argues it is the only one about judgment. Severity is argued in the
+client's business terms, not computed from a vector string, because a scoring formula cannot see the
+decommission date. You leave with a six-line decision card. Check CVSS version, OWASP numbering and tool
+names against current standards; keep the reasoning.
 
 ### Every statistical test is a simulation someone stopped running
 
-[**ttest_ind Returned a Number. The Last Chapter Tells You What You Bought.**](essays/think-stats.md)
-uses the final chapter of *Think Stats* (3rd ed.) to show that each closed-form test is an analytic
-shortcut for a simulation — and that you should keep the simulation as the shortcut's reference
-implementation. The mission runs one simulated and one analytic test on your own data and asks which
-number you would defend in review.
+[**Your t-Test Returned in a Millisecond. The Last Chapter Tells You What You Bought.**](essays/think-stats.md)
+spends thirteen chapters arguing you should never trust a formula when you can write a loop — then
+ends by importing the formulas anyway. Not a betrayal: an audit. Every closed-form test is a
+simulation somebody stopped running, and the three conditions that license the shortcut are exactly
+the ones production data breaks. You leave with a six-line shortcut-validity card for one real column.
 
 ## Transparent skips
 

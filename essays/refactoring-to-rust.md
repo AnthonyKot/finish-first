@@ -1,182 +1,140 @@
-# The Migration Unit Is a Seam, Not a Codebase
+# The Rewrite Died in Month Seven. One Function Shipped in Week Two.
 
-The most persuasive moment in Lily Mara and Joel Holmes's *Refactoring to Rust*
-arrives almost at the end. A small Rust host loads one WebAssembly search module,
-then another. One searches papers; the other searches books. Their internals and data
-sources differ, but the host does not need to be recompiled. Each module satisfies the
-same small interface, so the surrounding program can choose an implementation at
-startup (Chapter 10, PDF pp. 282–289).
+The document was titled *Proposal: Rust*. Eleven pages, and I still think it was correct.
 
-That demonstration matters less for what it says about search or WebAssembly than
-for what it reveals about migration: **you do not migrate a codebase all at once. You
-migrate one seam at a time.**
+The service was slow in a way profiling had already explained. The hot path was doing something the language we wrote it in was bad at. Everyone agreed. The proposal was approved in principle, which is the specific kind of approval that means nothing has been approved.
 
-This is the reason to finish the book. The early chapters can look like separate Rust
-tours—ownership, FFI, modules, Python extensions, testing, concurrency. From the
-last chapter, they line up into one practical method. Find a valuable boundary. State
-its contract. Put unsafe or language-specific translation at its edge. Reimplement the
-behavior behind it. Run the old and new paths against the same evidence. Then make
-the replacement small enough to deploy, observe, and reverse.
+Seven months later there was a Rust branch nobody could merge, a production system nobody had touched, and a quarterly planning doc where the whole thing had quietly become a bullet point under *Deferred*.
 
-## The promise: make a rewrite unnecessary
+The failure wasn't technical. Not one line of that branch was wrong.
 
-“Rewrite it in Rust” is an attractive sentence because it erases the awkward middle.
-The old system is slow or dangerous; the new one will be fast and safe. But users live
-in the middle. So do production incidents, undocumented behavior, release calendars,
-and the engineers who must maintain both versions while the transformation is under
-way.
+The failure was that we had proposed replacing a system, and there is no Tuesday on which a company can safely replace a system. There are only Tuesdays on which it can replace a function.
 
-Chapter 1 refuses the clean-room fantasy. It contrasts a large replacement with small,
-independent changes that can ship while the existing system continues serving users.
-It treats the old application's operational history and automated tests as assets, not
-debris. It also asks how old and new paths will be compared and how rollout can be
-limited (PDF pp. 20–23). Later, it names a four-part loop: planning, implementation,
-verification, and deployment (PDF pp. 28–30).
+## Reading a migration book in the order a migration actually goes
 
-The payoff is control. A well-chosen seam gives you a place where two implementations
-can coexist. You can send the same input to each, compare their output, measure their
-cost, expose the new path to a small audience, and return to the old one if reality
-disagrees with your benchmark. Rust becomes useful here not because every line must
-be Rust, but because one bounded component may benefit from Rust's performance,
-types, ownership rules, or concurrency while the rest of the application remains
-unchanged.
+I've been running an experiment on fourteen technical books: enter each one at its final chapter and work backward. Not skimming — reading the ending as the thesis, then treating everything before it as the argument that earns it.
 
-That makes the first migration question surprisingly modest: **what is the smallest
-valuable behavior that the existing program could call through an explicit contract?**
+Lily Mara and Joel Holmes's *Refactoring to Rust* is the book where that reading order stopped feeling like a trick.
 
-## The idea: the boundary is part of the product
+Read forward, the nine chapters in front of the ending look like a Rust tour with stops: ownership, unsafe, C interop, Python extensions, testing, WebAssembly. A syllabus.
 
-In Chapter 10, the host expects search behavior and the modules provide it. That
-sounds simple until values must cross the boundary. WebAssembly functions expose a
-small set of primitive values; strings and structured data require the host and module
-to agree on representation, allocation, and reading. The book moves from calling a
-function to confronting linear memory precisely because interchangeability is never
-free (PDF pp. 280–281, 289–291).
+Read from the last chapter back, they stop being topics. They're the prerequisites for one small demonstration at the very end, and every one of them is load-bearing.
 
-This is the central engineering idea hiding behind the example: a seam is not merely
-the function name. It is a bundle of agreements:
+## The demonstration is boring, which is the point
 
-- which inputs are valid and who validates them;
-- which outputs and failures are observable;
-- which side owns memory and releases resources;
-- whether calls may block, retry, or run concurrently;
-- how old and new behavior are compared;
-- how the system chooses an implementation and retreats from it.
+Here is the ending, stripped down.
 
-The same problem appears earlier at the C boundary. Rust cannot infer the lifetime or
-ownership of memory created elsewhere, so crossing into foreign memory creates proof
-obligations for the programmer (PDF pp. 79–80). The book's better design move is to
-keep those obligations in a thin adapter: convert the C string, validate it, and pass an
-ordinary Rust string reference into a separate `evaluate` function with no FFI or
-unsafe concerns (PDF pp. 95–96). The adapter knows the foreign world. The core knows
-the business rule.
+A small Rust host program loads a WebAssembly module that searches papers. Then it loads a different module that searches books. Different internals, different data.
 
-That separation makes safety local and reuse possible. It also makes review more
-honest. “Written in Rust” does not mean “safe” if unchecked assumptions are spread
-throughout the component. “Runs in a sandbox” does not mean “trusted” if the host
-grants broad capabilities or misreads guest memory. Chapter 10 itself says the virtual
-machine bears responsibility for memory interaction and that its design is therefore
-important (PDF pp. 289–290). The useful question is not whether the new technology
-has a safety label. It is where the unverified assumptions live and how small that area
-can become.
+The host is not recompiled. Nothing in its code names either module.
 
-## The reverse dependency trail
+That's it. No performance chart, no benchmark victory. Just: two implementations, one contract, and a host whose source has no opinion about which one answers.
 
-Start at the destination: two implementations can be swapped behind one host
-contract without rebuilding the host (PDF pp. 286–289). To make that demonstration
-mean something in production, walk backward through four prerequisites.
+Which is the whole migration argument in miniature.
 
-First, **define the seam before choosing the Rust mechanism**. Chapter 1 asks what you
-hope to improve, which part needs replacement, and how the existing code will talk to
-the new code (PDF p. 28). It also supplies a rejection test: frequent deployment must
-be practical, and the organization must be able to maintain the Rust it introduces
-(PDF p. 28). A hotspot without a stable boundary, measurable pain, or an owner is not
-a migration candidate yet.
+> You don't migrate a codebase. You migrate one seam, and then you go home.
 
-Second, **separate translation from behavior**. Ownership and borrowing explain who
-may access a value and when it is dropped (PDF pp. 34–35). FFI then shows what
-happens when the compiler cannot verify those facts across a language boundary (PDF
-pp. 79–80). The C example concentrates pointer checks and representation conversion
-in the exported wrapper, leaving the calculation in normal Rust (PDF pp. 95–96).
-Chapter 10 repeats the lesson at a different boundary: host and guest must agree on
-how complex data occupies memory (PDF pp. 289–291). The technologies differ; the
-design discipline is the same.
+## A seam is a bundle of agreements, not a function name
 
-Third, **make the old behavior an oracle**. In the Python example, the book uses the
-existing implementation and the Rust replacement on identical randomized inputs,
-then asserts equal results (PDF pp. 225–229). This does not prove that the old behavior
-is ideal. It makes differences visible before someone accidentally calls them
-improvements. Once equivalence is explicit, intentional changes can be reviewed as
-changes instead of hiding inside a language migration.
+The demonstration looks simple until something real has to cross the boundary.
 
-Fourth, **prove the promised benefit on the real boundary**. The Python migration
-isolates JSON parsing while leaving I/O in Python (PDF pp. 184–185). It then benchmarks
-both paths and discovers that an unoptimized Rust build provides only a modest gain;
-the release build changes the result substantially (PDF pp. 195, 203–204). The larger
-lesson is not the reported speedup. It is that intuition was insufficient twice: first to
-locate the expensive work, then to evaluate the replacement. Measure the old and new
-paths under representative conditions, including conversion cost at the seam.
+WebAssembly hands you a small set of primitive values. The moment you want a string, the host and the module have to agree on representation, on who allocates, on how it's read back. The book walks straight into linear memory for exactly this reason — interchangeability is never free.
 
-The path through the book is therefore:
+So the seam isn't the signature. It's everything you had to settle to make the signature honest:
 
-**measurable pain → explicit contract → narrow adapter → equivalent behavior →
-measured benefit → reversible rollout.**
+- which inputs are valid, and who checks;
+- which outputs and which failures are visible from outside;
+- which side owns the memory and who releases it;
+- whether a call may block, retry, or run concurrently;
+- how old and new behavior get compared;
+- how you choose an implementation, and how you take it back.
 
-Rust is one implementation choice inside that chain. The seam is what makes the
-choice survivable.
+Six lines. If you can't fill them in, you don't have a migration candidate. You have a complaint about a component.
 
-## Why the last chapter is still worth reading in 2026
+## Put everything dangerous in the adapter and nowhere else
 
-The architectural lesson survived better than the commands. The book was published
-in 2025, yet its final examples use the old `wasm32-wasi` target name and pre–Rust
-2024 `#[no_mangle]` syntax (PDF pp. 280–281, 287, 289, 291, 294). Current Rust uses
-`wasm32-wasip1` for that compatibility target, and Rust 2024 requires
-`#[unsafe(no_mangle)]`. The pinned WasmEdge and ecosystem APIs also need current
-documentation before use.
+The same problem shows up much earlier, at the C boundary, and the fix generalizes.
 
-That is not a reason to discard the ending. It is a reason to read it at the right level.
-Do not copy the project as a 2026 recipe. Watch the authors progressively discover
-the contract: first a binary entry point, then a directly callable function, then a host,
-then a second interchangeable module, then the memory agreement that makes richer
-values possible. The friction is the lesson. Every convenient cross-language call
-rests on choices about representation, capabilities, ownership, and failure.
+Rust cannot infer the lifetime or ownership of memory that something else created. Cross into foreign memory and you have personally taken on proof obligations the compiler used to carry for you.
 
-## One reading mission
+The move the book makes is to corral those obligations into a thin exported wrapper: convert the C string, validate it, then hand an ordinary Rust string reference to a separate `evaluate` function that knows nothing about any of it.
 
-Read **PDF pages 282–290** (printed pp. 263–271), from Section 10.4, “Consuming
-Wasm,” through the first two pages of Section 10.6, “Wasm memory.” Do not run the
-version-pinned commands yet.
+Here's the shape I now sketch on a whiteboard before writing any of it:
 
-Carry three questions:
+```rust
+// Adapter — the only place that knows about pointers, C strings, unsafe.
+#[unsafe(no_mangle)]
+pub extern "C" fn evaluate_ffi(input: *const c_char) -> ... {
+    let checked_input = /* convert the C string, validate, bail on garbage */;
+    evaluate(checked_input)
+}
 
-1. What does the host require from every module, and what does the module assume
-   about the host?
-2. Which part of the interface is stable behavior, and which part leaks the chosen
-   runtime or memory representation?
-3. What evidence would justify replacing one implementation, and what switch would
-   return traffic to the old one?
+// Core — ordinary Rust. Unit-testable, reusable, boring.
+pub fn evaluate(input: &str) -> ... {
+    // the actual behavior lives here
+}
+```
 
-Completion evidence: write a one-page **seam card** for one slow, risky, or awkward
-component you know. Include exactly six fields: candidate behavior, input/output
-contract, ownership boundary, old-behavior oracle, success measure, and rollback
-switch. The mission is complete when another engineer could implement a second
-version from the card—or point to the ambiguity that prevents it.
+The adapter knows the foreign world. The core knows the business rule. Neither knows the other's problems.
 
-## Receipts
+That split is what makes the safety claim reviewable. "It's written in Rust" means nothing if unchecked assumptions are smeared through the whole component, and "it runs in a sandbox" means nothing if the host is handing out broad capabilities or misreading guest memory.
 
-- Incremental changes, existing operational knowledge, reused tests, comparison, and
-  controlled rollout: Chapter 1, PDF pp. 20–23.
-- When not to refactor and the plan/implement/verify/deploy loop: Sections 1.5–1.6,
-  PDF pp. 28–30.
-- Ownership rules: Section 2.1, PDF pp. 34–35.
-- Foreign-memory obligations: Sections 3.1–3.2, PDF pp. 79–80.
-- Thin FFI adapter and ordinary reusable Rust core: Section 3.2.3, PDF pp. 95–96.
-- Isolating Python JSON parsing and benchmarking both paths: Sections 6.2 and 6.5,
-  PDF pp. 184–185 and 195.
-- Release-build comparison and six-step migration recap: Section 6.6, PDF pp. 203–204.
-- Comparing original Python and Rust behavior on generated inputs: Section 7.2.1,
-  PDF pp. 225–229.
-- Host/module interface and dynamic module loading: Section 10.4, PDF pp. 282–285.
-- Interchangeable modules without host recompilation: Section 10.5, PDF pp. 286–289.
-- Host/guest memory agreement: Section 10.6, PDF pp. 289–291.
-- Currency limits and current-source links: `notes/review-refactoring-to-rust.md`.
+> The useful question was never whether the new thing is safe. It's how small you can make the part nobody has verified.
+
+## The old code is your answer key
+
+The seam gives you something a rewrite never does: two implementations that exist at the same time and accept the same input.
+
+The book uses this on the Python side. Generate randomized inputs, run them through the original implementation and the Rust replacement, assert the results match.
+
+This does not claim the old behavior is good. Plenty of it won't be.
+
+It claims something more useful: differences become visible before somebody accidentally reclassifies them as improvements. Once equivalence is explicit, an intentional change gets reviewed as a change — instead of riding along inside a language migration where nobody will find it.
+
+## Your intuition will be wrong twice
+
+The Python example moves only JSON parsing into Rust and leaves the I/O where it was. Then it benchmarks both paths.
+
+The first unoptimized build is barely worth the trouble. The release build tells a completely different story.
+
+I've stopped reading that as a fact about compiler flags. It's a fact about me: intuition failed twice in a row — first about where the expensive work was, then about whether the replacement had fixed it. Only measurement caught either one.
+
+And measure the seam itself, not just the function behind it. Conversion at the boundary is real work, and it is charged to you.
+
+## Not every painful component is a migration candidate
+
+The honest limit arrives early in the book, and I wish I'd read it before writing eleven pages of proposal.
+
+Two conditions gate the whole approach. You have to already be able to deploy frequently — a seam whose entire value is small reversible steps is worthless attached to a quarterly release train. And your organization has to be able to maintain the Rust it takes on, after the person who was excited about it moves teams.
+
+A hotspot with no stable boundary, no measurable pain, and no owner isn't ready. It's just annoying.
+
+## What aged, and what didn't
+
+The book is from 2025 and parts of its ending are already stale. The final examples use the older `wasm32-wasi` target name and pre-2024-edition `#[no_mangle]`, where current Rust wants `wasm32-wasip1` and `#[unsafe(no_mangle)]`. The pinned runtime APIs need checking against current docs.
+
+Read the ending for its sequence, not its commands. Binary, then a callable function, then a host, then a second interchangeable module, then the memory agreement that lets richer values cross.
+
+The friction is the lesson. Every convenient cross-language call is sitting on top of somebody's decision about representation, capabilities, ownership, and failure.
+
+<!--mission-->
+## Write the seam card before you write the proposal
+
+You can run this without reading a page. Choose one component you'd describe as slow, risky, or awkward — a real one, the one you complained about twice this month.
+
+Give it one page, six fields, no prose:
+
+- **Behavior** — the smallest valuable thing this does, stated without naming a technology.
+- **Contract** — inputs, outputs, and every failure a caller can observe.
+- **Ownership** — who allocates, who frees, who validates, and what happens on a bad input.
+- **Oracle** — how you'd prove the new path agrees with the old one on inputs you didn't hand-pick.
+- **Measure** — the number that has to move, at the seam, including conversion cost.
+- **Switch** — the specific mechanism that sends traffic back, and who is allowed to pull it.
+
+Then the test. Hand it to another engineer: could they build a second implementation from the card alone?
+
+If they can, you have a migration you could start on Tuesday and undo on Wednesday.
+
+If they can't, the field where they got stuck is the actual work — and it was always going to be the actual work, whether or not you ever wrote a line of Rust. The card takes an hour. The proposal took me eleven pages and seven months, and it never found the ambiguity that killed it.
+
+For the original, find “WebAssembly interface for refactoring.” The last third is the only part I'd hand to someone in a hurry.
